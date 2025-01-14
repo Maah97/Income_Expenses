@@ -1,12 +1,13 @@
-import './styles/App.css'
+import './styles/app.scss'
+import Header from "./components/Header.jsx"
+import Footer from './components/Footer.jsx'
 
 function App() {
 
   return (
     <>
-      <div>
-       Hello world
-      </div>
+      <Header />
+      <Footer />
     </>
   )
 }
