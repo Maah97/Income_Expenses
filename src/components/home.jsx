@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react"
 
 export default function Home() {
-    let slogans = ["Track Earnings, Control Spending, with IncomesExpenses", "Master Your Money Journey with IncomesExpenses", "Track, Plan, and Prosper with IncomesExpenses", "Made Your Financial Roadmap Easy with IncomesExpenses", "Made Your Monthly Budget Simple with IncomesExpenses"]
     const slogan = useRef(null)
     useEffect(() => {
+        let slogans = ["Track Earnings, Control Spending, with IncomesExpenses", "Master Your Money Journey with IncomesExpenses", "Track, Plan, and Prosper with IncomesExpenses", "Made Your Financial Roadmap Easy with IncomesExpenses", "Made Your Monthly Budget Simple with IncomesExpenses"]
         const txtSlogan = slogan.current
         let i = 1
         setInterval(() => {
@@ -13,8 +13,6 @@ export default function Home() {
                 i = 0
             }
         }, 2000)
-        
-        
     }, [])
     return (
         <section className="home">
