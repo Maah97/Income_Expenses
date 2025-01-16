@@ -1,0 +1,27 @@
+.home {
+    margin-top: 70px;
+    width: 100%;
+    height: auto;
+    font-family: Geologica;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0.8)), url(".././assets/bgHome.webp");
+    background-size: cover;
+    p {
+        font-weight: 300;
+        font-size: 60px;
+        line-height: 80px;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        &:nth-child(1) {
+            margin-top: 5%;
+        }
+    }
+    .slogan {
+        font-size: 45px;
+        margin-top: 5%;
+        font-weight: 200;
+        margin-bottom: 7%;
+    }
+}
