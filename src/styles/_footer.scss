@@ -1,3 +1,15 @@
 footer {
-    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 900px;
+    .container-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            padding: 0px 20px;
+        }
+    }
 }

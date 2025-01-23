@@ -2,6 +2,8 @@ import logoWallet from '../assets/wallet_logo.webp'
 import imgLangEn from '../assets/en.webp'
 import imgLangFr from '../assets/fr.webp'
 import { useState } from 'react'
+import { HashLink } from 'react-router-hash-link'
+import { NavLink } from 'react-router-dom'
 
 
 export default function Header() {
@@ -21,7 +23,7 @@ export default function Header() {
                 <h1><span>Income</span>Expenses</h1>
             </div>
             <nav>
-                <a className='navigation' href="#">Home</a>
+                <NavLink to="/" className='navigation' href="#">Home</NavLink>
                 <div className='navigation'>
                     <img className='img-lang' src={selectLangage === 'en' ? imgLangEn : imgLangFr} alt="English langage icone" />
                     <select onChange={changeLangage} className='select-langage' name="langage" id="selectLangage">
@@ -30,7 +32,7 @@ export default function Header() {
                     </select>
                 </div>
                 <span onClick={() => {setTheme(!theme)}} className='navigation'>Theme <i className={`fa-solid fa-${theme === true ? 'sun' : 'moon'}`}></i></span>
-                <a className='navigation' href='#'>Contact</a>
+                <HashLink to="/#contact" className='navigation' href='#'>Contact</HashLink>
                 <a className='navigation' href='#'><i className="fa-solid fa-user"></i></a>
             </nav>
         </header>

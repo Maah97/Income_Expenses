@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 
-export default function Home() {
+export default function Presentation() {
     const slogan = useRef(null)
     useEffect(() => {
         let slogans = ["Track Earnings, Control Spending, with IncomesExpenses", "Master Your Money Journey with IncomesExpenses", "Track, Plan, and Prosper with IncomesExpenses", "Made Your Financial Roadmap Easy with IncomesExpenses", "Made Your Monthly Budget Simple with IncomesExpenses"]
@@ -15,7 +15,7 @@ export default function Home() {
         }, 2000)
     }, [])
     return (
-        <section className="home">
+        <section id="home" className="home">
             <p>Record <span>income</span> Money </p>
             <p>And <span>spent</span> Money </p>
             <p ref={slogan} className="slogan">Track Earnings, Control Spending, with IncomesExpenses</p>
