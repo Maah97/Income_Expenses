@@ -1,0 +1,151 @@
+.ReactModal__Body--open,
+.ReactModal__Html--open {
+    overflow: hidden;
+}
+.overlay-modal-income, .overlay-modal-expenses {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 70px;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.content-modal-expenses, .content-modal-income {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    outline: none;
+    padding: 20px 40px;
+    font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    .title-expense, .title-income {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 15px;
+        h3 {
+            margin-bottom: 15px;
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .i {
+            margin-bottom: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+    form {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        width: 100%;
+        label {
+            width: 100%;
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+        }
+        input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 9px;
+            outline: none;
+            font-weight: 540;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid rgb(193, 193, 193);
+            font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+            &:focus {
+                border: 1.4px solid #ff0000;
+            }
+        }
+        select {
+            margin-bottom: 15px;
+            padding: 9px;
+            outline: none;
+            font-weight: 540;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid rgb(193, 193, 193);
+        }
+        .label-expense {
+            color: red;
+        }
+        .label-income {
+            color: green;
+        }
+        .input-income {
+            &:focus {
+                border: 1.4px solid #028800;
+            }
+        }
+        .input-expense {
+            &:focus {
+                border: 1.4px solid #ff0000;
+            }
+        }
+        .select-income {
+            &:focus {
+                border: 1.4px solid #028800;
+            }
+        }
+        .select-expense {
+            &:focus {
+                border: 1.4px solid #ff0000;
+            }
+        }
+        .btn-add-and-cancel-save-income, .btn-add-and-cancel-save-expense {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button {
+                padding: 10px;
+                font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 20px;
+                font-weight: 600;
+                margin: 0 50px;
+                margin-top: 50px;
+                cursor: pointer;
+                border-radius: 7px;
+            }
+            .btn-save-income {
+                border: 1.5px solid green;
+                background-color: #deffde;
+                &:hover {
+                    box-shadow: 0px 0px 10px green;
+                }
+            }
+            .btn-save-expense {
+                border: 1.5px solid red;
+                background-color: #ffcccc;
+                &:hover {
+                    box-shadow: 0px 0px 10px red;
+                }
+            }
+        }
+    }
+}
+.content-modal-income {
+    box-shadow :0px 0px 3px rgba(0, 255, 76, 0.5);
+    background: #eafff1;
+}
+.content-modal-expenses {
+    box-shadow :0px 0px 3px rgba(255, 0, 0, 0.5);
+    background: #ffe6e6;
+}

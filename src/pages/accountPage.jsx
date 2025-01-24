@@ -1,10 +1,15 @@
 import { useParams } from "react-router-dom"
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import accounts from '../account.json'
 import { useEffect } from "react"
+import IncomeForm from "../components/incomeForm"
+import ExpenseForm from "../components/expenseForm"
 
 export default function AccountPage() {
     const { id } = useParams()
+    const [modalIncome, setModalIncome] = useState(false)
+    const [modalExpense, setModalExpense] = useState(false)
     const account = accounts.find(item => item.id == id)
     useEffect(() => {
         const titles = document.querySelectorAll('.title')
@@ -28,14 +33,14 @@ export default function AccountPage() {
                 <h3>{account.name}</h3>
                 <p>{account.description}</p>
                 <div className="btn-income-expenses">
-                    <button className="income">Incomes</button>
-                    <button className="expenses">Expenses</button>
+                    <button onClick={() => setModalIncome(true)} className="income">Income</button>
+                    <button onClick={() => setModalExpense(true)} className="expenses">Expense</button>
                 </div>
                 <div className="container-revenus-depenses">
-
                 </div>
             </div>
-            
+            <IncomeForm isOpen={modalIncome} setIsOpen={setModalIncome} />
+            <ExpenseForm isOpen={modalExpense} setIsOpen={setModalExpense} />
         </section>
     )
 }
