@@ -1,7 +1,53 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import Modal from 'react-modal'
+import { useFormik } from 'formik'
 
 export default function ExpenseForm(props) {
+    const initialValues = {
+            expense: props.iE ? props.iE.amount : '',
+            categoryExpense: props.iE ? props.iE.category : '',
+            paymentMode: props.iE ? props.iE.paymentMode : '',
+            remark: props.iE ? props.iE.remark : '',
+            date: props.iE ? props.iE.date : '',
+            hour: props.iE ? props.iE.hour : '',
+        }
+        const onSubmit =  values => {
+            // call API to create a expense
+            props.setIsOpen(false)
+            console.log(values)
+        }
+        const validate = values => {
+            let errors = {}
+    
+            if (!values.expense) {
+                errors.expense = 'You must enter your expense amount'
+            }
+            if (isNaN(values.expense)) {
+                errors.expense = 'You must enter a number'
+            }
+            if (!values.categoryExpense) {
+                errors.categoryExpense = 'You must enter the category of the expense'
+            }
+            if (!values.paymentMode) {
+                errors.paymentMode = 'You must enter the payment mode'
+            }
+            if (!values.remark) {
+                errors.remark = 'You must enter the description or remark of your expense'
+            }
+            if (!values.date) {
+                errors.date = 'You must define the date'
+            }
+            if (!values.hour) {
+                errors.hour = 'You must define the hour'
+            }
+    
+            return errors
+        }
+        const formik = useFormik({
+            initialValues,
+            onSubmit,
+            validate
+        })
     return (
         <Modal 
                 isOpen={props.isOpen}
@@ -15,11 +61,12 @@ export default function ExpenseForm(props) {
                         <i onClick={() => props.setIsOpen(false)} className="fa-solid fa-xmark"></i>
                     </div>
                 </div>
-                <form>
+                <form onSubmit={formik.handleSubmit}>
                     <label className="label-expense" htmlFor="expense">Expense</label>
-                    <input placeholder="Enter your expense amount" className="input-expense" type="text" />
+                    <input name='expense' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.expense} placeholder="Enter your expense amount" className="input-expense" type="text" />
+                    {formik.touched.expense && formik.errors.expense ? <p id='msg-error-expense'>{formik.errors.expense}</p> : null}
                     <label htmlFor="category-expense">Category</label>
-                    <select className="select-expense" name="category-expense" id="category-expense">
+                    <select className="select-expense" name="categoryExpense" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.categoryExpense} id="category-expense">
                         <option value="Purchase">Purchase</option>
                         <option value="Food And Drinks">Food and Drinks</option>
                         <option value="Other expense">Other Expense</option>
@@ -50,20 +97,25 @@ export default function ExpenseForm(props) {
                         <option value="Electricity Bill">Electricity Bill</option>
                         <option value="Others Bill (Water,...)">Others Bill (Water,...)</option>
                     </select>
+                    {formik.touched.categoryExpense && formik.errors.categoryExpense ? <p id='msg-error-categoryExpense'>{formik.errors.categoryExpense}</p> : null}
                     <label htmlFor="paymentMode">Payment Mode</label>
-                    <select className="select-expense" name="paymentMode" id="paymentMode">
-                        <option value="others">Others</option>
-                        <option value="bank">Bank</option>
-                        <option value="map">Map</option>
-                        <option value="species">Species</option>
+                    <select className="select-expense" name="paymentMode" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.paymentMode} id="paymentMode">
+                        <option value="Others">Others</option>
+                        <option value="Bank">Bank</option>
+                        <option value="Map">Map</option>
+                        <option value="Species">Species</option>
                     </select>
+                    {formik.touched.paymentMode && formik.errors.paymentMode ? <p id='msg-error-paymentMode'>{formik.errors.paymentMode}</p> : null}
                     <label htmlFor="remark">Remark</label>
-                    <input placeholder="Enter the description of your expense" className="input-expense" type="text" />
+                    <input name='remark' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.remark} placeholder="Enter the description of your expense" className="input-expense" type="text" />
+                    {formik.touched.remark && formik.errors.remark ? <p id='msg-error-remark'>{formik.errors.remark}</p> : null}
                     <label htmlFor="date">Date</label>
-                    <input className="input-expense" type="date" />
-                    <input className="input-expense" type="time" />
+                    <input name='date' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.date} className="input-expense" type="date" />
+                    {formik.touched.date && formik.errors.date ? <p id='msg-error-date'>{formik.errors.date}</p> : null}
+                    <input name='hour' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.hour} className="input-expense" type="time" />
+                    {formik.touched.hour && formik.errors.hour ? <p id='msg-error-hour'>{formik.errors.hour}</p> : null}
                     <div className="btn-add-and-cancel-save-expense">
-                        <button className="btn-save-expense" type="submit">Save income</button>
+                        <button className="btn-save-expense" type="submit">{props.iE ? "Modify expense" : "Save expense"}</button>
                         <button onClick={() => props.setIsOpen(false)} className="btn-save-expense">Cancel</button>
                     </div>
                 </form>
@@ -73,5 +125,14 @@ export default function ExpenseForm(props) {
 
 ExpenseForm.propTypes = {
     isOpen: PropTypes.bool.isRequired,
-    setIsOpen: PropTypes.func.isRequired
+    setIsOpen: PropTypes.func.isRequired,
+    iE: PropTypes.shape({
+            date: PropTypes.string.isRequired,
+            hour: PropTypes.string.isRequired,
+            paymentMode: PropTypes.string,
+            remark: PropTypes.string,
+            type: PropTypes.string,
+            category: PropTypes.string,
+            amount: PropTypes.number.isRequired
+    })
 }

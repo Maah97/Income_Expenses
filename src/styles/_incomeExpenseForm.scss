@@ -109,6 +109,11 @@
                 border: 1.4px solid #ff0000;
             }
         }
+        p {
+            margin-bottom: 25px;
+            color: red;
+            align-self: flex-start;
+        }
         .btn-add-and-cancel-save-income, .btn-add-and-cancel-save-expense {
             width: 100%;
             display: flex;

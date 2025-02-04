@@ -3,18 +3,132 @@
         "id": 1,
         "name": "Depenses mois de Janvier",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt doloribus voluptate consequuntur excepturi laudantium quos eius similique sit delectus perspiciatis, aliquid necessitatibus modi, ",
-        "date": "2021-01-01"
+        "date": "2021-01-01",
+        "incomeExpense": [
+            {
+                "type": "income",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "expense",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "expense",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "income",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            }
+        ]
     },
     {
         "id": 2,
         "name": "Depenses mois de Juin",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt doloribus voluptate consequuntur excepturi laudantium quos eius similique sit delectus perspiciatis, aliquid necessitatibus modi, deserunt minima? Praesentium, ratione nemo !",
-        "date": "2021-01-01"
+        "date": "2021-01-01",
+        "incomeExpense": [
+            {
+                "type": "income",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "expense",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "expense",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "income",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            }
+        ]
     },
     {
         "id": 3,
         "name": "Depenses mois de Juillet",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt doloribus voluptate consequuntur excepturi laudantium quos eius similique sit delectus perspiciatis, aliquid necessitatibus modi, deserunt minima? Praesentium, ratione nemo !",
-        "date": "2021-01-01"
+        "date": "2021-01-01",
+        "incomeExpense": [
+            {
+                "type": "income",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes à la superette du coin de la rue",
+                "date": "05/10/2004",
+                "hour": "11:15"
+            },
+            {
+                "type": "expense",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "expense",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            },
+            {
+                "type": "income",
+                "amount": 250000,
+                "category" : "Business",
+                "paymentMode": "Bank",
+                "remark": "achats des legumes",
+                "date":  "26/01/2025",
+                "hour": "11:15"
+            }
+        ]
     }
 ]

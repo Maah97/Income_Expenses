@@ -1,0 +1,64 @@
+.card-income-expense {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(218, 218, 218, 0.384);
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.637);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        scale: 1.1;
+        background-color: rgb(184, 184, 184);
+    }
+    p {
+        span {
+            font-weight: 600;
+        }
+    }
+    .income {
+        color: green;
+        width: auto;
+        max-width: 25%;
+    }
+    .expense {
+        color: red;
+        width: auto;
+        max-width: 25%;
+    }
+    .category {
+        width: auto;
+        max-width: 30%;
+        height: auto;
+        p {
+            text-wrap: wrap;
+            text-align: left;
+            word-spacing: 0px;
+            word-wrap: break-word;
+        }
+    }
+    .date-time-paymentMode {
+        width: auto;
+        text-overflow: ellipsis;
+        max-width: 25%;
+        p {
+            text-align: left;
+            word-spacing: 0px;
+            word-wrap: break-word;
+        }
+    }
+}
+
+.card-income-expense.card-income {
+    background-color: rgb(238, 255, 238);
+    &:hover {
+        background-color: rgb(189, 255, 189);
+    }
+}
+.card-income-expense.card-expense {
+    background-color: rgb(255, 232, 232);
+    &:hover {
+        background-color: rgb(253, 190, 190);
+    }
+}

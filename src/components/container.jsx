@@ -1,6 +1,6 @@
 import Modal from 'react-modal'
 import imgContainerAccount from '../assets/imgIncomeExpenses.webp'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { useFormik } from 'formik'
 import Account from './account'
 import accounts from '../account.json' // replace by a call API for get all accounts
@@ -9,8 +9,6 @@ Modal.setAppElement('#root')
 export default function Container() {
     const [isOpen, setIsOpen] = useState(false)
     const date = new Date()
-    const nameAccount = useRef(null)
-    const descriptionAccount = useRef(null)
     const initialValues = {
         nameAccount: '',
         descriptionAccount: '',
@@ -63,16 +61,15 @@ export default function Container() {
                 <h1>Create your account</h1>
                 <form onSubmit={formik.handleSubmit}>
                     <label htmlFor="nameAccount">Name</label>
-                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} ref={nameAccount} name='nameAccount' id='nameAccount' placeholder='Enter the name account' type="text" />
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} name='nameAccount' id='nameAccount' placeholder='Enter the name account' type="text" />
                     {formik.touched.nameAccount && formik.errors.nameAccount ? <p id='msg-error-name'>{formik.errors.nameAccount}</p> : null}
                     <label htmlFor="descriptionAccount">Description</label>
-                    <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.descriptionAccount} ref={descriptionAccount} name='descriptionAccount' id='descriptionAccount' placeholder='Enter the description account' type="text" />
+                    <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.descriptionAccount} name='descriptionAccount' id='descriptionAccount' placeholder='Enter the description account' type="text" />
                     {formik.touched.descriptionAccount && formik.errors.descriptionAccount ? <p id='msg-error-description'>{formik.errors.descriptionAccount}</p> : null}
                     <div className='btn-ok-cancel'>
                         <button type='submit' className='ok'>Ok</button>
                         <button onClick={() => setIsOpen(false)} className='cancel'>Cancel</button>
                     </div>
-                    <p id='msg-error-submit'>You must enter the name and description of your account</p>
                 </form>
             </Modal>
         </section>
