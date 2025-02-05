@@ -4,6 +4,7 @@ import Header from "./components/Header.jsx"
 import Footer from './components/Footer.jsx'
 import Home from './pages/home.jsx';
 import AccountPage from './pages/accountPage.jsx';
+import ConnexionPage from './pages/connexionPage.jsx';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<ConnexionPage />} />
         <Route path="/accounts/:id" element={<AccountPage />} />
       </Routes>
       <Footer />
