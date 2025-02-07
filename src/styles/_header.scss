@@ -102,7 +102,7 @@ header {
         z-index: 2000;
         .button {
             cursor: pointer;
-            padding: 5px;
+            padding: 8px 5px 5px 5px;
             width: 85px;
             height: 40px;
             border-radius: 10px;
@@ -112,6 +112,9 @@ header {
             border: 2px solid rgb(118, 106, 91);
             font-weight: 700;
             font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            text-decoration: none;
+            color: black;
             &:hover {
                 background-color: rgb(255, 160, 43);
             }

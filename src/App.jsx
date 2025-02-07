@@ -5,15 +5,18 @@ import Footer from './components/Footer.jsx'
 import Home from './pages/home.jsx';
 import AccountPage from './pages/accountPage.jsx';
 import ConnexionPage from './pages/connexionPage.jsx';
+import SignUpPage from './pages/signUpPage.jsx';
+import ForgotPassword from './pages/forgotPassword.jsx';
 
 function App() {
-
   return (
     <Router>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<ConnexionPage />} />
+        <Route path="/signUp" element={<SignUpPage />} />
+        <Route path="/resetPassword" element={<ForgotPassword />} />
         <Route path="/accounts/:id" element={<AccountPage />} />
       </Routes>
       <Footer />
