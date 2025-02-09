@@ -1,17 +1,54 @@
 import { useParams } from "react-router-dom"
+import { useEffect, useRef, useMemo } from "react"
+import accounts from '../account.json'
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import accounts from '../account.json'
-import { useEffect } from "react"
 import IncomeForm from "../components/incomeForm"
 import ExpenseForm from "../components/expenseForm"
 import CardIncomeExpense from "../components/cardIncomeExpense"
+import GraphIncomesExpenses from "../components/graphIncomesExpenses"
 
 export default function AccountPage() {
     const { id } = useParams()
+    const account = accounts.find(item => item.id == id)
     const [modalIncome, setModalIncome] = useState(false)
     const [modalExpense, setModalExpense] = useState(false)
-    const account = accounts.find(item => item.id == id)
+    const [incomesAmount, setIncomesAmount] = useState(0)
+    const [expensesAmount, setExpensesAmount] = useState(0)
+    const [balance, setBalance] = useState(0)
+    const dataIncomes = useMemo(() => {
+        let data = []
+        for (let i = 0; i < account.incomeExpense.length; i++) {
+            if (account.incomeExpense[i].type === "income") {
+                data.push({category: account.incomeExpense[i].category, amount: account.incomeExpense[i].amount})
+            } 
+        }
+        return data
+    }, [account.incomeExpense])
+    const dataExpenses = useMemo(() => {
+        let data = []
+        for (let i = 0; i < account.incomeExpense.length; i++) {
+            if (account.incomeExpense[i].type === "expense") {
+                data.push({category: account.incomeExpense[i].category, amount: account.incomeExpense[i].amount})
+            } 
+        }
+        return data
+    }, [account.incomeExpense])
+    useEffect(() => {
+        let incomeCountAmount = 0
+        let expenseCountAmount = 0
+        for (let i = 0; i < account.incomeExpense.length; i++) {
+            if (account.incomeExpense[i].type === "income") {
+                incomeCountAmount = incomeCountAmount + account.incomeExpense[i].amount
+                
+            } else {
+                expenseCountAmount = expenseCountAmount + account.incomeExpense[i].amount
+            }
+        }
+        setIncomesAmount(incomeCountAmount)
+        setExpensesAmount(expenseCountAmount)
+        setBalance(incomeCountAmount - expenseCountAmount)
+    }, [account.incomeExpense])
     useEffect(() => {
         const titles = document.querySelectorAll('.title')
         const title = document.getElementById(`${account.id}`)
@@ -50,6 +87,18 @@ export default function AccountPage() {
             title.style.boxShadow = '3px 3px 5px #ff00006c'
         })
     })
+    const btnAddIncone = useRef();
+    function AddClassActive() {
+        const btns = btnAddIncone.current;
+        btns.classList.toggle('active');
+        document.addEventListener('click', (e) => {
+            let isClickedInside = btns.contains(e.target);
+            const icone = document.querySelector(".fa-circle-plus").contains(e.target)
+            if (!isClickedInside && !icone) {
+                btns.classList.remove('active');
+            }
+        })
+    }
     return (
         <section className="account-page">
             <div className="list-of-accounts">
@@ -67,6 +116,20 @@ export default function AccountPage() {
                     <button onClick={() => setModalIncome(true)} className="income">Income</button>
                     <button onClick={() => setModalExpense(true)} className="expenses">Expense</button>
                 </div>
+                <div className="incomes-expenses-balance">
+                    <div className="incomes-total">
+                        <p>Total Incomes</p>
+                        <p>{incomesAmount}</p>
+                    </div>
+                    <div className="expenses-total">
+                        <p>Total Expenses</p>
+                        <p>{expensesAmount}</p>
+                    </div>
+                    <div className="balance-total">
+                        <p style={balance > 0 ? {color: "rgb(0, 82, 0)"} : balance < 0 ? {color: "rgb(173, 0, 0)"} : {color: "rgb(0, 0, 0)"}}>Balance</p>
+                        <p style={balance > 0 ? {color: "rgb(0, 82, 0)"} : balance < 0 ? {color: "rgb(173, 0, 0)"} : {color: "rgb(0, 0, 0)"}}>{balance}</p>
+                    </div>
+                </div>
                 <div className="container-income-expense">
                     {
                         account.incomeExpense.map((incExp, index) => {
@@ -74,6 +137,23 @@ export default function AccountPage() {
                         }) 
                     }
                 </div>
+                <div className="add-income-expense-icone">
+                    <i onClick={() => AddClassActive()} className="fa-solid fa-circle-plus"></i>
+                    <div ref={btnAddIncone} id="add-icone-btn" className="btn-income-expenses">
+                        <button onClick={() => setModalIncome(true)} className="income">Income</button>
+                        <button onClick={() => setModalExpense(true)} className="expenses">Expense</button>
+                    </div>
+                </div>
+                {
+                        account.incomeExpense.length > 0 ? 
+                        <GraphIncomesExpenses type="expenses" data={dataExpenses} /> 
+                        : ""
+                }
+                {
+                        account.incomeExpense.length > 0 ? 
+                        <GraphIncomesExpenses type="incomes" data={dataIncomes} /> 
+                        : ""
+                }
             </div>
             <IncomeForm isOpen={modalIncome} setIsOpen={setModalIncome} />
             <ExpenseForm isOpen={modalExpense} setIsOpen={setModalExpense} />

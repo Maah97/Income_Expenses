@@ -1,7 +1,7 @@
+import { useState } from 'react'
 import PropTypes from 'prop-types'
 import IncomeForm from "../components/incomeForm"
 import ExpenseForm from "../components/expenseForm"
-import { useState } from 'react'
 
 export default function CardIncomeExpense({iE}) {
     const [modalIncome, setModalIncome] = useState(false)

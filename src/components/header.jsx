@@ -37,7 +37,7 @@ export default function Header() {
             <div className='container'>
                 <div className='title-and-logo'>
                     <img className='logo' src={logoWallet} alt="Income-Expenses logo" />
-                    <h1><span>Income</span>Expenses</h1>
+                    <h1><span>Incomes</span>Expenses</h1>
                 </div>
                 <nav>
                     <NavLink to="/" className='navigation' href="#">Home</NavLink>

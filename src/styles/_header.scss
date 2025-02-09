@@ -6,7 +6,6 @@ header {
     right: 0;
     left: 0;
     width: 100%;
-    height: auto;
     display: flex;
     flex-direction: column;
     .container {
@@ -89,7 +88,6 @@ header {
     }
     .log {
         align-self: flex-end;
-        margin: 61px 3px 0px 0px;
         width: auto;
         height: auto;
         background-color: rgb(187, 255, 233);
@@ -100,6 +98,7 @@ header {
         justify-content: center;
         align-items: center;
         z-index: 2000;
+        margin-top: -10px;
         .button {
             cursor: pointer;
             padding: 8px 5px 5px 5px;
