@@ -1,27 +1,104 @@
-.home {
+.presentation {
     margin-top: 70px;
     width: 100%;
     height: auto;
-    font-family: Geologica;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0.8)), url(".././assets/bgHome.webp");
-    background-size: cover;
-    p {
-        font-weight: 300;
-        font-size: 60px;
-        line-height: 80px;
-        color: rgb(255, 255, 255);
-        text-align: center;
-        &:nth-child(1) {
+    .home {
+        width: 100%;
+        height: auto;
+        font-family: Geologica;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.753), rgba(0, 0, 0, 0.8)), url(".././assets/bgHome.webp");
+        background-size: cover;
+        p {
+            font-weight: 300;
+            font-size: 60px;
+            line-height: 80px;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            &:nth-child(1) {
+                margin-top: 5%;
+            }
+        }
+        .slogan {
+            font-size: 45px;
             margin-top: 5%;
+            font-weight: 200;
+            margin-bottom: 7%;
+        }
+        .btn-get-started {
+            margin-bottom: 50px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            background-color: rgb(24, 103, 206);
+            padding: 20px 40px;
+            border-radius: 999px;
+            border: 1px solid rgb(255, 255, 255);
+            cursor: pointer;
+            text-decoration: none;
+            &:hover {
+                background-color: rgb(0, 15, 231);
+            }
         }
     }
-    .slogan {
-        font-size: 45px;
-        margin-top: 5%;
-        font-weight: 200;
-        margin-bottom: 7%;
+    .why-income-expense {
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: rgb(230, 242, 255);
+        padding: 30px 0px;
+        box-shadow: 0px 0px 6px rgb(97, 171, 250);
+        h3 {
+            font-size: 50px;
+            font-weight: 600;
+            color: black;
+            text-align: center;
+            margin-bottom: 50px;
+            span {
+                color: rgb(0, 110, 16);
+                &:nth-child(2) {
+                    color: rgb(203, 31, 31);
+                }
+            }
+        }
+        .container-answers {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px 30px;
+            padding: 0px 100px;
+            .answer {
+                width: 400px;
+                height: auto;
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0px 0px 5px black;
+                i {
+                    font-size: 50px;
+                    color: rgb(0, 95, 173);
+                    margin-bottom: 20px;
+                }
+                p {
+                    font-size: 20px;
+                    font-weight: 100;
+                    line-height: 35px;
+                    &:nth-child(2) {
+                        font-size: 30px;
+                        color: rgb(0, 95, 173);
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
     }
 }
