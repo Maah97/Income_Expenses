@@ -1,4 +1,5 @@
 footer {
+    width: 100%;
     background-color: rgb(243, 243, 243);
     padding: 30px 0px 10px 0px;
     z-index: 3000;
@@ -10,7 +11,7 @@ footer {
     .container-footer {
         display: flex;
         justify-content: space-between;
-        width: 85%;
+        width: 90%;
         .address {
             align-self: flex-start;
             width: 30%;
@@ -47,7 +48,7 @@ footer {
             width: 30%;
             display: flex;
             flex-direction: column;
-            padding-left: 250px;
+            padding-left: 11%;
             p {
                 margin-bottom: 20px;
                 font-size: 21px;

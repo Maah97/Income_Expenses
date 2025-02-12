@@ -22,7 +22,7 @@ export default function ConnexionPage() {
                     <i onClick={() => VisibilityPassword()} className={`fa-regular fa-eye${passwordVisible === true ? "" : "-slash"}`}></i>
                 </div>
                 <div className="btn">
-                    <button>Sign In</button>
+                    <button>Log In</button>
                     <NavLink className="link-to-reset-password" to="/resetPassword">Forgot password ?</NavLink>
                 </div>
                 <p>You don&apos;t have an account ? <NavLink className="link-to-signup" to="/signUp">Sign Up</NavLink></p>

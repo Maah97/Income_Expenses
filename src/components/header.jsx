@@ -54,7 +54,7 @@ export default function Header() {
                 </nav>
             </div>
             <div className='log'>
-                <NavLink to="/login" className="button">Sign in</NavLink>
+                <NavLink to="/login" className="button">Log In</NavLink>
             </div>
         </header>
     )

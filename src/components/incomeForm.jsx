@@ -18,7 +18,6 @@ export default function IncomeForm(props) {
     }
     const validate = values => {
         let errors = {}
-
         if (!values.income) {
             errors.income = 'You must enter your income account'
         }
@@ -40,10 +39,9 @@ export default function IncomeForm(props) {
         if (!values.hour) {
             errors.hour = 'You must define the hour'
         }
-
         return errors
     }
-    const formik = useFormik({
+    const formik = useFormik ({
         initialValues,
         onSubmit,
         validate
@@ -107,12 +105,12 @@ IncomeForm.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     setIsOpen: PropTypes.func.isRequired,
     iE: PropTypes.shape({
-            date: PropTypes.string.isRequired,
-            hour: PropTypes.string.isRequired,
-            paymentMode: PropTypes.string,
-            remark: PropTypes.string,
-            type: PropTypes.string,
-            category: PropTypes.string,
-            amount: PropTypes.number.isRequired
+        date: PropTypes.string.isRequired,
+        hour: PropTypes.string.isRequired,
+        paymentMode: PropTypes.string,
+        remark: PropTypes.string,
+        type: PropTypes.string,
+        category: PropTypes.string,
+        amount: PropTypes.number.isRequired
     })
 }
