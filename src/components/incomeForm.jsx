@@ -75,7 +75,7 @@ export default function IncomeForm(props) {
                     <option value="Investment">Investment Income</option>
                     <option value="Salary">Salary</option>
                 </select>
-                {formik.touched.categoryIncome && formik.errors.categoryIncome ? <p id='msg-error-name'>{formik.errors.categoryIncome}</p> : null}
+                {formik.touched.categoryIncome && formik.errors.categoryIncome ? <p id='msg-error-category-income'>{formik.errors.categoryIncome}</p> : null}
                 <label htmlFor="paymentMode">Payment Mode</label>
                 <select className="select-income" name="paymentMode" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.paymentMode} id="paymentMode">
                     <option value="Others">Others</option>
@@ -83,15 +83,15 @@ export default function IncomeForm(props) {
                     <option value="Map">Map</option>
                     <option value="Species">Species</option>
                 </select>
-                {formik.touched.paymentMode && formik.errors.paymentMode ? <p id='msg-error-name'>{formik.errors.paymentMode}</p> : null}
+                {formik.touched.paymentMode && formik.errors.paymentMode ? <p id='msg-error-paymentMode'>{formik.errors.paymentMode}</p> : null}
                 <label htmlFor="remark">Remark</label>
                 <input name='remark' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.remark} placeholder="Enter the description of your income" className="input-income" type="text" />
-                {formik.touched.remark && formik.errors.remark ? <p id='msg-error-name'>{formik.errors.remark}</p> : null}
+                {formik.touched.remark && formik.errors.remark ? <p id='msg-error-remark'>{formik.errors.remark}</p> : null}
                 <label htmlFor="date">Date</label>
                 <input name='date' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.date} className="input-income" type="date" />
-                {formik.touched.date && formik.errors.date ? <p id='msg-error-name'>{formik.errors.date}</p> : null}
+                {formik.touched.date && formik.errors.date ? <p id='msg-error-date'>{formik.errors.date}</p> : null}
                 <input name='hour' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.hour} className="input-income" type="time" />
-                {formik.touched.hour && formik.errors.hour ? <p id='msg-error-name'>{formik.errors.hour}</p> : null}
+                {formik.touched.hour && formik.errors.hour ? <p id='msg-error-hour'>{formik.errors.hour}</p> : null}
                 <div className="btn-add-and-cancel-save-income">
                     <button className="btn-save-income" type="submit">{props.iE ? "Modify income" : "Save income"}</button>
                     <button onClick={() => props.setIsOpen(false)} className="btn-save-income">Cancel</button>
