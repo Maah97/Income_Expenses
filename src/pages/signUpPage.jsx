@@ -1,8 +1,10 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2"
+import "react-phone-input-2/lib/style.css"
 import { useFormik } from 'formik'
+import axios from 'axios'
+import WaitingConfirmation from "../components/waitingConfirmation"
 
 export default function SignUpPage() {
     const [passwordVisible, setPasswordVisible] = useState(false)
@@ -37,9 +39,33 @@ export default function SignUpPage() {
         password: "",
         repeatPassword: ""
     }
-    const onSubmit =  values => {
-        // call API to create a income
-        console.log(values)
+    const [message, setMessage] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [isRegistered, setIsRegistered] = useState(false);
+    const [email, setEmail] = useState("");
+    const onSubmit =  async (values, { resetForm }) => {
+        if (loading) return
+        setLoading(true)
+        try {
+            await axios.post('http://localhost:3000/api/auth/signup',{
+                userName: values.userName,
+                birthDay: values.birthDay,
+                gender: values.gender,
+                occupation: values.occupation,
+                phoneNumber: values.phoneNumber,
+                email: values.email,
+                password: values.password,
+            });
+            setIsRegistered(true);
+            setEmail(values.email);
+            resetForm();
+        } catch (error) {
+            setMessage(error.response.data.message);     
+        }  finally {
+            setLoading(false);
+        }
+        console.log(values);
+        
     }
     const validate = values => {
         let errors = {}
@@ -47,17 +73,16 @@ export default function SignUpPage() {
             errors.userName = 'You must enter your name'
         }
         if (values.userName && values.userName.length < 4) {
-            errors.password = 'Put a name whose has at least 4 characters'
+            errors.userName = 'Put a name whose has at least 4 characters'
         }
         if (!values.gender) {
             errors.gender = 'You must select your gender'
         }
         if (!values.email) {
             errors.email = 'You must enter your email'
-        }
-        if (values.email && !emailregExp.test(values.email)) {
-            errors.email = 'Enter a valid email like : web.dev02@project.com'
-        }
+        } else if (values.email && !emailregExp.test(values.email)) {
+             errors.email = 'Enter a valid email like : web.dev02@project.com'
+        }  
         if (!values.password) {
             errors.password = 'You must enter your password'
         }
@@ -85,6 +110,9 @@ export default function SignUpPage() {
         onSubmit,
         validate
     })
+
+    if (isRegistered) return <WaitingConfirmation userEmail={email} />;
+
     return (
         <div className="signUp-page">
             <p>Sign Up</p>
@@ -108,6 +136,9 @@ export default function SignUpPage() {
                     <label htmlFor="phoneNumber">Phone Number</label>
                     <PhoneInput
                         country={"us"}
+                        inputProps={{
+                            name: "phoneNumber"
+                        }}
                         enableSearch={true}
                         placeholder="Enter your phone number"
                         onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.phoneNumber}
@@ -136,6 +167,7 @@ export default function SignUpPage() {
                 <div className="btn">
                     <button type="submit">Sign Up</button>
                 </div>
+                {message === "" ? null : <p className="msg-error-existing-email">Registration failed because this email is already in use. Change this Email and retry.</p>}
                 <p id="question-logIn">You have an account ? <NavLink className="link-to-signup" to="/login">Log In</NavLink></p>
             </form>
         </div>

@@ -1,0 +1,43 @@
+.confirmation-page {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 63.5vh;
+    width: 100%;
+    background-color: rgb(255, 240, 240);
+    height: 100%;
+    p {
+        font-size: 35px;
+        margin-top: 50px;
+    }
+    .title-registration {
+        font-weight: 600;
+    }
+    .msg-inscription-done {
+        margin-top: 70px;
+        text-align: center;
+        font-size: 25px;
+        color: rgb(0, 136, 84);
+        span {
+            color: rgb(97, 0, 136);
+            text-decoration: underline;
+        }
+    }
+    .btn-resend-email {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 20px;
+        background-color: rgb(187, 230, 255);
+        border: 2px solid rgb(108, 194, 252);
+        border-radius: 20px;
+        cursor: pointer;
+        &:hover {
+            box-shadow: 0px 0px 3px rgb(0, 153, 255);
+
+        }
+    }
+    .msg-error-resend {
+        font-size: 20px;
+    }
+}
