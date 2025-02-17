@@ -1,0 +1,92 @@
+.verify-account {
+    margin-top: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 66.5vh;
+    width: 100%;
+    background-color: rgb(255, 240, 240);
+    p {
+        color: green;
+        font-size: 35px;
+        margin-top: 50px;
+        font-weight: 600;
+    }
+    .message-verify-account {
+        font-size: 25px;
+        font-weight: 300;
+        color: black;
+        margin-bottom: 50px;
+    }
+    .resend-email-after-failed {
+        width: auto;
+        max-width: 700px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgb(247, 247, 247);
+        border-radius: 13px;
+        padding: 20px;
+        box-shadow: 0px 0px 3px black;
+        label {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 400;
+            color: black;
+            align-self: flex-start;
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 5px;
+            font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+            outline: none;
+            border: 1px solid rgb(149, 149, 149);
+            margin-bottom: 20px;
+            &:focus {
+                border: 2px solid rgb(72, 126, 212);
+                box-shadow: 0px 0px 5px rgb(72, 126, 212);
+            }
+        }
+        .btn-resend-email {
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: rgb(187, 230, 255);
+            border: 2px solid rgb(108, 194, 252);
+            border-radius: 20px;
+            cursor: pointer;
+            &:hover {
+                box-shadow: 0px 0px 3px rgb(0, 153, 255);
+
+            }
+        }
+    }
+    
+    .btn-redirect-login-page {
+        text-decoration: none;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: black;
+        font-weight: 600;
+        background-color: rgb(187, 230, 255);
+        border: 2px solid rgb(108, 194, 252);
+        border-radius: 20px;
+        cursor: pointer;
+        &:hover {
+            box-shadow: 0px 0px 3px rgb(0, 153, 255);
+
+        }
+    }
+    .msg-error-resend {
+        font-weight: 500;
+        color: black;
+        font-size: 20px;
+        margin-top: 30px;
+    }
+}
+
+
