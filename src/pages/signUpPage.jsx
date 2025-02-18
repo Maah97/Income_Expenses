@@ -55,17 +55,35 @@ export default function SignUpPage() {
                 phoneNumber: values.phoneNumber,
                 email: values.email,
                 password: values.password,
-            });
-            setIsRegistered(true);
-            setEmail(values.email);
-            resetForm();
+            }).then((response) => {
+                setIsRegistered(true);
+                setEmail(values.email);
+                resetForm();
+                setMessage(response.data.message);     
+            }).catch((error) => {
+                const inputEmail = document.querySelector(".required-input")
+                const labelEmail = document.querySelector(".required-label")
+                inputEmail.style.border = "2px solid red"
+                labelEmail.style.color = "red"
+                inputEmail.addEventListener("focus", () => {
+                    inputEmail.style.border = "1px solid rgb(72, 126, 212)"
+                    labelEmail.style.color = "black"
+                    setMessage("")
+                })
+                setMessage(error.response.data.message)    
+            })
         } catch (error) {
-            setMessage(error.response.data.message);     
+            console.error(error)
+            const inputEmail = document.querySelector(".required-input")
+            inputEmail.style.border = "2px solid red"
+            inputEmail.addEventListener("focus", () => {
+                inputEmail.style.border = "1px solid rgb(72, 126, 212)"
+                setMessage("")
+            })
+            setMessage("Error connecting to the server.")   
         }  finally {
             setLoading(false);
         }
-        console.log(values);
-        
     }
     const validate = values => {
         let errors = {}
@@ -98,7 +116,7 @@ export default function SignUpPage() {
             errors.password = 'Password must not contain special characters except : @, _, -, !, $, &'
         }
         if (!values.repeatPassword) {
-            errors.repeatPassword = 'Repeat your password'
+            errors.repeatPassword = 'Confirm your password'
         }
         if (values.password !== values.repeatPassword) {
             errors.repeatPassword = 'Passwords do not match'
@@ -147,9 +165,9 @@ export default function SignUpPage() {
                 </div>
                 <div className="auhentification-info">
                     <p>Authentification informations</p>
-                    <label id="email-label" htmlFor="email">Email <span>*</span></label>
-                    <input name="email" type="email" placeholder="Enter your Email" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} required />
-                    {formik.touched.email && formik.errors.email ? <p className='msg-error'>{formik.errors.email}</p> : null}
+                    <label className="required-label" id="email-label" htmlFor="email">Email <span>*</span></label>
+                    <input className="required-input" name="email" type="email" placeholder="Enter your Email" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} required />
+                    {formik.touched.email && formik.errors.email ? <p  id="msg-error-email" className='msg-error'>{formik.errors.email}</p> : null}
                     <label htmlFor="password">Password <span>*</span></label>
                     <div className="container-password">
                         <input name="password" id="password" type={passwordVisible === true ? "text" : "password"} autoComplete="new-password" required placeholder="Enter your password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} />

@@ -10,7 +10,6 @@
     flex-direction: column;
     p {
         font-size: 40px;
-        margin-bottom: 30px;
     }
     .form-login {
         display: flex;
@@ -20,7 +19,7 @@
         height: auto;
         padding: 0px 20px;
         label {
-            margin-bottom: 15px;
+            margin: 40px 0px 15px 0px;
             width: max-content;
             font-size: 20px;
             align-self: flex-start;
@@ -48,9 +47,18 @@
             .fa-eye {
                 color: black;
             }
+            .msg-error {
+                position: relative;
+                top: -35px;
+                font-size: 16px;
+                font-weight: 200;
+                margin-top: 5px;
+                color: red;
+                align-self: flex-start;
+                text-align: left;
+            }
         }
         input {
-            margin-bottom: 40px;
             padding: 13px 10px;
             width: 100%;
             font-size: 15px;
@@ -69,6 +77,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            .btn-send-reset-password {
+                margin-top: 25px;
+            }
             button {
                 width: max-content;
                 padding: 10px 20px;
@@ -110,6 +121,25 @@
                     text-decoration: underline;
                 }
             }
+        }
+        .msg-error {
+            font-size: 16px;
+            font-weight: 200;
+            margin-top: 15px;
+            color: red;
+            align-self: flex-start;
+        }
+        .msg-error-existing-email {
+            max-width: 550px;
+            margin-top: 30px;
+            font-size: 20px;
+            color: red;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 600;
+        }
+        .link-redirection-to-signup {
+            margin-bottom: 30px;
         }
     }
 }
