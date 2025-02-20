@@ -1,12 +1,14 @@
+import PropTypes from 'prop-types'
 import logoWallet from '../assets/wallet_logo.webp'
 import imgLangEn from '../assets/en.webp'
 import imgLangFr from '../assets/fr.webp'
-import { useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 import { HashLink } from 'react-router-hash-link'
-import { NavLink } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 
 
-export default function Header() {
+export default function Header(props) {
+    const navigate = useNavigate()
     const [selectLangage, setSelectLanage] = useState('en')
     const [theme, setTheme] = useState(true)
     function changeLangage() {
@@ -16,22 +18,19 @@ export default function Header() {
             setSelectLanage('en')
         }
     }
-    useEffect(() => {
-        const user = document.querySelector('#user')
-        const log = document.querySelector('.log')
-        user.addEventListener('mouseover', () => {
-            log.classList.add('open')
-            log.addEventListener('mouseover', () => {
-                log.classList.add('open')
-            })
-            log.addEventListener('mouseleave', () => {
-                log.classList.remove('open')
-            })
+    const userSettings = useRef();
+    function AddClassActive() {
+        const userS = userSettings.current;
+        userS.classList.toggle('open');
+        document.addEventListener('click', (e) => {
+            let isClickedInside = userS.contains(e.target);
+            const icone = document.querySelector(".fa-user").contains(e.target)
+            const btnLogout = document.querySelector(".add-account").contains(e.target)
+            if ((!isClickedInside && !icone) || btnLogout) {
+                userS.classList.remove('open');
+            }
         })
-        user.addEventListener('mouseleave', () => {
-            log.classList.remove('open')
-        })
-    })
+    }
     return(
         <header>
             <div className='container'>
@@ -50,12 +49,49 @@ export default function Header() {
                     </div>
                     <span onClick={() => {setTheme(!theme)}} className='navigation'>Theme <i className={`fa-solid fa-${theme === true ? 'sun' : 'moon'}`}></i></span>
                     <HashLink to="/#contact" className='navigation' href='#'>Contact</HashLink>
-                    <span id='user' className='navigation' href='#'><i className="fa-solid fa-user"></i></span>
+                    <span onClick={() => AddClassActive()} id='user' className='navigation' href='#'><i className="fa-solid fa-user"></i></span>
                 </nav>
             </div>
-            <div className='log'>
-                <NavLink to="/login" className="button">Log In</NavLink>
+            <div ref={userSettings} className='log'>
+                {
+                    props.isAuthenticated 
+                    ?
+                    <div className='settings-user'>
+                        <div className='email-and-icone-close'>
+                            <p className='email'>mahmoudouaboul@gmail.com</p>
+                            <div onClick={() => AddClassActive()} className='icone-close'>
+                                <i className="fa-solid fa-xmark"></i>
+                            </div>
+                        </div>
+                        <div className='picture-profil'>
+                            <p>M</p>
+                            <div className='icone-modification'>
+                                <i className="fa-solid fa-pencil"></i>
+                            </div>
+                        </div>
+                        <p>Welcome UserName</p>
+                        <div className='manage-your-account'>
+                            <p>Manage your account</p>
+                        </div>
+                        <div className='add-account-and-logout'>
+                            <div onClick={() => navigate("/signUp")} className="add-account">
+                                <i className="fa-solid fa-plus"></i>
+                                <p>Add an account</p>
+                            </div>
+                            <div className='logout'>
+                                <i className="fa-solid fa-right-from-bracket"></i>
+                                <p>Logout</p>
+                            </div>
+                        </div>
+                    </div>
+                    :
+                    <NavLink to="/login" className="button">Log In</NavLink>
+                }
             </div>
         </header>
     )
+}
+
+Header.propTypes = {
+    isAuthenticated: PropTypes.bool.isRequired,
 }

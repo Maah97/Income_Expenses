@@ -1,9 +1,10 @@
 import { useState } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik'
 import axios from 'axios'
 
 export default function ConnexionPage() {
+    const navigate = useNavigate()
     const [passwordVisible, setPasswordVisible] = useState(false)
     const [message, setMessage] = useState("")
     const initialValues = {
@@ -31,6 +32,7 @@ export default function ConnexionPage() {
                 setMessage(response.data.message)
                 let tokenAuthentification = response.data.token
                 localStorage.setItem("token", tokenAuthentification)
+                navigate("/")
             }).catch((error) => {
                 document.querySelectorAll("label").forEach((label) => {
                     label.style.color = "red"
