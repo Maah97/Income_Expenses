@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { NavLink } from "react-router-dom"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import { useFormik } from 'formik'
 import axios from 'axios'
 import WaitingConfirmation from "../components/waitingConfirmation"
+import { AuthContext } from "../context/authContext"
 
 export default function SignUpPage() {
+    const { user } = useContext(AuthContext);
     const [passwordVisible, setPasswordVisible] = useState(false)
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false)
     function VisibilityPassword() {
@@ -133,7 +135,7 @@ export default function SignUpPage() {
 
     return (
         <div className="signUp-page">
-            <p>Sign Up</p>
+            <p>{user ? "Add an Account" : "Sign Up"}</p>
             <form onSubmit={formik.handleSubmit} className="form-login">
                 <div className="general-informations">
                     <p>General informations</p>

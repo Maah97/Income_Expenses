@@ -1,12 +1,12 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik'
-import axios from 'axios'
+import { AuthContext } from "../context/authContext"
 
 export default function ConnexionPage() {
     const navigate = useNavigate()
+    const { login, message } = useContext(AuthContext);
     const [passwordVisible, setPasswordVisible] = useState(false)
-    const [message, setMessage] = useState("")
     const initialValues = {
         email: "",
         password: ""
@@ -24,43 +24,10 @@ export default function ConnexionPage() {
         return errors
     }
     const onSubmit = async (values) => {
-        try {
-            await axios.post('http://localhost:3000/api/auth/login', {
-                email: values.email,
-                password: values.password
-            }).then((response) => {
-                setMessage(response.data.message)
-                let tokenAuthentification = response.data.token
-                localStorage.setItem("token", tokenAuthentification)
-                navigate("/")
-            }).catch((error) => {
-                document.querySelectorAll("label").forEach((label) => {
-                    label.style.color = "red"
-                })
-                document.querySelectorAll("input").forEach((input) => {
-                    input.style.border = "2px solid red"
-                    input.addEventListener("focus", () => {
-                        document.querySelectorAll("label").forEach((label) => {
-                            label.style.color = "black"
-                        })
-                        document.querySelectorAll("input").forEach((input) => {
-                            input.style.border = "1px solid rgb(72, 126, 212)"
-                        })
-                        setMessage("")
-                    })
-                })
-                setMessage(error.response.data.message)
-            });
-        } catch (error) {
-            console.error(error)
-            document.querySelectorAll("input").forEach((input) => {
-                input.style.border = "2px solid red"
-                input.addEventListener("focus", () => {
-                    input.style.border = "1px solid rgb(72, 126, 212)"
-                    setMessage("")
-                })
-            })
-            setMessage("Error connecting to the server.")
+        const logIn =  await login(values.email, values.password)
+        if (logIn) {
+            navigate("/")
+            window.location.reload()
         }
     }
     const formik = useFormik ({
@@ -68,7 +35,7 @@ export default function ConnexionPage() {
         onSubmit,
         validate
     })
-    function VisibilityPassword() {
+    function VisibilityPassword () {
         if (passwordVisible === true) {
             setPasswordVisible(false)
         } else {

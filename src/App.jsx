@@ -8,27 +8,25 @@ import ConnexionPage from './pages/connexionPage.jsx'
 import SignUpPage from './pages/signUpPage.jsx'
 import ForgotPassword from './pages/forgotPassword.jsx'
 import { VerifyAccount } from './pages/verifyAccount.jsx'
-import { useState, useEffect } from 'react';
+import { AuthProvider } from "./context/authProvider";
+import ProtectedRoute from "./components/protectedRoute";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsAuthenticated(!!token)
-  }, [isAuthenticated]);
   return (
-    <Router>
-      <Header isAuthenticated={isAuthenticated} />
-      <Routes>
-        <Route path="/" element={<Home isAuthenticated={isAuthenticated} />} />
-        <Route path="/login" element={<ConnexionPage />} />
-        <Route path="/signUp" element={<SignUpPage />} />
-        <Route path="/resetPassword" element={<ForgotPassword />} />
-        <Route path="/verify/:token" element={<VerifyAccount />} />
-        <Route path="/accounts/:id" element={<AccountPage />} />
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <AuthProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<ConnexionPage />} />
+            <Route path="/signUp" element={<SignUpPage />} />
+            <Route path="/resetPassword" element={<ProtectedRoute><ForgotPassword /></ProtectedRoute>} />
+            <Route path="/verify/:token" element={<VerifyAccount />} />
+            <Route path="/accounts/:id" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
+          </Routes>
+          <Footer />
+        </AuthProvider>
+      </Router>
   )
 }
 

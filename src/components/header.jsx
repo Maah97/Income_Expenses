@@ -1,13 +1,14 @@
-import PropTypes from 'prop-types'
 import logoWallet from '../assets/wallet_logo.webp'
 import imgLangEn from '../assets/en.webp'
 import imgLangFr from '../assets/fr.webp'
-import { useRef, useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { HashLink } from 'react-router-hash-link'
 import { useNavigate, NavLink } from 'react-router-dom'
+import { AuthContext } from "../context/authContext"
 
 
-export default function Header(props) {
+export default function Header() {
+    const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate()
     const [selectLangage, setSelectLanage] = useState('en')
     const [theme, setTheme] = useState(true)
@@ -18,19 +19,40 @@ export default function Header(props) {
             setSelectLanage('en')
         }
     }
-    const userSettings = useRef();
     function AddClassActive() {
-        const userS = userSettings.current;
-        userS.classList.toggle('open');
+        const userS = document.querySelector(".log")
+        userS.classList.toggle('open')
+    }
+    function AddAccount() {
+        navigate("/signUp")
+        const userS = document.querySelector(".log")
+        userS.classList.remove('open')
+    }
+    function Logout() {
+        logout()
+        const userS = document.querySelector(".log")
+        userS.classList.remove('open')
+        window.location.reload()
+    }
+    useEffect(() => {
+        const userS = document.querySelector(".log")
         document.addEventListener('click', (e) => {
-            let isClickedInside = userS.contains(e.target);
-            const icone = document.querySelector(".fa-user").contains(e.target)
-            const btnLogout = document.querySelector(".add-account").contains(e.target)
-            if ((!isClickedInside && !icone) || btnLogout) {
-                userS.classList.remove('open');
+            let isClickedInside = userS.contains(e.target)
+            const icone = document.querySelector("#user").contains(e.target)
+            if ((!isClickedInside && !icone)) {
+                userS.classList.remove('open')
             }
         })
-    }
+        if (user) {
+            document.querySelector(".icone-close").addEventListener("click", () => {
+                userS.classList.remove('open')
+            })
+        } else {
+            document.querySelector(".button").addEventListener("click", () => {
+                userS.classList.remove('open')
+            })
+        }
+    }, [user])
     return(
         <header>
             <div className='container'>
@@ -52,14 +74,14 @@ export default function Header(props) {
                     <span onClick={() => AddClassActive()} id='user' className='navigation' href='#'><i className="fa-solid fa-user"></i></span>
                 </nav>
             </div>
-            <div ref={userSettings} className='log'>
+            <div className='log'>
                 {
-                    props.isAuthenticated 
+                    user
                     ?
                     <div className='settings-user'>
                         <div className='email-and-icone-close'>
-                            <p className='email'>mahmoudouaboul@gmail.com</p>
-                            <div onClick={() => AddClassActive()} className='icone-close'>
+                            <p className='email'>{user.email}</p>
+                            <div className='icone-close'>
                                 <i className="fa-solid fa-xmark"></i>
                             </div>
                         </div>
@@ -69,16 +91,16 @@ export default function Header(props) {
                                 <i className="fa-solid fa-pencil"></i>
                             </div>
                         </div>
-                        <p>Welcome UserName</p>
+                        <p>Welcome {user.userName}</p>
                         <div className='manage-your-account'>
                             <p>Manage your account</p>
                         </div>
                         <div className='add-account-and-logout'>
-                            <div onClick={() => navigate("/signUp")} className="add-account">
+                            <div onClick={() => AddAccount()} className="add-account">
                                 <i className="fa-solid fa-plus"></i>
                                 <p>Add an account</p>
                             </div>
-                            <div className='logout'>
+                            <div onClick={() => Logout()} className='logout'>
                                 <i className="fa-solid fa-right-from-bracket"></i>
                                 <p>Logout</p>
                             </div>
@@ -90,8 +112,4 @@ export default function Header(props) {
             </div>
         </header>
     )
-}
-
-Header.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
 }
