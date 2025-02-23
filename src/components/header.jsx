@@ -42,6 +42,9 @@ export default function Header() {
             if ((!isClickedInside && !icone)) {
                 userS.classList.remove('open')
             }
+            document.querySelector(".manage-your-account").addEventListener("click", () => {
+                userS.classList.remove('open')
+            })
         })
         if (user) {
             document.querySelector(".icone-close").addEventListener("click", () => {
@@ -86,15 +89,15 @@ export default function Header() {
                             </div>
                         </div>
                         <div className='picture-profil'>
-                            <p>M</p>
+                            <p>{user.userName[0]}</p>
                             <div className='icone-modification'>
                                 <i className="fa-solid fa-pencil"></i>
                             </div>
                         </div>
-                        <p>Welcome {user.userName}</p>
-                        <div className='manage-your-account'>
+                        <p>Welcome {user.userName} !</p>
+                        <NavLink  to="/personal-info" className='manage-your-account'>
                             <p>Manage your account</p>
-                        </div>
+                        </NavLink>
                         <div className='add-account-and-logout'>
                             <div onClick={() => AddAccount()} className="add-account">
                                 <i className="fa-solid fa-plus"></i>
@@ -105,6 +108,7 @@ export default function Header() {
                                 <p>Logout</p>
                             </div>
                         </div>
+                        <div className='account-verification'>{user.verified ? <p className='txt'>Your account is verified</p> : "Account not verified"}</div>
                     </div>
                     :
                     <NavLink to="/login" className="button">Log In</NavLink>

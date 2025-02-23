@@ -209,6 +209,7 @@ header {
                 padding: 10px 35px;
                 border-radius: 999px;
                 cursor: pointer;
+                text-decoration: none;
                 &:hover {
                     background-color: rgb(226, 238, 255);
                 }
@@ -245,6 +246,14 @@ header {
                     border-radius: 0px 999px 999px 0px;
                     padding-right: 40px;
                 }
+            }
+        }
+        .account-verification {
+            margin-top: 20px;
+            .txt {
+                font-size: 17px;
+                font-weight: 600;
+                color: green;
             }
         }
     }

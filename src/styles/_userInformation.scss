@@ -1,0 +1,119 @@
+.container-user-information {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .user-information {
+        max-width: 850px;
+        width: 100%;
+        height: auto;
+        margin-top: 70px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h3 {
+            margin: 30px 0px;
+            font-size: 40px;
+            font-weight: 600;
+        }
+        .description {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            .txt-description {
+                max-width: 500px;
+                margin-right: 70px;
+                .title-txt-description {
+                    font-size: 28px;
+                    margin-bottom: 10px;
+                    text-align: justify;
+                    .title-txt-description-income {
+                        color: green;
+                    }
+                    .title-txt-description-expense {
+                        color: red;
+                    }
+                }
+                .paragraphe-description {
+                    font-size: 18px;
+                    color: rgb(48, 48, 48);
+                    text-align: justify;
+                    line-height: 30px;
+                }
+            }
+            .img-description {
+                margin-left: 10px;
+            }
+        }
+        .form-update-user {
+            width: 100%;
+            .container-infos  {
+                border: 1px solid rgb(211, 211, 211);
+                border-radius: 10px;
+                margin-bottom: 30px;
+                height: auto;
+                width: 100%;
+                h4 {
+                    font-size: 25px;
+                    font-weight: 400;
+                    margin: 20px 0px 30px 20px;
+                }
+                .info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid rgb(211, 211, 211);
+                    padding: 20px;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: rgb(241, 241, 241);
+                    }
+                    label {
+                        font-size: 15px;
+                        width: 25%;
+                    }
+                    input {
+                        border: none;
+                        font-size: 18px;
+                        width: 50%;
+                        background-color: transparent;
+                        outline: none;
+                        cursor: pointer;
+                        color: black;
+                    }
+                    #file-img {
+                        min-width: 0px;
+                    }
+                    i {
+                        font-size: 20px;
+                    }
+                }
+                .info.gender-profil, .info.phone-profil {
+                    border-bottom: none;
+                    border-radius: 0px 0px 10px 10px;
+                }
+            }
+            .container-infos.security-information {
+                width: 45%;
+                h4 {
+                    margin-bottom: 10px;
+                    margin-left: 20px;
+                }
+                p {
+                    margin: 0px 0px 10px 20px;
+                }
+                .info.password-profil {
+                    padding: 0px 20px 0px 20px;
+                    border-bottom: none;
+                    border-radius: 0px 0px 10px 10px;
+                    #password-profil {
+                        margin-bottom: 20px;
+                        font-size: 35px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}

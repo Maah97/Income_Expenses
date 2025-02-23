@@ -10,6 +10,7 @@ import ForgotPassword from './pages/forgotPassword.jsx'
 import { VerifyAccount } from './pages/verifyAccount.jsx'
 import { AuthProvider } from "./context/authProvider";
 import ProtectedRoute from "./components/protectedRoute";
+import UserInformation from './pages/userInformation.jsx';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<ConnexionPage />} />
             <Route path="/signUp" element={<SignUpPage />} />
-            <Route path="/resetPassword" element={<ProtectedRoute><ForgotPassword /></ProtectedRoute>} />
+            <Route path="/personal-info" element={<ProtectedRoute><UserInformation /></ProtectedRoute>} />
+            <Route path="/resetPassword" element={<ForgotPassword />} />
             <Route path="/verify/:token" element={<VerifyAccount />} />
             <Route path="/accounts/:id" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
           </Routes>

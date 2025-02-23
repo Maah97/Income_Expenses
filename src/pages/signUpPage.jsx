@@ -6,9 +6,12 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import WaitingConfirmation from "../components/waitingConfirmation"
 import { AuthContext } from "../context/authContext"
+import { format } from "date-fns"
+import { enUS } from "date-fns/locale"
 
 export default function SignUpPage() {
     const { user } = useContext(AuthContext);
+    const date = format(new Date(), "MM/dd/yyyy", { locale: enUS });
     const [passwordVisible, setPasswordVisible] = useState(false)
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false)
     function VisibilityPassword() {
@@ -57,6 +60,7 @@ export default function SignUpPage() {
                 phoneNumber: values.phoneNumber,
                 email: values.email,
                 password: values.password,
+                dateInscription: date
             }).then((response) => {
                 setIsRegistered(true);
                 setEmail(values.email);
