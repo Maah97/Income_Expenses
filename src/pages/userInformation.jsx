@@ -1,9 +1,25 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react'
 import imgPersonalInformation from '../assets/imgPersonnalInformation.webp'
 import { AuthContext } from "../context/authContext"
+import UserNameUpdateForm from "../components/userNameUpdateModal"
+import BirthdayUpdateForm from "../components/birthdayUpdateModal"
+import OccupationUpdateForm from "../components/occupationUpdateModal"
+import GenderUpdateForm from "../components/genderUpdateModal"
+import EmailUpdateForm from "../components/emailUpdateModal"
+import PhoneUpdateForm from "../components/phoneUpdateModal"
+import PasswordUpdateForm from "../components/passwordUpdateModal"
+import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
 
 export default function UserInformation() {
-    const { user } = useContext(AuthContext);
+    const { user } = useContext(AuthContext)
+    const [modalUserName, setModalUserName] = useState(false)
+    const [modalBirthday, setModalBirthday] = useState(false)
+    const [modalOccupation, setModalOccupation] = useState(false)
+    const [modalGender, setModalGender] = useState(false)
+    const [modalEmail, setModalEmail] = useState(false)
+    const [modalPhone, setModalPhone] = useState(false)
+    const [modalPassword, setModalPassword] = useState(false)
+    const [modalProfilPicture, setModalProfilPicture] = useState(false)
     return (
         <div className="container-user-information">
             <div className='user-information'>
@@ -20,56 +36,76 @@ export default function UserInformation() {
                 <form className='form-update-user'>
                     <div className="container-infos general-information">
                         <h4>General informations</h4>
-                        <div className="info picture-profil">
+                        <div onClick={() => setModalProfilPicture(true)} className="info picture-profil">
                             <p>profile picture</p>
-                            <div className='file-img-picture'>
-                                <input id='file-img' type="file" accept="image/*" />
-                            </div>
+                            {
+                                user.pictureProfilUrl 
+                                ? 
+                                <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" /> 
+                                :
+                                <>
+                                    <p>Add a profile picture to personalize your account</p>
+                                    <div className='file-img-picture'>
+                                        <p>{user.userName[0]}</p>
+                                        <div className='icone-camera'>
+                                            <i className="fa-solid fa-camera"></i>
+                                        </div>
+                                    </div>
+                                </>
+                            }
                         </div>
-                        <div className="info username-profil">
-                            <label htmlFor="username">Name</label>
-                            <input type="text" defaultValue={user.userName} disabled />
+                        <div onClick={() => setModalUserName(true)} className="info username-profil">
+                            <p className='label'>Name</p>
+                            <p className='input'>{user.userName}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
-                        <div className="info birthday-profil">
-                            <label htmlFor="birthday">Birthday</label>
-                            <input style={user.birthday ? {color: "black"} : {color: "rgb(163, 163, 163)"}} type="text" defaultValue={user.birthday ? user.birthday : "Put your birhday"} />
+                        <div onClick={() => setModalBirthday(true)} className="info birthday-profil">
+                            <p className='label'>Birthday</p>
+                            <p className='input' style={user.birthDay ? {color: "black"} : {color: "rgb(163, 163, 163)"}}>{user.birthDay ? user.birthDay : "Put your birhday"}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
-                        <div className="info occupation-profil">
-                            <label htmlFor="occupation">Occupation</label>
-                            <input style={user.occupation ? {color: "black"} : {color: "rgb(163, 163, 163)"}} type="text" defaultValue={user.occupation ? user.occupation : "Put your occupation"} />
+                        <div onClick={() => setModalOccupation(true)} className="info occupation-profil">
+                            <p className='label'>Occupation</p>
+                            <p className='input' style={user.occupation ? {color: "black"} : {color: "rgb(163, 163, 163)"}}>{user.occupation ? user.occupation : "Put your occupation"}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
-                        <div className='info gender-profil'>
-                            <label htmlFor="gender">Gender</label>
-                            <input type="text" defaultValue={user.gender} />
+                        <div onClick={() => setModalGender(true)} className='info gender-profil'>
+                            <p className='label'>Gender</p>
+                            <p className='input'>{user.gender}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
                     </div>
                     <div className="container-infos general-information">
                         <h4>Contact details</h4>
-                        <div className="info email-address-profil">
-                            <label htmlFor="email">Email address</label>
-                            <input type="email" defaultValue={user.email} />
+                        <div onClick={() => setModalEmail(true)} className="info email-address-profil">
+                            <p className='label'>Email address</p>
+                            <p className='input'>{user.email}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
-                        <div className="info phone-profil">
-                            <label htmlFor="phone">Phone</label>
-                            <input style={user.phoneNumber ? {color: "black"} : {color: "rgb(163, 163, 163)"}} type="text" defaultValue={user.phoneNumber ? user.phoneNumber : "Put your phone number"} />
+                        <div onClick={() => setModalPhone(true)} className="info phone-profil">
+                            <p className='label'>Phone</p>
+                            <p style={user.phoneNumber ? {color: "black"} : {color: "rgb(163, 163, 163)"}} className='input'>{user.phoneNumber ? user.phoneNumber : "Put your phone number"}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
                     </div>
                     <div className="container-infos security-information">
                         <h4>Password</h4>
                         <p>A strong password contribute to helps protect your account</p>
-                        <div className="info password-profil">
-                            <input id='password-profil' type="text" defaultValue="........." />
+                        <div onClick={() => setModalPassword(true)} className="info password-profil">
+                            <p id='password-profil' className='input'>........</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
                     </div>
                 </form>
             </div>
+            <UserNameUpdateForm name={user.userName} isOpen={modalUserName} setIsOpen={setModalUserName} />
+            <BirthdayUpdateForm birthday={user.birthday} isOpen={modalBirthday} setIsOpen={setModalBirthday} />
+            <OccupationUpdateForm occupation={user.occupation} isOpen={modalOccupation} setIsOpen={setModalOccupation} />
+            <GenderUpdateForm gender={user.gender} isOpen={modalGender} setIsOpen={setModalGender} />
+            <EmailUpdateForm email={user.email} isOpen={modalEmail} setIsOpen={setModalEmail} />
+            <PhoneUpdateForm phone={user.phoneNumber} isOpen={modalPhone} setIsOpen={setModalPhone} />
+            <PasswordUpdateForm isOpen={modalPassword} setIsOpen={setModalPassword} />
+            <ProfilPictureUpdateForm name={user.userName} isOpen={modalProfilPicture} setIsOpen={setModalProfilPicture} />
         </div>
     )
 }

@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
         } finally {
             setLoading(false)
         }
-    };
+    }
     useEffect(() => {
         fetchUserData()
     }, [])
@@ -55,6 +55,7 @@ export const AuthProvider = ({ children }) => {
         );
         setUser(null);
     }
+
     return (
         <AuthContext.Provider value={{ user, setUser, login, message, logout, loading }}>
         {children}

@@ -74,6 +74,31 @@ header {
                     width: 22px;
                     height: 22px;
                 }
+                .picture-profil {
+                    p {
+                        font-size: 25px;
+                        font-weight: 600;
+                        background-color: rgb(112, 78, 206);
+                        border-radius: 9999px;
+                        width: 40px;
+                        height: 40px;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+            .navigation.active-account {
+                &:hover {
+                    background-color: transparent;
+                    border-radius: none;
+                }
+                .img-profil-picture {
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 9999px;
+                }
             }
             #selectLangage {
                 border: none;
@@ -180,21 +205,29 @@ header {
                     justify-content: center;
                     align-items: center;
                 }
+                input {
+                    display: none;
+                }
                 .icone-modification {
                     position: relative;
-                    top: -22px;
-                    left: 70%;
+                    top: -27px;
+                    left: 67%;
                     background-color: white;
                     border-radius: 9999px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 20px;
-                    height: 20px;
+                    width: 27px;
+                    height: 27px;
                     cursor: pointer;
                     i {
-                        font-size: 10px;
+                        font-size: 17px;
                     }
+                }
+                .img-profil-picture {
+                    border-radius: 9999px;
+                    width: 80px;
+                    height: 80px;
                 }
             }
             p {

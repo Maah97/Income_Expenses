@@ -64,16 +64,18 @@
                     justify-content: space-between;
                     align-items: center;
                     border-bottom: 1px solid rgb(211, 211, 211);
-                    padding: 20px;
+                    padding: 20px 30px 20px 20px;
                     cursor: pointer;
                     &:hover {
                         background-color: rgb(241, 241, 241);
                     }
-                    label {
+                    .label {
                         font-size: 15px;
                         width: 25%;
+                        font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+                        cursor: pointer;
                     }
-                    input {
+                    .input {
                         border: none;
                         font-size: 18px;
                         width: 50%;
@@ -81,12 +83,60 @@
                         outline: none;
                         cursor: pointer;
                         color: black;
+                        font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
                     }
                     #file-img {
                         min-width: 0px;
                     }
                     i {
                         font-size: 20px;
+                        color: rgb(77, 77, 77);
+                    }
+                }
+                .info.picture-profil {
+                    padding: 0px 30px 0px 20px;
+                    label {
+                        width: auto;
+                    }
+                    .file-img-picture {
+                        margin-top: 20px;
+                        p {
+                            font-size: 35px;
+                            font-weight: 600;
+                            background-color: rgb(112, 78, 206);
+                            border-radius: 9999px;
+                            width: 60px;
+                            height: 60px;
+                            color: white;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+                        .icone-camera {
+                            position: relative;
+                            top: -25px;
+                            left: 3%;
+                            background-color: rgba(0, 0, 0, 0.24);
+                            width: 56px;
+                            height: 25px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 0px 0px 9999px 9999px;
+                            i {
+                                font-size: 15px;
+                                color: rgb(224, 224, 224);
+                            }
+                        }
+                    }
+                    .img-profil-picture {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        border-radius: 9999px;
+                        width: 60px;
+                        height: 60px;
+                        cursor: pointer;
                     }
                 }
                 .info.gender-profil, .info.phone-profil {
@@ -111,6 +161,7 @@
                         margin-bottom: 20px;
                         font-size: 35px;
                         font-weight: 600;
+                        margin-left: 0px;
                     }
                 }
             }

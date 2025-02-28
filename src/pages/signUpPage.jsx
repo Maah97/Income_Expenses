@@ -28,12 +28,12 @@ export default function SignUpPage() {
             setConfirmPasswordVisible(true)
         }
     }
-    // preparation  de formik
-    const emailregExp = new RegExp("[a-z0-9._-]+@[a-z]+\\.[a-z]+$");
-    const passwordPresenceChiffre = new RegExp("[0-9]{1}");
-    const passwordPresenceMinuscule = new RegExp("[a-z]{1}");
-    const passwordPresenceMajuscule = new RegExp("[A-Z]{1}");
-    const passwordAbsenceCaractereSpeciaux = new RegExp("[\\ \\+\\\\%\\*\\#\\~\\)\\(\\ù\\=\\.\\;\\§\\£\\µ\\²\\ç\\/\\°\\<\\>\\`\\'\\\"\\^\\¨\\||\\{\\}\\[\\]\\?\\:\\,\\à\\è\\é\\ù]");
+    // preparation  de formik avec les regex
+    const emailregExp = new RegExp("[a-z0-9._-]+@[a-z]+\\.[a-z]+$")
+    const passwordPresenceChiffre = new RegExp("[0-9]{1}")
+    const passwordPresenceMinuscule = new RegExp("[a-z]{1}")
+    const passwordPresenceMajuscule = new RegExp("[A-Z]{1}")
+    const passwordAbsenceCaractereSpeciaux = new RegExp("[\\ \\+\\\\%\\*\\#\\~\\)\\(\\ù\\=\\.\\;\\§\\£\\µ\\²\\ç\\/\\°\\<\\>\\`\\'\\\"\\^\\¨\\||\\{\\}\\[\\]\\?\\:\\,\\à\\è\\é\\ù]")
     const initialValues = {
         userName: "",
         birthday: "",
@@ -49,12 +49,11 @@ export default function SignUpPage() {
     const [isRegistered, setIsRegistered] = useState(false);
     const [email, setEmail] = useState("");
     const onSubmit =  async (values, { resetForm }) => {
-        if (loading) return
-        setLoading(true)
+        if (loading) return setLoading(true)
         try {
             await axios.post('http://localhost:3000/api/auth/signup',{
                 userName: values.userName,
-                birthDay: values.birthDay,
+                birthDay: values.birthday,
                 gender: values.gender,
                 occupation: values.occupation,
                 phoneNumber: values.phoneNumber,
@@ -134,7 +133,6 @@ export default function SignUpPage() {
         onSubmit,
         validate
     })
-
     if (isRegistered) return <WaitingConfirmation userEmail={email} />;
 
     return (
@@ -151,8 +149,8 @@ export default function SignUpPage() {
                     <label htmlFor="gender">Gender <span>*</span></label>
                     <select name="gender" id="gender" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.gender} required>
                         <option value="">-- choose</option>
-                        <option value="Man">MALE</option>
-                        <option value="Woman">FEMALE</option>
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
                     </select>
                     {formik.touched.gender && formik.errors.gender ? <p className='msg-error'>{formik.errors.gender}</p> : null}
                     <label htmlFor="occupation">Occcupation</label>
@@ -165,7 +163,12 @@ export default function SignUpPage() {
                         }}
                         enableSearch={true}
                         placeholder="Enter your phone number"
-                        onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.phoneNumber}
+                        onBlur={formik.handleBlur} 
+                        onChange={(value) => {
+                                formik.setFieldValue("phoneNumber", value)
+                            }
+                        }
+                        value={formik.values.phoneNumber}
                     />
                     <p id="note">Note : Fields with asterisks are required.</p>
                 </div>

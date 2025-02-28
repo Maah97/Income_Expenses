@@ -5,6 +5,7 @@ import { useState, useContext, useEffect } from 'react'
 import { HashLink } from 'react-router-hash-link'
 import { useNavigate, NavLink } from 'react-router-dom'
 import { AuthContext } from "../context/authContext"
+import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
 
 
 export default function Header() {
@@ -12,6 +13,7 @@ export default function Header() {
     const navigate = useNavigate()
     const [selectLangage, setSelectLanage] = useState('en')
     const [theme, setTheme] = useState(true)
+    const [modalProfilPicture, setModalProfilPicture] = useState(false)
     function changeLangage() {
         if (selectLangage === 'en') {
             setSelectLanage('fr')
@@ -74,7 +76,22 @@ export default function Header() {
                     </div>
                     <span onClick={() => {setTheme(!theme)}} className='navigation'>Theme <i className={`fa-solid fa-${theme === true ? 'sun' : 'moon'}`}></i></span>
                     <HashLink to="/#contact" className='navigation' href='#'>Contact</HashLink>
-                    <span onClick={() => AddClassActive()} id='user' className='navigation' href='#'><i className="fa-solid fa-user"></i></span>
+                    <span onClick={() => AddClassActive()} id='user' className={user ? 'navigation active-account' : 'navigation'} href='#'>
+                        { user 
+                            ?
+                            (   
+                                user.pictureProfilUrl 
+                                ? 
+                                <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" /> 
+                                : 
+                                <div className='picture-profil'>
+                                    <p>{user.userName[0]}</p>
+                                </div>  
+                            )
+                            : 
+                            <i className="fa-solid fa-user"></i>
+                        }
+                    </span>
                 </nav>
             </div>
             <div className='log'>
@@ -88,11 +105,19 @@ export default function Header() {
                                 <i className="fa-solid fa-xmark"></i>
                             </div>
                         </div>
-                        <div className='picture-profil'>
-                            <p>{user.userName[0]}</p>
-                            <div className='icone-modification'>
-                                <i className="fa-solid fa-pencil"></i>
-                            </div>
+                        <div onClick={() => setModalProfilPicture(true)} className='picture-profil'>
+                            {
+                                user.pictureProfilUrl
+                                ?
+                                <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" />
+                                :
+                                <>
+                                    <p>{user.userName[0]}</p>
+                                    <div className='icone-modification'>
+                                        <i className="fa-solid fa-pencil"></i>
+                                    </div>
+                                </>
+                            }
                         </div>
                         <p>Welcome {user.userName} !</p>
                         <NavLink  to="/personal-info" className='manage-your-account'>
@@ -109,11 +134,13 @@ export default function Header() {
                             </div>
                         </div>
                         <div className='account-verification'>{user.verified ? <p className='txt'>Your account is verified</p> : "Account not verified"}</div>
+                        <ProfilPictureUpdateForm name={user.userName} isOpen={modalProfilPicture} setIsOpen={setModalProfilPicture} />
                     </div>
                     :
                     <NavLink to="/login" className="button">Log In</NavLink>
                 }
             </div>
+            
         </header>
     )
 }
