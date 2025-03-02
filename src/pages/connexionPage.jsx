@@ -57,7 +57,7 @@ export default function ConnexionPage() {
                 </div>
                 <div className="btn">
                     <button type="submit">Log In</button>
-                    <NavLink className="link-to-reset-password" to="/resetPassword">Forgot password ?</NavLink>
+                    <NavLink className="link-to-reset-password" to="/forgotPassword">Forgot password ?</NavLink>
                 </div>
                 {message === "" ? null : <p className="msg-error-existing-email">{message}</p>}
                 <p className="link-redirection-to-signup">You don&apos;t have an account ? <NavLink className="link-to-signup" to="/signUp">Sign Up</NavLink></p>

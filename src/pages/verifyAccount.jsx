@@ -32,7 +32,7 @@ export function VerifyAccount() {
     const resendEmail = async () => {
         setLoading(true);
         try {
-          const response = await axios.post("http://localhost:3000/api/auth/resendMail", { email: email });
+          const response = await axios.post("http://localhost:3000/api/auth/resendMailVerification", { email: email });
           setMessageResend(response.data.message);
         } catch (error) {
           setMessageResend(error.response.data.message);
