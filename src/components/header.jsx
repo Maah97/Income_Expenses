@@ -9,7 +9,7 @@ import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
 
 
 export default function Header() {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logout, getColorFromLetter } = useContext(AuthContext);
     const navigate = useNavigate()
     const [selectLangage, setSelectLanage] = useState('en')
     const [theme, setTheme] = useState(true)
@@ -84,8 +84,8 @@ export default function Header() {
                                 ? 
                                 <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" /> 
                                 : 
-                                <div className='picture-profil'>
-                                    <p>{user.userName[0]}</p>
+                                <div style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}} className='picture-profil'>
+                                    <p>{user.userName[0].toUpperCase()}</p>
                                 </div>  
                             )
                             : 
@@ -112,7 +112,7 @@ export default function Header() {
                                 <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" />
                                 :
                                 <>
-                                    <p>{user.userName[0]}</p>
+                                    <p style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}}>{user.userName[0].toUpperCase()}</p>
                                     <div className='icone-modification'>
                                         <i className="fa-solid fa-pencil"></i>
                                     </div>

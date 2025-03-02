@@ -7,6 +7,13 @@ export const AuthProvider = ({ children }) => {
     const [message, setMessage] = useState("")
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const getColorFromLetter = (letter) => {
+        // Convertir la lettre en minuscule et obtenir son code ASCII
+        const charCode = letter.toLowerCase().charCodeAt(0);
+        // Générer une couleur en fonction du code ASCII (ex: 'a' = 97, 'z' = 122)
+        const hue = ((charCode - 97) / 25) * 360; // Répartir sur 360° pour la teinte
+        return `hsl(${hue}, 70%, 30%)`; // Teinte variable, saturation et luminosité fixes
+    }
     const fetchUserData = async () => {
         try {
             const response = await axios.get("http://localhost:3000/api/auth/user", {
@@ -57,7 +64,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user, setUser, login, message, logout, loading }}>
+        <AuthContext.Provider value={{ user, setUser, login, message, logout, loading, getColorFromLetter }}>
         {children}
         </AuthContext.Provider>
     )

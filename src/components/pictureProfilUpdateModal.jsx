@@ -6,7 +6,7 @@ import { AuthContext } from "../context/authContext"
 import { useContext, useState } from 'react'
 
 export default function ProfilPictureUpdateForm(props) {
-    const { user } = useContext(AuthContext)
+    const { user, getColorFromLetter } = useContext(AuthContext)
     const [preview, setPreview] = useState(null);
     // creation fonction pour la verification du type d'image
     function fileTypeVerification(file) {
@@ -96,7 +96,7 @@ export default function ProfilPictureUpdateForm(props) {
                     {
                         user.pictureProfilUrl === "" 
                         ?
-                        (preview ? <img className='img-picture-profil' src={preview} alt="picture-profil" /> : <p className='first-picture-profil'>{props.name[0]}</p>)
+                        (preview ? <img className='img-picture-profil' src={preview} alt="picture-profil" /> : <p style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}} className='first-picture-profil'>{props.name[0].toUpperCase()}</p>)
                         :
                         (preview ? <img className='img-picture-profil' src={preview} alt="picture-profil" /> : <img className='img-picture-profil' src={user.pictureProfilUrl} alt="picture-profil" />)
                     }

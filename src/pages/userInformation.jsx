@@ -11,7 +11,7 @@ import PasswordUpdateForm from "../components/passwordUpdateModal"
 import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
 
 export default function UserInformation() {
-    const { user } = useContext(AuthContext)
+    const { user, getColorFromLetter } = useContext(AuthContext)
     const [modalUserName, setModalUserName] = useState(false)
     const [modalBirthday, setModalBirthday] = useState(false)
     const [modalOccupation, setModalOccupation] = useState(false)
@@ -46,7 +46,7 @@ export default function UserInformation() {
                                 <>
                                     <p>Add a profile picture to personalize your account</p>
                                     <div className='file-img-picture'>
-                                        <p>{user.userName[0]}</p>
+                                        <p style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}}>{user.userName[0].toUpperCase()}</p>
                                         <div className='icone-camera'>
                                             <i className="fa-solid fa-camera"></i>
                                         </div>

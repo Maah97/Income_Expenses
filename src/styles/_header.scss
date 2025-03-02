@@ -75,11 +75,10 @@ header {
                     height: 22px;
                 }
                 .picture-profil {
+                    border-radius: 9999px;
                     p {
                         font-size: 25px;
                         font-weight: 600;
-                        background-color: rgb(112, 78, 206);
-                        border-radius: 9999px;
                         width: 40px;
                         height: 40px;
                         color: white;
@@ -196,7 +195,6 @@ header {
                 p {
                     font-size: 40px;
                     font-weight: 600;
-                    background-color: rgb(112, 78, 206);
                     border-radius: 9999px;
                     width: 80px;
                     height: 80px;
