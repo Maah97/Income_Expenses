@@ -141,6 +141,21 @@
         .link-redirection-to-signup {
             margin-bottom: 30px;
         }
+        .btn-send-mail-confirmation {
+            padding: 10px;
+            border-radius: 10px;
+            outline: none;
+            font-size: 17px;
+            font-weight: 700;
+            margin-top: 15px;
+            border: 2px solid rgb(221, 0, 0);
+            background-color: rgb(255, 230, 230);
+            cursor: pointer;
+            font-family: Varela Round, Geoligica, Verdana, Geneva, Tahoma, sans-serif;
+            &:hover {
+                background-color: rgb(255, 190, 190);
+            }
+        }
     }
     .msg-error-send {
         font-weight: 500;

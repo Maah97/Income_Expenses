@@ -4,14 +4,14 @@ import axios from "axios"
 
 export default function WaitingConfirmation(props) {
     const [loading, setLoading] = useState(false);
-    const [messageResend, setMessageResend] = useState("");
+    const [messageResend, setMessageResend] = useState("")
     const resendEmail = async () => {
         setLoading(true);
         try {
-          const response = await axios.post("http://localhost:3000/api/auth/resendMail", { email: props.userEmail });
+          const response = await axios.post("http://localhost:3000/api/auth/resendMailVerification", { email: props.userEmail });
           setMessageResend(response.data.message);
         } catch (error) {
-          setMessageResend("❌ Error sending email");
+          setMessageResend(error.response.data.message);
           console.error(error);
         } finally {
             setLoading(false);

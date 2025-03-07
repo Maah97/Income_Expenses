@@ -2,9 +2,11 @@ import { useState, useContext } from "react"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik'
 import { AuthContext } from "../context/authContext"
+import WaitingConfirmation from "../components/waitingConfirmation"
 
 export default function ConnexionPage() {
     const navigate = useNavigate()
+    const [isRegistered, setIsRegistered] = useState(false)
     const { login, message } = useContext(AuthContext);
     const [passwordVisible, setPasswordVisible] = useState(false)
     const initialValues = {
@@ -42,6 +44,7 @@ export default function ConnexionPage() {
             setPasswordVisible(true)
         }
     }
+    if (isRegistered) return <WaitingConfirmation userEmail={formik.values.email} />
     return (
         <div className="connexion-page">
             <p>Log In</p>
@@ -59,7 +62,7 @@ export default function ConnexionPage() {
                     <button type="submit">Log In</button>
                     <NavLink className="link-to-reset-password" to="/forgotPassword">Forgot password ?</NavLink>
                 </div>
-                {message === "" ? null : <p className="msg-error-existing-email">{message}</p>}
+                {message === "" ? null : message === "Incorrect email / password pair" ? <p className="msg-error-existing-email">{message}</p> : <><p className="msg-error-existing-email">{message}</p><button className="btn-send-mail-confirmation" onClick={() => setIsRegistered(true)}>Send confirmation email</button></>}
                 <p className="link-redirection-to-signup">You don&apos;t have an account ? <NavLink className="link-to-signup" to="/signUp">Sign Up</NavLink></p>
             </form>
         </div>

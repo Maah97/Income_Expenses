@@ -121,7 +121,7 @@ export default function SignUpPage() {
             errors.password = 'Password must not contain special characters except : @, _, -, !, $, &'
         }
         if (!values.repeatPassword) {
-            errors.repeatPassword = 'Confirm your password'
+            errors.repeatPassword = 'You must confirm your password'
         }
         if (values.password !== values.repeatPassword) {
             errors.repeatPassword = 'Passwords do not match'
@@ -133,7 +133,7 @@ export default function SignUpPage() {
         onSubmit,
         validate
     })
-    if (isRegistered) return <WaitingConfirmation userEmail={email} />;
+    if (isRegistered) return <WaitingConfirmation userEmail={email} />
 
     return (
         <div className="signUp-page">
@@ -194,7 +194,7 @@ export default function SignUpPage() {
                 <div className="btn">
                     <button type="submit">Sign Up</button>
                 </div>
-                {message === "" ? null : <p className="msg-error-existing-email">Registration failed because this email is already in use. Change this Email and retry.</p>}
+                {message === "This email is already in use." ? <p className="msg-error-existing-email">Registration failed because this email is already in use. Change this Email and retry.</p> : null}
                 <p id="question-logIn">You have an account ? <NavLink className="link-to-signup" to="/login">Log In</NavLink></p>
             </form>
         </div>
