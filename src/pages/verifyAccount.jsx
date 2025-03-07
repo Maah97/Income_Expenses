@@ -11,7 +11,7 @@ export function VerifyAccount() {
     const [email, setEmail] = useState("");
     const [messageResend, setMessageResend] = useState("");
     useEffect(() => {
-        axios.get(`http://localhost:3000/api/auth/verify/${token}`)
+        axios.get(`${import.meta.env.VITE_BASE_URL_USER}/verify/${token}`)
         .then((response) => {
             if (response.data.message === true) {
               setMessage("Your account is now active ! Click to the link bellow you will be redirected to the login page");
@@ -32,7 +32,7 @@ export function VerifyAccount() {
     const resendEmail = async () => {
         setLoading(true);
         try {
-          const response = await axios.post("http://localhost:3000/api/auth/resendMailVerification", { email: email });
+          const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/resendMailVerification`, { email: email });
           setMessageResend(response.data.message);
         } catch (error) {
           setMessageResend(error.response.data.message);

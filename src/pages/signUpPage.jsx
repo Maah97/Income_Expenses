@@ -51,7 +51,7 @@ export default function SignUpPage() {
     const onSubmit =  async (values, { resetForm }) => {
         if (loading) return setLoading(true)
         try {
-            await axios.post('http://localhost:3000/api/auth/signup',{
+            await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/signup`,{
                 userName: values.userName,
                 birthDay: values.birthday,
                 gender: values.gender,

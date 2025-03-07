@@ -20,7 +20,7 @@ export default function ForgotPassword() {
     const onSubmit = async (values) => {
         setLoading(false);
         try {
-            const response = await axios.post("http://localhost:3000/api/auth/sendMailResetPassword", { email: values.email });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/sendMailResetPassword`, { email: values.email });
             setMessage(response.data.message);
             setLoading(true);
             localStorage.setItem("email", values.email);

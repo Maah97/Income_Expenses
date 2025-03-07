@@ -8,7 +8,7 @@ export default function WaitingConfirmation(props) {
     const resendEmail = async () => {
         setLoading(true);
         try {
-          const response = await axios.post("http://localhost:3000/api/auth/resendMailVerification", { email: props.userEmail });
+          const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/resendMailVerification`, { email: props.userEmail });
           setMessageResend(response.data.message);
         } catch (error) {
           setMessageResend(error.response.data.message);

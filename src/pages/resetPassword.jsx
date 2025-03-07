@@ -60,7 +60,7 @@ export default function ResetPassword() {
     }
     const onSubmit = async (values) => {
         try {
-            const response = await axios.post(`http://localhost:3000/api/auth/resetPassword/${token}`, { email: values.email, newPassword: values.password });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/resetPassword/${token}`, { email: values.email, newPassword: values.password });
             setMessage(response.data.message);
             localStorage.removeItem("email");
         } catch (error) {

@@ -19,7 +19,7 @@ export default function EmailUpdateForm(props) {
     }
     const onSubmit =  async (values, { resetForm }) => {
         try {
-            await axios.put('http://localhost:3000/api/auth/updateUser', 
+            await axios.put(`${import.meta.env.VITE_BASE_URL_USER}/updateUser`, 
                 {info: "email", data: values.email}, 
                 { withCredentials: true }
             ).then(() => {
