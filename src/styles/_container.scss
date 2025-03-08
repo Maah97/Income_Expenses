@@ -43,13 +43,22 @@
             align-items: center;
             padding: 50px;
             gap: 50px;
-            img {
-                margin: 200px 200px 0px 200px;
-                filter: opacity(0.3);
-            }
-            .no-account {
-                text-align: center;
-                margin: 0px 200px 200px 200px;
+            .img-no-account {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin: 0px auto;
+                img {
+                    filter: opacity(0.6);
+                    width: 500px;
+                }
+                .no-account {
+                    font-size: 30px;
+                    margin-top: 20px;
+                    text-align: center;
+                    font-style: italic;
+                }
             }
         }
     }

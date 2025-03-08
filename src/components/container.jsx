@@ -47,7 +47,7 @@ export default function Container() {
                     {
                         accounts.length > 0 ? accounts.map(account => {
                             return <Account key={account.id} account={account} />
-                        }) : <div><img src={imgContainerAccount} alt="" />
+                        }) : <div className='img-no-account'><img src={imgContainerAccount} alt="" />
                         <p className='no-account'>No account available</p></div>
                     }
                 </div>
@@ -61,7 +61,7 @@ export default function Container() {
                 <h1>Create your account</h1>
                 <form onSubmit={formik.handleSubmit}>
                     <label htmlFor="nameAccount">Name</label>
-                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} name='nameAccount' id='nameAccount' placeholder='Enter the name account' type="text" />
+                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} name='nameAccount' id='nameAccount' placeholder='Enter the name account (Example : Expenses for the month of March)' type="text" />
                     {formik.touched.nameAccount && formik.errors.nameAccount ? <p id='msg-error-name'>{formik.errors.nameAccount}</p> : null}
                     <label htmlFor="descriptionAccount">Description</label>
                     <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.descriptionAccount} name='descriptionAccount' id='descriptionAccount' placeholder='Enter the description account' type="text" />
