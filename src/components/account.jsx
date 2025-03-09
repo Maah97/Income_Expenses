@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 export default function Account({account}) {
     return (
-        <NavLink onClick={() => window.scrollTo(0, 0)} to={'/accounts/' + account.id}className="account">
+        <NavLink onClick={() => window.scrollTo(0, 0)} to={'/accounts/' + account._id}className="account">
             <div className='space'></div>
             <div className="account-header">
-                <h2>{account.name}</h2>
-                <p>Create at : {account.date}</p>
+                <h2>{account.nameAccount}</h2>
+                <p>Create at : {account.createDate}</p>
                 <p>Modify at : 20/01/2025</p>
             </div>
         </NavLink>
@@ -16,9 +16,9 @@ export default function Account({account}) {
 
 Account.propTypes = {
     account: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+        nameAccount: PropTypes.string.isRequired,
         description: PropTypes.string,
-        date: PropTypes.string
+        createDate: PropTypes.string
     }).isRequired
 };       

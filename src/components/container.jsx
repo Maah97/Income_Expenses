@@ -1,23 +1,29 @@
 import Modal from 'react-modal'
 import imgContainerAccount from '../assets/imgIncomeExpenses.webp'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useFormik } from 'formik'
 import Account from './account'
-import accounts from '../account.json' // replace by a call API for get all accounts
 Modal.setAppElement('#root')
+import { AccountContext } from "../context/accountContext"
 
 export default function Container() {
+    const { createAccount, message, accounts } = useContext(AccountContext)
     const [isOpen, setIsOpen] = useState(false)
     const date = new Date()
+    const dateAccount = `${date.getDate()}/0${date.getMonth()+1}/${date.getFullYear()} à ${date.getHours()}:${date.getMinutes()}`
     const initialValues = {
         nameAccount: '',
         descriptionAccount: '',
-        date: `${date.getDate()}/0${date.getMonth()+1}/${date.getFullYear()} à ${date.getHours()}:${date.getMinutes()}`
     }
-    const onSubmit =  values => {
-        // call API to create a account
-        setIsOpen(false)
-        console.log(values)
+    const onSubmit = async (values, { resetForm }) => {
+        const account = await createAccount(values.nameAccount, values.descriptionAccount, dateAccount)
+        if (account) {
+            setIsOpen(false)
+            resetForm()
+        } else {
+            setIsOpen(true)
+        }
+        console.log(message);
     }
     const validate = values => {
         let errors = {}
@@ -46,7 +52,7 @@ export default function Container() {
                 <div className="container-account">
                     {
                         accounts.length > 0 ? accounts.map(account => {
-                            return <Account key={account.id} account={account} />
+                            return <Account key={account._id} account={account} />
                         }) : <div className='img-no-account'><img src={imgContainerAccount} alt="" />
                         <p className='no-account'>No account available</p></div>
                     }
@@ -61,16 +67,19 @@ export default function Container() {
                 <h1>Create your account</h1>
                 <form onSubmit={formik.handleSubmit}>
                     <label htmlFor="nameAccount">Name</label>
-                    <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} name='nameAccount' id='nameAccount' placeholder='Enter the name account (Example : Expenses for the month of March)' type="text" />
+                    <input className='input-txt' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} name='nameAccount' id='nameAccount' placeholder='Enter the name account (Example : Expenses for the month of March)' type="text" />
                     {formik.touched.nameAccount && formik.errors.nameAccount ? <p id='msg-error-name'>{formik.errors.nameAccount}</p> : null}
                     <label htmlFor="descriptionAccount">Description</label>
-                    <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.descriptionAccount} name='descriptionAccount' id='descriptionAccount' placeholder='Enter the description account' type="text" />
+                    <textarea className='input-txt' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.descriptionAccount} name='descriptionAccount' id='descriptionAccount' placeholder='Enter the description account' type="text" />
                     {formik.touched.descriptionAccount && formik.errors.descriptionAccount ? <p id='msg-error-description'>{formik.errors.descriptionAccount}</p> : null}
                     <div className='btn-ok-cancel'>
                         <button type='submit' className='ok'>Ok</button>
                         <button onClick={() => setIsOpen(false)} className='cancel'>Cancel</button>
                     </div>
                 </form>
+                {
+                    message === "" ? null : <p className='error-msg'>{message}</p>
+                }
             </Modal>
         </section>
     )

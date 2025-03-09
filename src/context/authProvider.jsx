@@ -16,10 +16,10 @@ export const AuthProvider = ({ children }) => {
     }
     const fetchUserData = async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_BASE_URL_USER}/getOneUser`, {
+            const response = await axios.get(`${import.meta.env.VITE_BASE_URL_USER}`, {
                 withCredentials: true,
             })
-            setUser(response.data);
+            setUser(response.data)
         } catch {
             setUser(null)
         } finally {
