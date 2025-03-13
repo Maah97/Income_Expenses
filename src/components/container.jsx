@@ -7,7 +7,7 @@ Modal.setAppElement('#root')
 import { AccountContext } from "../context/accountContext"
 
 export default function Container() {
-    const { createAccount, message, accounts } = useContext(AccountContext)
+    const { createAccount, message, accounts, reload, setReload } = useContext(AccountContext)
     const [isOpen, setIsOpen] = useState(false)
     const date = new Date()
     const dateAccount = `${date.getDate()}/0${date.getMonth()+1}/${date.getFullYear()} à ${date.getHours()}:${date.getMinutes()}`
@@ -20,6 +20,7 @@ export default function Container() {
         if (account) {
             setIsOpen(false)
             resetForm()
+            setReload(!reload)
         } else {
             setIsOpen(true)
         }

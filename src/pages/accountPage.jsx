@@ -165,8 +165,8 @@ export default function AccountPage() {
                         : null
                 }
             </div>
-            <IncomeForm isOpen={modalIncome} setIsOpen={setModalIncome} />
-            <ExpenseForm isOpen={modalExpense} setIsOpen={setModalExpense} />
+            <IncomeForm id={id} isOpen={modalIncome} setIsOpen={setModalIncome} />
+            <ExpenseForm id={id} isOpen={modalExpense} setIsOpen={setModalExpense} />
         </section>
     )
 }

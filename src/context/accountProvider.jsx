@@ -7,6 +7,7 @@ import { useEffect } from "react"
 export const AccountProvider = ({ children }) => {
     const [accounts, setAccounts] = useState([])
     const [message, setMessage] = useState("")
+    const [reload, setReload] = useState(false)
     const fetchAccounts = async () => {
         try {
             const response = await axios.get(`${import.meta.env.VITE_BASE_URL_ACCOUNT}`,
@@ -18,16 +19,16 @@ export const AccountProvider = ({ children }) => {
         }
         
     }
+    
     useEffect(() => {
         fetchAccounts()
-    }, [])
+    }, [reload])
     const createAccount = async (name, description, date) => {
         try {
             const response = await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}`, 
                 { name: name, description: description, date: date },
                 { withCredentials: true })
             setMessage(response.data.message)
-            console.log(response);
             return true
         } catch (error) {
             document.querySelectorAll("label").forEach((label) => {
@@ -51,8 +52,28 @@ export const AccountProvider = ({ children }) => {
             return false
         }
     }
+    const createIncomeExpense = async (id, type, values) => {
+        const incomeExpense = {
+            type : type,
+            amount : values.amount,
+            category: values.category,
+            paymentMode : values.paymentMode,
+            remark : values.remark,
+            date : values.date,
+            hour : values.hour
+        }
+        try {
+            await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${id}/incomeExpense`,
+                incomeExpense,
+                { withCredentials: true }
+            )
+        } catch (error) {
+            console.log(error);
+            
+        }
+    }
     return (
-        <AccountContext.Provider value={{ createAccount, message, accounts }}>
+        <AccountContext.Provider value={{ createAccount, message, accounts, createIncomeExpense, setReload, reload }}>
         {children}
         </AccountContext.Provider>
     )

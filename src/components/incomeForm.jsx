@@ -1,31 +1,35 @@
 import PropTypes from 'prop-types'
+import { useContext } from "react"
 import Modal from 'react-modal'
 import { useFormik } from 'formik'
+import { AccountContext } from "../context/accountContext"
 
 export default function IncomeForm(props) {
+    const { createIncomeExpense, reload, setReload } = useContext(AccountContext)
     const initialValues = {
         income: props.iE ? props.iE.amount : '',
-        categoryIncome: props.iE ? props.iE.category : '',
+        category: props.iE ? props.iE.category : '',
         paymentMode: props.iE ? props.iE.paymentMode : '',
         remark: props.iE ? props.iE.remark : '',
         date: props.iE ? props.iE.date : '',
         hour: props.iE ? props.iE.hour : '',
     }
     const onSubmit =  values => {
-        // call API to create a income
+        const type = "income"
+        createIncomeExpense(props.id, type, values)
         props.setIsOpen(false)
-        console.log(values)
+        setReload(!reload)
     }
     const validate = values => {
         let errors = {}
-        if (!values.income) {
-            errors.income = 'You must enter your income account'
+        if (!values.amount) {
+            errors.amount = 'You must enter your income amount'
         }
-        if (isNaN(values.income)) {
-            errors.income = 'You must enter a number'
+        if (isNaN(values.amount)) {
+            errors.amount = 'You must enter a number'
         }
-        if (!values.categoryIncome) {
-            errors.categoryIncome = 'You must enter the category of the income'
+        if (!values.category) {
+            errors.category = 'You must enter the category of the income'
         }
         if (!values.paymentMode) {
             errors.paymentMode = 'You must enter the payment mode'
@@ -61,11 +65,11 @@ export default function IncomeForm(props) {
                 </div>
             </div>
             <form onSubmit={formik.handleSubmit}>
-                <label className="label-income" htmlFor="income">Income</label>
-                <input name='income' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.income} placeholder="Enter your income amount" className="input-income" type="text" />
-                {formik.touched.income && formik.errors.income ? <p id='msg-error-income'>{formik.errors.income}</p> : null}
-                <label htmlFor="categoryIncome">Category</label>
-                <select className="select-income" name="categoryIncome" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.categoryIncome} id="category-income">
+                <label className="label-income" htmlFor="amount">Income</label>
+                <input name='amount' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.amount} placeholder="Enter your income amount" className="input-income" type="text" />
+                {formik.touched.amount && formik.errors.amount ? <p id='msg-error-income'>{formik.errors.amount}</p> : null}
+                <label htmlFor="category">Category</label>
+                <select className="select-income" name="category" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.category} id="category-income">
                     <option value="Business">Business</option>
                     <option value="Allocation">Allocation</option>
                     <option value="Other Income">Other Income</option>
@@ -75,7 +79,7 @@ export default function IncomeForm(props) {
                     <option value="Investment">Investment Income</option>
                     <option value="Salary">Salary</option>
                 </select>
-                {formik.touched.categoryIncome && formik.errors.categoryIncome ? <p id='msg-error-category-income'>{formik.errors.categoryIncome}</p> : null}
+                {formik.touched.category && formik.errors.category ? <p id='msg-error-category-income'>{formik.errors.category}</p> : null}
                 <label htmlFor="paymentMode">Payment Mode</label>
                 <select className="select-income" name="paymentMode" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.paymentMode} id="paymentMode">
                     <option value="Others">Others</option>
@@ -104,6 +108,7 @@ export default function IncomeForm(props) {
 IncomeForm.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     setIsOpen: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired,
     iE: PropTypes.shape({
         date: PropTypes.string.isRequired,
         hour: PropTypes.string.isRequired,

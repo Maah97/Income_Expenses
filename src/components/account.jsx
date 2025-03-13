@@ -8,7 +8,7 @@ export default function Account({account}) {
             <div className="account-header">
                 <h2>{account.nameAccount}</h2>
                 <p>Create at : {account.createDate}</p>
-                <p>Modify at : 20/01/2025</p>
+                <p>Modify at : {account.createDate}</p>
             </div>
         </NavLink>
     )
