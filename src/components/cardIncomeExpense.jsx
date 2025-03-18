@@ -1,9 +1,11 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import PropTypes from 'prop-types'
 import IncomeForm from "../components/incomeForm"
 import ExpenseForm from "../components/expenseForm"
+import { AccountContext } from "../context/accountContext"
 
-export default function CardIncomeExpense({iE}) {
+export default function CardIncomeExpense({idAccount, iE}) {
+    const { deleteIncomeExpense, setMessage } = useContext(AccountContext)
     const [modalIncome, setModalIncome] = useState(false)
     const [modalExpense, setModalExpense] = useState(false)
     function openModal() {
@@ -13,9 +15,17 @@ export default function CardIncomeExpense({iE}) {
             setModalExpense(true)
         }
     }
+    async function deleteOneIncomeExpense() {
+        if (confirm("Are you sure you want to continue deleting ?")) {
+            await deleteIncomeExpense(idAccount, iE._id)
+            setMessage("")
+        } else {
+            return false
+        }
+    }
     return (
         <>
-            <article onClick={openModal} className={iE.type === "income" ? "card-income-expense card-income" : "card-income-expense card-expense"}>
+            <article className={iE.type === "income" ? "card-income-expense card-income" : "card-income-expense card-expense"}>
                 <div className="date-time-paymentMode">
                     <p><span>Date</span></p>
                     <p>{iE.date}</p>
@@ -35,6 +45,10 @@ export default function CardIncomeExpense({iE}) {
                     <p><span>Expense</span></p>
                     <p>{iE.type === "expense" ? iE.amount : "-"}</p>
                 </div>
+                <div className='modify-delete'>
+                    <button onClick={openModal} className='modify'><i className="fa-solid fa-pen-to-square"></i> Modify</button>
+                    <button onClick={() => deleteOneIncomeExpense()} className="delete"><i className="fa-solid fa-trash"></i> Delete</button>
+                </div>
             </article>
             <IncomeForm isOpen={modalIncome} setIsOpen={setModalIncome} iE={iE} />
             <ExpenseForm isOpen={modalExpense} setIsOpen={setModalExpense} iE={iE}/>
@@ -45,7 +59,9 @@ export default function CardIncomeExpense({iE}) {
 }
 
 CardIncomeExpense.propTypes = {
+    idAccount: PropTypes.string.isRequired,
     iE: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
         hour: PropTypes.string.isRequired,
         paymentMode: PropTypes.string,

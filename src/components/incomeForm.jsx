@@ -7,16 +7,17 @@ import { AccountContext } from "../context/accountContext"
 export default function IncomeForm(props) {
     const { createIncomeExpense, reload, setReload } = useContext(AccountContext)
     const initialValues = {
-        income: props.iE ? props.iE.amount : '',
+        amount: props.iE ? props.iE.amount : '',
         category: props.iE ? props.iE.category : '',
         paymentMode: props.iE ? props.iE.paymentMode : '',
         remark: props.iE ? props.iE.remark : '',
         date: props.iE ? props.iE.date : '',
         hour: props.iE ? props.iE.hour : '',
     }
-    const onSubmit =  values => {
+    const onSubmit =  (values, { resetForm }) => {
         const type = "income"
         createIncomeExpense(props.id, type, values)
+        resetForm()
         props.setIsOpen(false)
         setReload(!reload)
     }

@@ -35,5 +35,65 @@
         scale: 1.1;
     }
     transition: all 0.2s ease-in-out;
-
+    .btn-modify-delete-open {
+        position: absolute;
+        top: 4.5%;
+        left: 4.5%;
+        right: 0;
+        bottom: 0;
+        align-items: center;
+        flex-direction: column;
+        font-size: 20px;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        background-color: rgba(0, 0, 0, 0.281);
+        display: none;
+        -webkit-transition : all 0.3s ease;
+        transition : all 0.3s ease;
+        .button {
+            margin: 5px 10px;
+            font-size: 13px;
+            font-weight: 600;
+            background-color: rgb(233, 233, 233);
+            padding: 4px;
+            cursor: pointer;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 5px;
+            width: 90%;
+            i {
+                font-size: 10px;
+            }
+        }
+        .button.open {
+            text-align: center;
+            text-decoration: none;
+            border-color: #0d005f;
+            &:hover {
+                background-color: #e0dbff;
+            }
+        }
+        .button.modify {
+            &:hover {
+                background-color: rgb(168, 168, 168);
+           }
+        }
+        .button.delete {
+            color: rgb(124, 0, 0);
+            border-color: rgb(124, 0, 0);
+            background-color: rgb(255, 255, 255);
+            &:hover {
+                color: rgb(173, 0, 0);
+                border-color: rgb(192, 0, 0);
+                background-color: rgb(255, 212, 212);
+            }
+        }
+    }
+    &:hover .btn-modify-delete-open {
+        -webkit-transform : scale(1.1);
+        transform : scale(1.1);
+        display: flex;
+        border-radius: 10px;
+        width: 91%;
+        height: 91%;
+    }
 }

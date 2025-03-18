@@ -5,10 +5,14 @@
     min-height: 66.7vh;
     display: flex;
     justify-content: center;
+    z-index: 10;
     .list-of-accounts {
         width: auto;
         max-width: 100%;
-        height: auto;
+        height: 100vh;
+        position: fixed;
+        left: 0px;
+        z-index: 10;
         padding: 10px 20px;
         background: #ececec;
         white-space: nowrap;
@@ -38,7 +42,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin-bottom: 30px;
+        margin: 0px 0px 30px 200px;
         h3 {
             background: #9ea174;
             width: 100%;

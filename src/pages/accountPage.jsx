@@ -12,6 +12,19 @@ export default function AccountPage() {
     const { accounts } = useContext(AccountContext)
     const { id } = useParams()
     const account = accounts.find(item => item._id == id)
+    function combineDateAndTime(dateString, timeString) {
+        const [year, month, day] = dateString.split("-").map(Number);
+        const [hours, minutes] = timeString.split(":").map(Number);
+        
+        return new Date(year, month - 1, day, hours, minutes, 0);
+    }
+    account.incomeExpense.sort((x, y) => {
+        const date1 = combineDateAndTime(x.date, x.hour)
+        const date2 = combineDateAndTime(y.date, y.hour)
+        return date2 - date1
+        
+    })
+    console.log(account.incomeExpense);
     const [modalIncome, setModalIncome] = useState(false)
     const [modalExpense, setModalExpense] = useState(false)
     const [incomesAmount, setIncomesAmount] = useState(0)
@@ -143,7 +156,7 @@ export default function AccountPage() {
                 <div className="container-income-expense">
                     {
                         account.incomeExpense.length === 0 ? null : account.incomeExpense.map((incExp, index) => {
-                            return <CardIncomeExpense key={`${incExp.amount}-${index}`} iE={incExp} />
+                            return <CardIncomeExpense key={`${incExp.amount}-${index}`} idAccount={id} iE={incExp} />
                         }) 
                     }
                 </div>
