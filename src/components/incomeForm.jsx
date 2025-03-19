@@ -5,7 +5,7 @@ import { useFormik } from 'formik'
 import { AccountContext } from "../context/accountContext"
 
 export default function IncomeForm(props) {
-    const { createIncomeExpense, reload, setReload } = useContext(AccountContext)
+    const { createIncomeExpense, modifyIncomeExpense, setMessage, reload, setReload } = useContext(AccountContext)
     const initialValues = {
         amount: props.iE ? props.iE.amount : '',
         category: props.iE ? props.iE.category : '',
@@ -14,12 +14,22 @@ export default function IncomeForm(props) {
         date: props.iE ? props.iE.date : '',
         hour: props.iE ? props.iE.hour : '',
     }
-    const onSubmit =  (values, { resetForm }) => {
+    const onSubmit =  async (values, { resetForm }) => {
+        let incomeExpense = false
         const type = "income"
-        createIncomeExpense(props.id, type, values)
-        resetForm()
-        props.setIsOpen(false)
-        setReload(!reload)
+        if (props.iE) {
+            incomeExpense = await modifyIncomeExpense(props.id, props.iE._id)
+        } else {
+            incomeExpense = await createIncomeExpense(props.id, type, values)
+        }
+        if (incomeExpense) {
+            props.setIsOpen(false)
+            resetForm()
+            setReload(!reload)
+            setMessage("")
+        } else {
+            props.setIsOpen(true)
+        }
     }
     const validate = values => {
         let errors = {}
@@ -109,7 +119,7 @@ export default function IncomeForm(props) {
 IncomeForm.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     setIsOpen: PropTypes.func.isRequired,
-    id: PropTypes.string.isRequired,
+    id: PropTypes.string,
     iE: PropTypes.shape({
         date: PropTypes.string.isRequired,
         hour: PropTypes.string.isRequired,
@@ -117,6 +127,7 @@ IncomeForm.propTypes = {
         remark: PropTypes.string,
         type: PropTypes.string,
         category: PropTypes.string,
-        amount: PropTypes.number.isRequired
+        amount: PropTypes.number.isRequired,
+        _id: PropTypes.string.isRequired
     })
 }

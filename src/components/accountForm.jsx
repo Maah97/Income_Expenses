@@ -3,7 +3,6 @@ import { useFormik } from 'formik'
 import { useContext } from 'react'
 import { AccountContext } from "../context/accountContext"
 import Modal from 'react-modal'
-import { useEffect } from 'react'
 Modal.setAppElement('#root')
 export default function AccountForm(props) {
     const { createAccount, modifyAccount, message, setMessage, reload, setReload } = useContext(AccountContext)
@@ -29,10 +28,6 @@ export default function AccountForm(props) {
             props.setIsOpen(true)
         }
     }
-    useEffect(()=>{
-        console.log(initialValues);
-        
-    })
     const validate = values => {
         let errors = {}
 

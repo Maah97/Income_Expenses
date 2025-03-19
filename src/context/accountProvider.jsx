@@ -88,6 +88,7 @@ export const AccountProvider = ({ children }) => {
             const response = await axios.delete(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${id}`,
                 { withCredentials: true })
             fetchAccounts()
+            setReload(!reload)
             setMessage(response.data.message)
             return true
         } catch (error) {
@@ -106,25 +107,38 @@ export const AccountProvider = ({ children }) => {
             hour : `${values.hour}`
         }
         try {
-            await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${id}/incomeExpense`,
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${id}/incomeExpense`,
                 incomeExpense,
                 { withCredentials: true }
             )
             fetchAccounts()
             setReload(!reload)
+            setMessage(response.data.message)
+            return true
         } catch (error) {
-            console.log(error);
-            
+            setMessage(error.response.data.message)
+            return false
         }
     }
-    const modifyIncomeExpense = async () => {
-        
+    const modifyIncomeExpense = async (idAccount, idIncomeExpense) => {
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${idAccount}/incomeExpense/${idIncomeExpense}`,
+                { withCredentials: true })
+            fetchAccounts()
+            setReload(!reload)
+            setMessage(response.data.message)
+            return true
+        } catch (error) {
+            setMessage(error.response.data.message)
+            return false
+        }
     }
     const deleteIncomeExpense = async (idAccount, idIncomeExpense) => {
         try {
-            const response = axios.delete(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${idAccount}/incomeExpense/${idIncomeExpense}`,
+            const response = await axios.delete(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${idAccount}/incomeExpense/${idIncomeExpense}`,
                 { withCredentials: true })
             fetchAccounts()
+            setReload(!reload)
             setMessage(response.data.message)
             return true
         } catch (error) {
@@ -133,7 +147,7 @@ export const AccountProvider = ({ children }) => {
         }
     }
     return (
-        <AccountContext.Provider value={{ createAccount, modifyAccount, deleteAccount, message, setMessage, accounts, createIncomeExpense, deleteIncomeExpense, setReload, reload }}>
+        <AccountContext.Provider value={{ createAccount, modifyAccount, deleteAccount, message, setMessage, accounts, createIncomeExpense, modifyIncomeExpense, deleteIncomeExpense, setReload, reload }}>
         {children}
         </AccountContext.Provider>
     )
