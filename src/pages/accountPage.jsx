@@ -7,9 +7,10 @@ import ExpenseForm from "../components/expenseForm"
 import CardIncomeExpense from "../components/cardIncomeExpense"
 import GraphIncomesExpenses from "../components/graphIncomesExpenses"
 import { AccountContext } from "../context/accountContext"
+import PopupConfirmation from "../components/popupConfirmation"
 
 export default function AccountPage() {
-    const { accounts } = useContext(AccountContext)
+    const { accounts, isPopupIncomeExpense, msgPopup } = useContext(AccountContext)
     const { id } = useParams()
     const account = accounts.find(item => item._id == id)
     function combineDateAndTime(dateString, timeString) {
@@ -180,6 +181,7 @@ export default function AccountPage() {
             </div>
             <IncomeForm id={id} isOpen={modalIncome} setIsOpen={setModalIncome} />
             <ExpenseForm id={id} isOpen={modalExpense} setIsOpen={setModalExpense} />
+            <PopupConfirmation message={msgPopup} isPopupIncomeExpense={isPopupIncomeExpense}  />
         </section>
     )
 }

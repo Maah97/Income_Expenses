@@ -8,6 +8,9 @@ export const AccountProvider = ({ children }) => {
     const [accounts, setAccounts] = useState([])
     const [message, setMessage] = useState("")
     const [reload, setReload] = useState(false)
+    const [isPopupIncomeExpense, setIsPopupIncomeExpense] = useState(false)
+    const [isPopupAccount, setIsPopupAccount] = useState(false)
+    const [msgPopup, setMsgPopup] = useState("")
     const fetchAccounts = async () => {
         try {
             const response = await axios.get(`${import.meta.env.VITE_BASE_URL_ACCOUNT}`,
@@ -29,6 +32,11 @@ export const AccountProvider = ({ children }) => {
             setMessage(response.data.message)
             fetchAccounts()
             setReload(!reload)
+            setIsPopupAccount(true)
+            setMsgPopup('Account create with success !')
+            setTimeout(() => {
+                setIsPopupAccount(false)
+            }, "3000")
             return true
         } catch (error) {
             document.querySelectorAll("label").forEach((label) => {
@@ -60,6 +68,11 @@ export const AccountProvider = ({ children }) => {
             setMessage(response.data.message)
             fetchAccounts()
             setReload(!reload)
+            setIsPopupAccount(true)
+            setMsgPopup('Account modify with success !')
+            setTimeout(() => {
+                setIsPopupAccount(false)
+            }, "3000")
             return true
         } catch (error) {
             document.querySelectorAll("label").forEach((label) => {
@@ -90,6 +103,11 @@ export const AccountProvider = ({ children }) => {
             fetchAccounts()
             setReload(!reload)
             setMessage(response.data.message)
+            setIsPopupAccount(true)
+            setMsgPopup('Account delete with success !')
+            setTimeout(() => {
+                setIsPopupAccount(false)
+            }, "3000")
             return true
         } catch (error) {
             alert(`Error in deleting account : ${error.response.data.message}`)
@@ -114,6 +132,11 @@ export const AccountProvider = ({ children }) => {
             fetchAccounts()
             setReload(!reload)
             setMessage(response.data.message)
+            setIsPopupIncomeExpense(true)
+            setMsgPopup('Income / Expense create with success !')
+            setTimeout(() => {
+                setIsPopupIncomeExpense(false)
+            }, "3000")
             return true
         } catch (error) {
             setMessage(error.response.data.message)
@@ -137,6 +160,11 @@ export const AccountProvider = ({ children }) => {
             fetchAccounts()
             setReload(!reload)
             setMessage(response.data.message)
+            setIsPopupIncomeExpense(true)
+            setMsgPopup('Income / Expense modify with success !')
+            setTimeout(() => {
+                setIsPopupIncomeExpense(false)
+            }, "3000")
             return true
         } catch (error) {
             setMessage(error.response.data.message)
@@ -150,6 +178,11 @@ export const AccountProvider = ({ children }) => {
             fetchAccounts()
             setReload(!reload)
             setMessage(response.data.message)
+            setIsPopupIncomeExpense(true)
+            setMsgPopup('Income / Expense delete with success !')
+            setTimeout(() => {
+                setIsPopupIncomeExpense(false)
+            }, "3000")
             return true
         } catch (error) {
             alert(`Error in deleting income / expense : ${error.response.data.message}`)
@@ -157,7 +190,7 @@ export const AccountProvider = ({ children }) => {
         }
     }
     return (
-        <AccountContext.Provider value={{ createAccount, modifyAccount, deleteAccount, message, setMessage, accounts, createIncomeExpense, modifyIncomeExpense, deleteIncomeExpense, setReload, reload }}>
+        <AccountContext.Provider value={{ createAccount, modifyAccount, deleteAccount, message, setMessage, accounts, createIncomeExpense, modifyIncomeExpense, deleteIncomeExpense, setReload, reload, isPopupIncomeExpense, isPopupAccount, msgPopup }}>
         {children}
         </AccountContext.Provider>
     )
