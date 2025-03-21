@@ -120,9 +120,19 @@ export const AccountProvider = ({ children }) => {
             return false
         }
     }
-    const modifyIncomeExpense = async (idAccount, idIncomeExpense) => {
+    const modifyIncomeExpense = async (idAccount, idIncomeExpense, values, type) => {
+        const incomeExpense = {
+            type : type,
+            amount : values.amount,
+            category: values.category,
+            paymentMode : values.paymentMode,
+            remark : values.remark,
+            date : `${values.date}`,
+            hour : `${values.hour}`
+        }
         try {
             const response = await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${idAccount}/incomeExpense/${idIncomeExpense}`,
+                incomeExpense,
                 { withCredentials: true })
             fetchAccounts()
             setReload(!reload)

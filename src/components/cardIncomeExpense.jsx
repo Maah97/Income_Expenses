@@ -50,8 +50,8 @@ export default function CardIncomeExpense({idAccount, iE}) {
                     <button onClick={() => deleteOneIncomeExpense()} className="delete"><i className="fa-solid fa-trash"></i> Delete</button>
                 </div>
             </article>
-            <IncomeForm isOpen={modalIncome} setIsOpen={setModalIncome} iE={iE} />
-            <ExpenseForm isOpen={modalExpense} setIsOpen={setModalExpense} iE={iE}/>
+            <IncomeForm id={idAccount} isOpen={modalIncome} setIsOpen={setModalIncome} iE={iE} />
+            <ExpenseForm id={idAccount} isOpen={modalExpense} setIsOpen={setModalExpense} iE={iE}/>
         </>
         
         

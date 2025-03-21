@@ -18,7 +18,7 @@ export default function ExpenseForm(props) {
             let incomeExpense = false
             const type = "expense"
             if (props.iE) {
-                incomeExpense = await modifyIncomeExpense(props.id, props.iE._id)
+                incomeExpense = await modifyIncomeExpense(props.id, props.iE._id, values, type)
             } else {
                 incomeExpense = await createIncomeExpense(props.id, type, values)
             }
