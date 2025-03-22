@@ -7,62 +7,62 @@ import { AccountContext } from "../context/accountContext"
 export default function ExpenseForm(props) {
     const { createIncomeExpense, modifyIncomeExpense, setMessage, reload, setReload } = useContext(AccountContext)
     const initialValues = {
-            amount: props.iE ? props.iE.amount : '',
-            category: props.iE ? props.iE.category : '',
-            paymentMode: props.iE ? props.iE.paymentMode : '',
-            remark: props.iE ? props.iE.remark : '',
-            date: props.iE ? props.iE.date : '',
-            hour: props.iE ? props.iE.hour : '',
+        amount: props.iE ? props.iE.amount : '',
+        category: props.iE ? props.iE.category : '',
+        paymentMode: props.iE ? props.iE.paymentMode : '',
+        remark: props.iE ? props.iE.remark : '',
+        date: props.iE ? props.iE.date : '',
+        hour: props.iE ? props.iE.hour : '',
+    }
+    const onSubmit =  async (values, { resetForm }) => {
+        let incomeExpense = false
+        const type = "expense"
+        if (props.iE) {
+            incomeExpense = await modifyIncomeExpense(props.id, props.iE._id, values, type)
+        } else {
+            incomeExpense = await createIncomeExpense(props.id, type, values)
         }
-        const onSubmit =  async (values, { resetForm }) => {
-            let incomeExpense = false
-            const type = "expense"
-            if (props.iE) {
-                incomeExpense = await modifyIncomeExpense(props.id, props.iE._id, values, type)
-            } else {
-                incomeExpense = await createIncomeExpense(props.id, type, values)
-            }
-            if (incomeExpense) {
-                props.setIsOpen(false)
-                resetForm()
-                setReload(!reload)
-                setMessage("")
-            } else {
-                props.setIsOpen(true)
-            }
+        if (incomeExpense) {
+            props.setIsOpen(false)
+            resetForm()
+            setReload(!reload)
+            setMessage("")
+        } else {
+            props.setIsOpen(true)
         }
-        const validate = values => {
-            let errors = {}
-    
-            if (!values.amount) {
-                errors.amount = 'You must enter your expense amount'
-            }
-            if (isNaN(values.amount)) {
-                errors.amount = 'You must enter a number'
-            }
-            if (!values.category) {
-                errors.category = 'You must enter the category of the expense'
-            }
-            if (!values.paymentMode) {
-                errors.paymentMode = 'You must enter the payment mode'
-            }
-            if (!values.remark) {
-                errors.remark = 'You must enter the description or remark of your expense'
-            }
-            if (!values.date) {
-                errors.date = 'You must define the date'
-            }
-            if (!values.hour) {
-                errors.hour = 'You must define the hour'
-            }
-    
-            return errors
+    }
+    const validate = values => {
+        let errors = {}
+
+        if (!values.amount) {
+            errors.amount = 'You must enter your expense amount'
         }
-        const formik = useFormik({
-            initialValues,
-            onSubmit,
-            validate
-        })
+        if (isNaN(values.amount)) {
+            errors.amount = 'You must enter a number'
+        }
+        if (!values.category) {
+            errors.category = 'You must enter the category of the expense'
+        }
+        if (!values.paymentMode) {
+            errors.paymentMode = 'You must enter the payment mode'
+        }
+        if (!values.remark) {
+            errors.remark = 'You must enter the description or remark of your expense'
+        }
+        if (!values.date) {
+            errors.date = 'You must define the date'
+        }
+        if (!values.hour) {
+            errors.hour = 'You must define the hour'
+        }
+
+        return errors
+    }
+    const formik = useFormik({
+        initialValues,
+        onSubmit,
+        validate
+    })
     return (
         <Modal 
                 isOpen={props.isOpen}

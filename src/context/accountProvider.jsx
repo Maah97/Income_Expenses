@@ -62,7 +62,7 @@ export const AccountProvider = ({ children }) => {
     }
     const modifyAccount = async (name, description, id, date) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${id}`, 
+            const response = await axios.put(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${id}`, 
                 { name: name, description: description, date: date },
                 { withCredentials: true })
             setMessage(response.data.message)
@@ -154,7 +154,7 @@ export const AccountProvider = ({ children }) => {
             hour : `${values.hour}`
         }
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${idAccount}/incomeExpense/${idIncomeExpense}`,
+            const response = await axios.put(`${import.meta.env.VITE_BASE_URL_ACCOUNT}/${idAccount}/incomeExpense/${idIncomeExpense}`,
                 incomeExpense,
                 { withCredentials: true })
             fetchAccounts()
