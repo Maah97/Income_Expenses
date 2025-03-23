@@ -62,14 +62,9 @@ export const AuthProvider = ({ children }) => {
         )
         setUser(null)
     }
-    const sendCommentUser = async (values) => {
-        await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/comment`,
-            {name: values.name, message: values.message, email: values.email},
-            { withCredentials: true })
-    }
 
     return (
-        <AuthContext.Provider value={{ user, setUser, login, message, logout, loading, getColorFromLetter, sendCommentUser }}>
+        <AuthContext.Provider value={{ user, setUser, login, message, logout, loading, getColorFromLetter }}>
         {children}
         </AuthContext.Provider>
     )

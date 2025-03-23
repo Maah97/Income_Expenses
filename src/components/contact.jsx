@@ -1,9 +1,9 @@
 import { useFormik } from 'formik'
 import { useContext } from "react"
-import { AuthContext } from "../context/authContext"
+import { AccountContext } from "../context/accountContext"
 
 export default function Contact() {
-    const { sendCommentUser } = useContext(AuthContext);
+    const { sendCommentUser } = useContext(AccountContext);
     const emailregExp = new RegExp("[a-z0-9._-]+@[a-z]+\\.[a-z]+$")
     const initialValues = {
         name: '',
@@ -47,7 +47,7 @@ export default function Contact() {
                 <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email}  type="email" name='email' placeholder="Enter your Email" />
                 {formik.touched.email && formik.errors.email ? <p id='msg-error-expense'>{formik.errors.email}</p> : null}
                 <label htmlFor="comment">Your message or recommandation</label>
-                <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.comment}  name="comment" id="comment" placeholder="Enter your recommandatoion for a better user experience" />
+                <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.comment}  name="comment" id="comment" placeholder="Enter your message or a recommandatoion for a better user experience" />
                 {formik.touched.comment && formik.errors.comment ? <p id='msg-error-expense'>{formik.errors.comment}</p> : null}
                 <button type="submit">Submit</button>
             </form>

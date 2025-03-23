@@ -7,7 +7,7 @@ import { AccountContext } from "../context/accountContext"
 import { useContext } from 'react'
 
 export default function Home() {
-    const { isPopupAccount, msgPopup } = useContext(AccountContext)
+    const { isPopup, msgPopup } = useContext(AccountContext)
     return (
         <>
             <Presentation />
@@ -15,7 +15,7 @@ export default function Home() {
                 <Container />
             </ProtectedCompenents>
             <Contact />
-            <PopupConfirmation message={msgPopup} isPopupIncomeExpense={isPopupAccount}  />
+            <PopupConfirmation message={msgPopup} isPopup={isPopup}  />
         </>
     )
 }

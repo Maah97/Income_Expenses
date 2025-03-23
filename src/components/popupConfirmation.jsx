@@ -6,7 +6,7 @@ export default function PopupConfirmation(props) {
             <div style={props.isPopupIncomeExpense === true ? {display: "block"} : {display: "none"}} className="popup-confirmation income-expense">
                 <p>{props.message}</p>
             </div>
-            <div style={props.isPopupAccount === true ? {display: "block"} : {display: "none"}} className="popup-confirmation account">
+            <div style={props.isPopup === true ? {display: "block"} : {display: "none"}} className="popup-confirmation account">
                 <p>{props.message}</p>
             </div>
         </>
@@ -16,6 +16,6 @@ export default function PopupConfirmation(props) {
 PopupConfirmation.propTypes = {
     message: PropTypes.string.isRequired,
     isPopupIncomeExpense: PropTypes.bool,
-    isPopupAccount: PropTypes.bool
+    isPopup: PropTypes.bool
 
 }

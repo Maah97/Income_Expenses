@@ -9,7 +9,7 @@ export const AccountProvider = ({ children }) => {
     const [message, setMessage] = useState("")
     const [reload, setReload] = useState(false)
     const [isPopupIncomeExpense, setIsPopupIncomeExpense] = useState(false)
-    const [isPopupAccount, setIsPopupAccount] = useState(false)
+    const [isPopup, setIsPopup] = useState(false)
     const [msgPopup, setMsgPopup] = useState("")
     const fetchAccounts = async () => {
         try {
@@ -32,10 +32,10 @@ export const AccountProvider = ({ children }) => {
             setMessage(response.data.message)
             fetchAccounts()
             setReload(!reload)
-            setIsPopupAccount(true)
+            setIsPopup(true)
             setMsgPopup('Account create with success !')
             setTimeout(() => {
-                setIsPopupAccount(false)
+                setIsPopup(false)
             }, "3000")
             return true
         } catch (error) {
@@ -68,10 +68,10 @@ export const AccountProvider = ({ children }) => {
             setMessage(response.data.message)
             fetchAccounts()
             setReload(!reload)
-            setIsPopupAccount(true)
+            setIsPopup(true)
             setMsgPopup('Account modify with success !')
             setTimeout(() => {
-                setIsPopupAccount(false)
+                setIsPopup(false)
             }, "3000")
             return true
         } catch (error) {
@@ -103,10 +103,10 @@ export const AccountProvider = ({ children }) => {
             fetchAccounts()
             setReload(!reload)
             setMessage(response.data.message)
-            setIsPopupAccount(true)
+            setIsPopup(true)
             setMsgPopup('Account delete with success !')
             setTimeout(() => {
-                setIsPopupAccount(false)
+                setIsPopup(false)
             }, "3000")
             return true
         } catch (error) {
@@ -189,8 +189,21 @@ export const AccountProvider = ({ children }) => {
             return false
         }
     }
+    const sendCommentUser = async (values) => {
+        try {
+            await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/comment`,
+                {name: values.name, message: values.comment, email: values.email})
+            setIsPopup(true)
+            setMsgPopup('Your message or recommandation has been send with succes !')
+            setTimeout(() => {
+                setIsPopup(false)
+            }, "3000")    
+        } catch (error) {
+            console.log(error);
+        }
+    }
     return (
-        <AccountContext.Provider value={{ createAccount, modifyAccount, deleteAccount, message, setMessage, accounts, createIncomeExpense, modifyIncomeExpense, deleteIncomeExpense, setReload, reload, isPopupIncomeExpense, isPopupAccount, msgPopup }}>
+        <AccountContext.Provider value={{ createAccount, modifyAccount, deleteAccount, message, setMessage, accounts, createIncomeExpense, modifyIncomeExpense, deleteIncomeExpense, setReload, reload, isPopupIncomeExpense, isPopup, msgPopup, sendCommentUser }}>
         {children}
         </AccountContext.Provider>
     )
