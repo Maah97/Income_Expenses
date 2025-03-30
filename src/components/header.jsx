@@ -58,6 +58,17 @@ export default function Header() {
             })
         }
     }, [user])
+    function AddClassActiveNav () {
+        const nav = document.querySelector('nav')
+        nav.classList.toggle('active');
+        document.addEventListener('click', (e) => {
+            let isClickedInsideMenuHamburger = document.querySelector('.menu-hamburger').contains(e.target);
+            let isClickedInsideMenu = nav.contains(e.target)
+            if (!isClickedInsideMenuHamburger && !isClickedInsideMenu) {
+                nav.classList.remove('active');
+            }
+        });
+    }
     return(
         <header>
             <div className='container'>
@@ -66,7 +77,7 @@ export default function Header() {
                     <h1><span>Incomes</span>Expenses</h1>
                 </div>
                 <nav>
-                    <NavLink to="/" className='navigation' href="#">Home</NavLink>
+                    <NavLink to="/" className='navigation'>Home</NavLink>
                     <div className='navigation'>
                         <img className='img-lang' src={selectLangage === 'en' ? imgLangEn : imgLangFr} alt="English langage icone" />
                         <select onChange={changeLangage} className='select-langage' name="langage" id="selectLangage">
@@ -76,7 +87,7 @@ export default function Header() {
                     </div>
                     <span onClick={() => {setTheme(!theme)}} className='navigation'>Theme <i className={`fa-solid fa-${theme === true ? 'sun' : 'moon'}`}></i></span>
                     <HashLink to="/#contact" className='navigation' href='#'>Contact</HashLink>
-                    <span onClick={() => AddClassActive()} id='user' className={user ? 'navigation active-account' : 'navigation'} href='#'>
+                    <span onClick={() => AddClassActive()} id='user' className={user ? 'navigation active-account' : 'navigation'}>
                         { user 
                             ?
                             (   
@@ -93,6 +104,9 @@ export default function Header() {
                         }
                     </span>
                 </nav>
+                <div onClick={() => AddClassActiveNav()} className='menu-hamburger'>
+                    <i className="fa-solid fa-bars"></i>
+                </div>
             </div>
             <div className='log'>
                 {
@@ -140,7 +154,6 @@ export default function Header() {
                     <NavLink to="/login" className="button">Log In</NavLink>
                 }
             </div>
-            
         </header>
     )
 }

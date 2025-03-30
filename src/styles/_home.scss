@@ -5,6 +5,9 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    @media (max-width: 625px) {
+        margin-top: 45px;
+    }
     .home {
         width: 100%;
         height: auto;
@@ -29,6 +32,9 @@
             margin-top: 5%;
             font-weight: 200;
             margin-bottom: 7%;
+            @media (max-width: 1285px) {
+                font-size: 35px;
+            }
         }
         .btn-get-started {
             margin-bottom: 50px;
@@ -45,6 +51,43 @@
                 background-color: rgb(0, 15, 231);
             }
         }
+        @media (max-width: 975px) {
+            p {
+                font-size: 50px;
+            }
+            .slogan {
+                font-size: 25px;
+            }
+            .btn-get-started {
+                font-size: 15px;
+                padding: 15px 35px;
+            }
+        }
+        @media (max-width: 700px) {
+            p {
+                font-size: 35px;
+            }
+            .slogan {
+                font-size: 15px;
+            }
+            .btn-get-started {
+                font-size: 10px;
+                padding: 10px 20px;
+            }
+        }
+        @media (max-width: 425px) {
+            p {
+                font-size: 30px;
+            }
+            .slogan {
+                font-size: 11px;
+            }
+            .btn-get-started {
+                font-size: 7px;
+                padding: 7px 17px;
+            }
+        }
+
     }
     .why-income-expense {
         display: flex;
@@ -52,19 +95,22 @@
         align-items: center;
         width: 100%;
         background-color: rgb(230, 242, 255);
-        padding: 30px 0px;
+        padding: 30px 30px;
         box-shadow: 0px 0px 6px rgb(97, 171, 250);
         h3 {
             font-size: 50px;
             font-weight: 600;
             color: black;
             text-align: center;
-            margin-bottom: 50px;
+            margin: 0px 20px 50px 20px;
             span {
                 color: rgb(0, 110, 16);
                 &:nth-child(2) {
                     color: rgb(203, 31, 31);
                 }
+            }
+            @media (max-width: 850px) {
+                font-size: 40px;
             }
         }
         .container-answers {
@@ -72,8 +118,8 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 30px 30px;
-            padding: 0px 100px;
             .answer {
                 width: 400px;
                 height: auto;
@@ -95,6 +141,34 @@
                         color: rgb(0, 95, 173);
                         font-weight: 600;
                         margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+        @media (max-width: 700px) {
+            padding: 20px 20px;
+            h3 {
+                margin: 30px 10px 20px 10px;
+                font-size: 25px;
+            }
+            .container-answers {
+                .answer {
+                    width: 200px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    box-shadow: 0px 0px 2px black;
+                    i {
+                        font-size: 30px;
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        font-size: 10px;
+                        line-height: 20px;
+                        &:nth-child(2) {
+                            font-size: 20px;
+                            margin-bottom: 7px;
+                            line-height: 25px;
+                        }
                     }
                 }
             }

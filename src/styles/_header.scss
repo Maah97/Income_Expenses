@@ -8,6 +8,7 @@ header {
     width: 100%;
     display: flex;
     flex-direction: column;
+    z-index: 100000000;
     .container {
         height: 70px;
         width: 100%;
@@ -108,6 +109,44 @@ header {
                 margin-left: 5px;
                 cursor: pointer;
             }
+        }
+        .menu-hamburger {
+            margin-right: 15px;
+            display: none;
+            i {
+                font-size: 25px;
+            }
+        }
+        @media (max-width: 625px) {
+            height: 45px;
+            nav {
+                width: 100px;
+                display: none;
+                flex-direction: column;
+                background-color: rgb(244, 244, 244);
+                position: absolute;
+                top: 47px;
+                left: calc((100vw - 101px));
+                align-self: flex-end;
+                border-radius: 5px;
+                box-shadow: 10px solid black;
+                border: 1.5px solid black;
+                .navigation {
+                    border-bottom: 1.5px solid black;
+                    width: 100%;
+                    margin-bottom: 5px;
+                }
+                #user {
+                    border-bottom: none;
+                }
+            }
+            nav.active {
+                display: flex;
+            }
+            .menu-hamburger {
+                display: block;
+            }
+
         }
     }
     .log {
@@ -255,7 +294,7 @@ header {
                 display: flex;
                 .add-account, .logout {
                     display: flex;
-                    align-items: center;;
+                    align-items: center;
                     padding: 20px;
                     cursor: pointer;
                     background-color: rgb(255, 255, 255);
@@ -287,8 +326,123 @@ header {
                 color: green;
             }
         }
+        @media (max-width: 625px) {
+            padding: 10px;
+            position: relative;
+            top: 176px;
+            .button {
+                padding: 4px 3px 3px 3px;
+                width: 60px;
+                height: 30px;
+                border-radius: 7px;
+                font-size: 15px;
+                border: 1px solid rgb(118, 106, 91);
+            }
+            .settings-user {
+                .email-and-icone-close {
+                    .email {
+                        font-size: 12px;
+                        margin-right: 7px;
+                    }
+                    .icone-close {
+                        width: 22px;
+                        height: 22px;
+                        .fa-xmark {
+                            font-size: 15px;
+                        }
+                    }
+                }
+                .picture-profil {
+                    margin-top: 13px;
+                    p {
+                        font-size: 30px;
+                        width: 60px;
+                        height: 60px;
+                    }
+                    .icone-modification {
+                        top: -20.25px;
+                        width: 20.25px;
+                        height: 20.25px;
+                        i {
+                            font-size: 12px;
+                        }
+                    }
+                    .img-profil-picture {
+                        width: 60px;
+                        height: 60px;
+                    }
+                }
+                p {
+                    font-size: 15px;
+                }
+                .manage-your-account {
+                    margin-top: 12px;
+                    padding: 5px 18px;
+                    p {
+                        font-size: 12px;
+                    }
+                }
+                .add-account-and-logout {
+                    margin-top: 12px;
+                    .add-account, .logout {
+                        padding: 12px;
+                        i {
+                            margin-right: 5px;
+                        }
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+                    .add-account {
+                        padding-left: 28px;
+                    }
+                    .logout {
+                        padding-right: 28px;
+                    }
+                }
+            }
+            .account-verification {
+                margin-top: 12px;
+                .txt {
+                    font-size: 10px;
+                }
+            }
+        }
     }
     .log.open {
         display: flex;
+    }
+    @media (max-width: 900px) {
+        .container {
+            .title-and-logo {
+                .logo {
+                    width: 30px;
+                    height: 30px;
+                }
+                h1 {
+                    font-size: 20px;
+                }
+            }
+            nav {
+                .navigation {
+                    padding: 0 10px;
+                    font-size: 15px;
+                    height: 30px;
+                    .img-lang {
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+                #selectLangage {
+                    font-size: 15px;
+                }
+                .navigation.active-account {
+                    .img-profil-picture {
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+            }
+        }
     }
 }

@@ -96,4 +96,47 @@
         width: 91%;
         height: 91%;
     }
+    @media (max-width: 700px) {
+        .space {
+            height: 100px;
+            border-radius: 8px 8px 0px 0px;
+        }
+        .account-header {
+            padding: 2px 40px 5px 5px;
+            border-radius: 0px 0px 8px 8px;
+            h2 {
+                margin-bottom: 5px;
+                font-size: 15px;
+            }
+            p {
+                line-height: 23px;
+                font-size: 10px;
+            }
+        }
+        &:hover {
+            .space, .account-header {
+                box-shadow: 0px 0px 10px 0px rgb(82, 81, 81);
+            }
+        }
+        .btn-modify-delete-open {
+            top: 4.5%;
+            left: 4.5%;
+            font-size: 12px;
+            .button {
+                margin: 2px 5px;
+                font-size: 8px;
+                padding: 2px;
+                border: 1px solid rgb(0, 0, 0);
+                border-radius: 2px;
+                i {
+                    font-size: 7px;
+                }
+            }
+        }
+        &:hover .btn-modify-delete-open {
+            border-radius: 6px;
+            width: 91%;
+            height: 91%;
+        }
+    }
 }

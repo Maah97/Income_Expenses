@@ -21,12 +21,18 @@ footer {
                 font-size: 21px;
                 color: rgb(0, 42, 133);
                 font-weight: 600;
+                @media (max-width: 850px) {
+                    font-size: 16px;
+                }
             }
             ul {
                 list-style-type: none;
                 li {
                     margin: 15px 0px;
                     font-size: 16px;
+                    @media (max-width: 850px) {
+                        font-size: 11px;
+                    }
                 }
             }
         }
@@ -42,6 +48,12 @@ footer {
                     font-size: 21px;
                     color: rgb(0, 42, 133);
                     font-weight: 600;
+                    @media (max-width: 850px) {
+                        font-size: 16px;
+                    }
+                }
+                @media (max-width: 850px) {
+                    font-size: 11px;
                 }
             }
         }
@@ -55,6 +67,9 @@ footer {
                 font-size: 21px;
                 color: rgb(0, 42, 133);
                 font-weight: 600;
+                @media (max-width: 850px) {
+                    font-size: 16px;
+                }
             }
             .links {
                 display: flex;
@@ -79,6 +94,22 @@ footer {
                         color: black;
                     }
                 }
+                @media (max-width: 1150px) {
+                    a {
+                        padding: 5px;
+                        i {
+                            font-size: 20px;
+                        }
+                    }
+                }
+                @media (max-width: 850px) {
+                    a {
+                        padding: 2px;
+                        i {
+                            font-size: 15px;
+                        }
+                    }
+                }
             }
         }
     }
@@ -86,5 +117,107 @@ footer {
         text-align: center;
         font-size: 16px;
         font-weight: 500;
+        @media (max-width: 850px) {
+            font-size: 11px;
+        }
+    }
+    @media (max-width: 580px) {
+        padding: 20px 0px 5px 0px;
+        .container-footer {
+            .address {
+                p {
+                    margin-bottom: 10px;
+                    font-size: 12px;
+                }
+                ul {
+                    li {
+                        margin: 8px 0px;
+                        font-size:8px;
+                    }
+                }
+            }
+            .about {
+                p {
+                    font-size: 8px;
+                    line-height: 20px;
+                    &:nth-child(1) {
+                        font-size: 12px;
+                    }
+                }
+            }
+            .follow-us {
+                p {
+                    margin-bottom: 12px;
+                    font-size: 12px;
+                }
+                .links {
+                    max-width: 200px;
+                    a {
+                        padding: 0px;
+                        i {
+                            font-size: 11px;
+                            margin: 0px 3px;
+                        }
+                    }
+                    @media (max-width: 490px) {
+                        a {
+                            border: 1px solid rgb(73, 73, 73);
+                            i {
+                                font-size: 10px;
+                                margin: 0px 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .droit-reserve {
+            font-size: 8px;
+        }
+    }
+    @media (max-width: 490px) {
+        padding: 20px 0px 5px 0px;
+        .container-footer {
+            .address {
+                p {
+                    margin-bottom: 7px;
+                    font-size: 9px;
+                }
+                ul {
+                    li {
+                        margin: 5px 0px;
+                        font-size: 7px;
+                    }
+                }
+            }
+            .about {
+                p {
+                    font-size: 7px;
+                    line-height: 16px;
+                    &:nth-child(1) {
+                        font-size: 9px;
+                    }
+                }
+            }
+            .follow-us {
+                p {
+                    margin-bottom: 8px;
+                    font-size: 9px;
+                }
+                .links {
+                    max-width: 150px;
+                    a {
+                        padding: 0px;
+                        i {
+                            font-size: 8px;
+                            margin: 0px 1px;
+                        }
+                    }
+                }
+            }
+        }
+        .droit-reserve {
+            font-size: 7px;
+        }
     }
 }
