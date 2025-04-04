@@ -112,6 +112,7 @@
 }
 
 .content-modal {
+    z-index: 10000000000000;
     position: absolute;
     top: 40px;
     left: 40px;

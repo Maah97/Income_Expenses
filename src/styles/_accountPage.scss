@@ -255,6 +255,9 @@
             }
             .add-income-expense-icone {
                 margin-left: 40px;
+                .btn-income-expenses {
+                    margin-left: 0px;
+                }
             }
             .graph {
                 margin: 20px 0px;
@@ -314,6 +317,9 @@
                 margin-left: 70px;
                 font-size: 30px;
                 margin-left: 30px;
+                .btn-income-expenses {
+                    margin-left: 0px;
+                }
             }
             .graph {
                 width: 100%;
@@ -390,6 +396,9 @@
             .add-income-expense-icone {
                 font-size: 20px;
                 margin-left: -40px;
+                .btn-income-expenses {
+                    margin-left: 0px;
+                }
             }
             .graph {
                 margin-left: -40px;
@@ -465,6 +474,9 @@
             }
             .add-income-expense-icone {
                 margin-left: -55px;
+                .btn-income-expenses {
+                    margin-left: 0px;
+                }
             }
         }
     }

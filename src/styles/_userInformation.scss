@@ -167,4 +167,146 @@
             }
         }
     }
+    @media (max-width: 900px) {
+        .user-information {
+            max-width: 550px;
+            h3 {
+                margin: 20px 0px;
+                font-size: 25px;
+            }
+            .description {
+                margin-bottom: 20px;
+                .txt-description {
+                    max-width: 300px;
+                    margin-right: 50px;
+                    .title-txt-description {
+                        font-size: 17px;
+                        margin-bottom: 5px;
+                    }
+                    .paragraphe-description {
+                        font-size: 11px;
+                        line-height: 17px;
+                    }
+                }
+                .img-description {
+                    margin-left: 5px;
+                    img {
+                        width: 150px;
+                        height: 80px;
+                    }
+                }
+            }
+            .form-update-user {
+                .container-infos  {
+                    border-radius: 5px;
+                    margin-bottom: 15px;
+                    h4 {
+                        font-size: 15px;
+                        margin: 10px 0px 10px 10px;
+                    }
+                    .info {
+                        padding: 10px 20px 10px 10px;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: rgb(241, 241, 241);
+                        }
+                        .label {
+                            font-size: 10px;
+                        }
+                        .input {
+                            font-size: 12px;
+                        }
+                        i {
+                            font-size: 10px;
+                        }
+                    }
+                    .info.picture-profil {
+                        padding: 0px 20px 0px 10px;
+                        .file-img-picture {
+                            margin-top: 10px;
+                            p {
+                                font-size: 20px;
+                                width: 40px;
+                                height: 40px;
+                            }
+                            .icone-camera {
+                                position: relative;
+                                top: -25px;
+                                left: 3%;
+                                width: 28px;
+                                height: 12.5px;
+                                i {
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+                        .img-profil-picture {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+                    .info.gender-profil, .info.phone-profil {
+                        border-radius: 0px 0px 5px 5px;
+                    }
+                }
+                .container-infos.security-information {
+                    h4 {
+                        margin-bottom: 5px;
+                        margin-left: 10px;
+                    }
+                    p {
+                        font-size: 10px;
+                        margin: 0px 0px 5px 10px;
+                    }
+                    .info.password-profil {
+                        padding: 0px 10px 0px 10px;
+                        border-radius: 0px 0px 5px 5px;
+                        #password-profil {
+                            margin-bottom: 10px;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 580px) {
+        .user-information {
+            margin-top: 55px;
+            h3 {
+                margin: 10px 0px;
+                font-size: 18px;
+            }
+            max-width: 350px;
+            .description {
+                margin-bottom: 10px;
+                .txt-description {
+                    max-width: 200px;
+                    margin-right: 25px;
+                    .title-txt-description {
+                        font-size: 13px;
+                        margin-bottom: 3px;
+                    }
+                    .paragraphe-description {
+                        font-size: 10px;
+                        line-height: 14px;
+                    }
+                }
+                .img-description {
+                    margin-left: 3px;
+                    img {
+                        width: 100px;
+                        height: 70px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 355px) {
+        .user-information {
+            max-width: 300px;
+        }
+    }
 }

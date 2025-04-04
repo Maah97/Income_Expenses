@@ -163,4 +163,153 @@
         font-size: 20px;
         margin-top: 30px;
     }
+    @media (max-width: 700px) {
+        margin-top: 90px;
+        p {
+            font-size: 30px;
+        }
+        .form-login {
+            width: 400px;
+            padding: 0px 15px;
+            label {
+                margin: 30px 0px 10px 0px;
+                font-size: 15px;
+            }
+            .container-password {
+                #password {
+                    margin-bottom: 22px;
+                }
+                i {
+                    font-size: 12px;
+                    top: -45px;
+                    left: 45%;
+                }
+                .msg-error {
+                    font-size: 11px;
+                    margin-top: 3px;
+                }
+            }
+            input {
+                padding: 10px 8px;
+                font-size: 15px;
+                border-radius: 3px;
+                &:focus {
+                    border: 1px solid rgb(72, 126, 212);
+                    box-shadow: 0px 0px 3px rgb(72, 126, 212);
+                }
+            }
+            .btn {
+                .btn-send-reset-password {
+                    margin-top: 20px;
+                }
+                button {
+                    padding: 8px 15px;
+                    font-size: 10px;
+                    border: 1px solid rgb(0, 110, 255);
+                }
+                .link-to-reset-password {
+                    font-size: 10px;
+                }
+            }
+            p {
+                font-size: 12px;
+                margin-top: 25px;
+            }
+            .msg-error {
+                font-size: 12px;
+                margin-top: 10px;
+            }
+            .msg-error-existing-email {
+                max-width: 450px;
+                margin-top: 25px;
+                font-size: 15px;
+                line-height: 30px;
+            }
+            .link-redirection-to-signup {
+                margin-bottom: 25px;
+            }
+            .btn-send-mail-confirmation {
+                padding: 8px;
+                border-radius: 8px;
+                font-size: 12px;
+                margin-top: 10px;
+                border: 1px solid rgb(221, 0, 0);
+            }
+        }
+        .msg-error-send {
+            font-size: 15px;
+            margin-top: 25px;
+        }
+    }
+    @media (max-width: 450px) {
+        margin-top: 70px;
+        p {
+            font-size: 25px;
+        }
+        .form-login {
+            width: 300px;
+            padding: 0px 10px;
+            label {
+                margin: 20px 0px 5px 0px;
+                font-size: 10px;
+            }
+            .container-password {
+                #password {
+                    margin-bottom: 10px;
+                }
+                i {
+                    font-size: 8px;
+                    top: -34px;
+                }
+                .msg-error {
+                    font-size: 7px;
+                    margin-top: 12px;
+                }
+            }
+            input {
+                padding: 5px 3px;
+                font-size: 10px;
+                border-radius: 1px;
+            }
+            .btn {
+                .btn-send-reset-password {
+                    margin-top: 15px;
+                }
+                button {
+                    padding: 3px 10px;
+                    font-size: 7px;
+                }
+                .link-to-reset-password {
+                    font-size: 5px;
+                }
+            }
+            p {
+                font-size: 8px;
+                margin-top: 20px;
+            }
+            .msg-error {
+                font-size: 8px;
+                margin-top: 7px;
+            }
+            .msg-error-existing-email {
+                max-width: 350px;
+                margin-top: 20px;
+                font-size: 10px;
+                line-height: 25px;
+            }
+            .link-redirection-to-signup {
+                margin-bottom: 20px;
+            }
+            .btn-send-mail-confirmation {
+                padding: 5px;
+                border-radius: 5px;
+                font-size: 8px;
+                margin-top: 5px;
+            }
+        }
+        .msg-error-send {
+            font-size: 10px;
+            margin-top: 20px;
+        }
+    }
 }

@@ -210,4 +210,209 @@
             line-height: 40px;
         }
     }
+    @media (max-width: 850px) {
+        margin-top: 90px;
+        p {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        .form-login {
+            padding: 0px 15px;
+            width: 500px;
+            label {
+                margin-bottom: 10px;
+                margin-top: 30px;
+                font-size: 15px;
+            }
+            #label-userName {
+                margin-top: 15px;
+            }
+            input, select {
+                padding: 10px 7px;
+                font-size: 10px;
+                border-radius: 3px;
+                &:focus {
+                    border: 1px solid rgb(72, 126, 212);
+                    box-shadow: 0px 0px 3px rgb(72, 126, 212);
+                }
+            }
+            .general-informations {
+                padding: 20px 30px 10px 30px;
+                border-radius: 7px;
+                margin-bottom: 40px;
+                p {
+                    margin: 0px 0px 15px 0px;
+                    font-size: 20px;
+                }
+                .msg-error {
+                    font-size: 11px;
+                    margin-top: 10px;
+                }
+                .react-tel-input {
+                    margin-bottom: 30px;
+                    .form-control  {
+                        margin-bottom: 0px;
+                        padding: 18px 40px;
+                    }
+                    input {
+                        margin-bottom: 3px;
+                    }
+                }
+            }
+            .auhentification-info {
+                padding: 20px 30px 10px 30px;
+                border-radius: 7px;
+                margin-bottom: 40px;
+                p {
+                    padding: 0px;
+                    margin: 0px 0px 10px 0px;
+                    font-size: 20px;
+                }
+                .msg-error {
+                    font-size: 11px;
+                    margin-top: 3px;
+                }
+                #email-label, #label-repeat-password {
+                    margin-top: 15px;
+                }
+                .container-password {
+                    i {
+                        top: -27px;
+                        left: 95%;
+                        font-size: 12px;
+                    }
+                }
+                #msg-error-email {
+                    margin-top: 10px;
+                }
+            }
+            #note {
+                font-size: 11px;
+                margin-bottom: 3px;
+                margin-top: 15px;
+            }
+            .btn {
+                margin-bottom: 7px;
+                button {
+                    padding: 7px 15px;
+                    font-size: 15px;
+                    border: 1px solid rgb(0, 110, 255);
+                }
+                .link-to-reset-password {
+                    font-size: 10px;
+                }
+            }
+            #question-logIn {
+                font-size: 15px;
+                margin-top: 20px;
+            }
+            .msg-error-existing-email {
+                max-width: 450px;
+                margin-top: 20px;
+                font-size: 15px;
+                line-height: 30px;
+            }
+        }
+    }
+    @media (max-width: 520px) {
+        margin-top: 70px;
+        p {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .form-login {
+            padding: 0px 10px;
+            width: 300px;
+            label {
+                margin-bottom: 5px;
+                margin-top: 25px;
+                font-size: 10px;
+            }
+            #label-userName {
+                margin-top: 10px;
+            }
+            input, select {
+                padding: 7px 4px;
+                font-size: 7px;
+                border-radius: 1px;
+                &:focus {
+                    box-shadow: 0px 0px 1px rgb(72, 126, 212);
+                }
+            }
+            .general-informations {
+                padding: 15px 20px 5px 20px;
+                border-radius: 4px;
+                margin-bottom: 30px;
+                p {
+                    margin: 0px 0px 10px 0px;
+                    font-size: 15px;
+                }
+                .msg-error {
+                    font-size: 7px;
+                    margin-top: 7px;
+                }
+                .react-tel-input {
+                    margin-bottom: 25px;
+                    .form-control  {
+                        margin-bottom: 0px;
+                        padding: 12px 30px;
+                    }
+                    input {
+                        margin-bottom: 1px;
+                    }
+                }
+            }
+            .auhentification-info {
+                padding: 15px 20px 5px 20px;
+                border-radius: 4px;
+                margin-bottom: 30px;
+                p {
+                    margin: 0px 0px 5px 0px;
+                    font-size: 15px;
+                }
+                .msg-error {
+                    font-size: 7px;
+                    margin-top: 1px;
+                }
+                #email-label, #label-repeat-password {
+                    margin-top: 10px;
+                }
+                .container-password {
+                    i {
+                        top: -23px;
+                        left: 95%;
+                        font-size: 8px;
+                    }
+                }
+                #msg-error-email {
+                    margin-top: 7px;
+                }
+            }
+            #note {
+                font-size: 7px;
+                margin-bottom: 1px;
+                margin-top: 10px;
+            }
+            .btn {
+                margin-bottom: 4px;
+                button {
+                    padding: 4px 10px;
+                    font-size: 10px;
+                }
+                .link-to-reset-password {
+                    font-size: 7px;
+                }
+            }
+            #question-logIn {
+                font-size: 10px;
+                margin-top: 15px;
+            }
+            .msg-error-existing-email {
+                max-width: 350px;
+                margin-top: 15px;
+                font-size: 10px;
+                line-height: 25px;
+            }
+        }
+    }
 }
