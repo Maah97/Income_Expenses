@@ -135,7 +135,7 @@ export default function AccountPage() {
             </div>
             <div className="container-account-income-expense">
                 <h3>{account.nameAccount}</h3>
-                <p>{account.description}</p>
+                <p id="description">{account.description}</p>
                 <div className="btn-income-expenses">
                     <button onClick={() => setModalIncome(true)} className="income">Income</button>
                     <button onClick={() => setModalExpense(true)} className="expenses">Expense</button>

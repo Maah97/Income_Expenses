@@ -97,6 +97,40 @@
         width: 91%;
         height: 91%;
     }
+    @media (max-width: 1060px) {
+        width: 100%;
+        margin-left: 40px;
+    }
+    @media (max-width: 900px) {
+        margin-left: -30px;
+        border-radius: 5px;
+        padding: 5px;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.637);
+        .modify-delete {
+            font-size: 15px;
+            button {
+                margin: 0px 5px;
+                font-size: 12px;
+                padding: 4px;
+                border: 1px solid rgb(0, 0, 0);
+                border-radius: 3px;
+                i {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+    @media (max-width: 570px) {
+        width: 100%;
+        margin-left: -40px;
+    }
+    @media (max-width: 445px) {
+        width: 115%;
+    }
+    @media (max-width: 410px) {
+        margin-left: -55px;
+        width: 125%;
+    }
 }
 
 .card-income-expense.card-income {
