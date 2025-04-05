@@ -42,13 +42,13 @@ export default function Contact() {
             <form onSubmit={formik.handleSubmit} className="form-contact">
                 <label htmlFor="name">Name</label>
                 <input name='name' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" placeholder="Enter your name" />
-                {formik.touched.name && formik.errors.name ? <p id='msg-error-expense'>{formik.errors.name}</p> : null}
+                {formik.touched.name && formik.errors.name ? <p id='msg-error'>{formik.errors.name}</p> : null}
                 <label htmlFor="email">Email</label>
                 <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email}  type="email" name='email' placeholder="Enter your Email" />
-                {formik.touched.email && formik.errors.email ? <p id='msg-error-expense'>{formik.errors.email}</p> : null}
+                {formik.touched.email && formik.errors.email ? <p id='msg-error'>{formik.errors.email}</p> : null}
                 <label htmlFor="comment">Your message or recommandation</label>
                 <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.comment}  name="comment" id="comment" placeholder="Enter your message or a recommandatoion for a better user experience" />
-                {formik.touched.comment && formik.errors.comment ? <p id='msg-error-expense'>{formik.errors.comment}</p> : null}
+                {formik.touched.comment && formik.errors.comment ? <p id='msg-error'>{formik.errors.comment}</p> : null}
                 <button type="submit">Submit</button>
             </form>
         </section>

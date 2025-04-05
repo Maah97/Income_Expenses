@@ -65,7 +65,8 @@
                 background-color: rgb(152, 190, 255);
             }
         }
-        #msg-error-expense {
+        #msg-error {
+            text-align: left;
             margin: 10px 0px 0px 0px;
             color: red;
         }
@@ -105,7 +106,7 @@
                 border-radius: 7px;
                 margin: 18px 0px;
             }
-            #msg-error-expense {
+            #msg-error {
                 margin: 7px 0px 0px 0px;
             }
         }
