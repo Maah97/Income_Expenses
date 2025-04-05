@@ -7,6 +7,8 @@ export const AuthProvider = ({ children }) => {
     const [message, setMessage] = useState("")
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [isPopupAuth, setIsPopupAuth] = useState(false)
+    const [msgPopupAuth, setMsgPopupAuth] = useState(false)
     const getColorFromLetter = (letter) => {
         // Convertir la lettre en minuscule et obtenir son code ASCII
         const charCode = letter.toLowerCase().charCodeAt(0);
@@ -64,7 +66,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ user, setUser, login, message, logout, loading, getColorFromLetter }}>
+        <AuthContext.Provider value={{ user, setUser, login, message, logout, loading, getColorFromLetter, isPopupAuth, msgPopupAuth, setIsPopupAuth, setMsgPopupAuth }}>
         {children}
         </AuthContext.Provider>
     )

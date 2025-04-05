@@ -7,7 +7,7 @@ import WaitingConfirmation from "../components/waitingConfirmation"
 export default function ConnexionPage() {
     const navigate = useNavigate()
     const [isRegistered, setIsRegistered] = useState(false)
-    const { login, message } = useContext(AuthContext);
+    const { login, message, setIsPopupAuth, setMsgPopupAuth } = useContext(AuthContext);
     const [passwordVisible, setPasswordVisible] = useState(false)
     const initialValues = {
         email: "",
@@ -30,6 +30,11 @@ export default function ConnexionPage() {
         if (logIn) {
             navigate("/")
             window.location.reload()
+            setIsPopupAuth(true)
+            setMsgPopupAuth("You are successfully logged in")
+            setTimeout(() => {
+                setIsPopupAuth(false)
+            }, "3000000")
         }
     }
     const formik = useFormik ({

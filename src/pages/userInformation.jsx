@@ -99,7 +99,7 @@ export default function UserInformation() {
                 </form>
             </div>
             <UserNameUpdateForm name={user.userName} isOpen={modalUserName} setIsOpen={setModalUserName} />
-            <BirthdayUpdateForm birthday={user.birthday} isOpen={modalBirthday} setIsOpen={setModalBirthday} />
+            <BirthdayUpdateForm birthday={user.birthDay} isOpen={modalBirthday} setIsOpen={setModalBirthday} />
             <OccupationUpdateForm occupation={user.occupation} isOpen={modalOccupation} setIsOpen={setModalOccupation} />
             <GenderUpdateForm gender={user.gender} isOpen={modalGender} setIsOpen={setModalGender} />
             <EmailUpdateForm email={user.email} isOpen={modalEmail} setIsOpen={setModalEmail} />

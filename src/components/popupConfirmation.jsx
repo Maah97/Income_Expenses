@@ -6,7 +6,7 @@ export default function PopupConfirmation(props) {
             <div style={props.isPopupIncomeExpense === true ? {display: "block"} : {display: "none"}} className="popup-confirmation income-expense">
                 <p>{props.message}</p>
             </div>
-            <div style={props.isPopup === true ? {display: "block"} : {display: "none"}} className="popup-confirmation account">
+            <div style={props.isPopup === true ? {display: "block"} : {display: "none"}} className="popup-confirmation">
                 <p>{props.message}</p>
             </div>
         </>

@@ -6,10 +6,10 @@ import { HashLink } from 'react-router-hash-link'
 import { useNavigate, NavLink } from 'react-router-dom'
 import { AuthContext } from "../context/authContext"
 import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
-
+import PopupConfirmation from "./popupConfirmation"
 
 export default function Header() {
-    const { user, logout, getColorFromLetter } = useContext(AuthContext);
+    const { user, logout, getColorFromLetter, isPopupAuth, msgPopupAuth, setIsPopupAuth, setMsgPopupAuth } = useContext(AuthContext);
     const navigate = useNavigate()
     const [selectLangage, setSelectLanage] = useState('en')
     const [theme, setTheme] = useState(true)
@@ -35,6 +35,11 @@ export default function Header() {
         const userS = document.querySelector(".log")
         userS.classList.remove('open')
         window.location.reload()
+        setIsPopupAuth(true)
+        setMsgPopupAuth("You are successfully logged out")
+        setTimeout(() => {
+            setIsPopupAuth(false)
+        }, "3000")
     }
     useEffect(() => {
         const userS = document.querySelector(".log")
@@ -154,6 +159,7 @@ export default function Header() {
                     <NavLink to="/login" className="button">Log In</NavLink>
                 }
             </div>
+            <PopupConfirmation message={msgPopupAuth} isPopup={isPopupAuth}  />
         </header>
     )
 }

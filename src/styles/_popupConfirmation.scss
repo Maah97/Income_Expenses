@@ -1,11 +1,14 @@
 .popup-confirmation {
     position: fixed;
-    z-index: 100000;
+    z-index: 10000000000000000;
     padding: 10px 20px;
     border-radius: 8px;
     width: 50vw;
     height: auto;
     background-color: rgba(0, 0, 0, 0.8);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10vh;
     p {
         font-size: 25px;
         color: white;
@@ -13,13 +16,18 @@
         text-align: center;
     }
 }
-.popup-confirmation.account {
-    left: 50%;
-    transform: translateX(-50%);
-    top: 1vh;
-}
 .popup-confirmation.income-expense {
     left: 60%;
     transform: translateX(-60%);
     top: 12vh;
+}
+@media (max-width: 625px) {
+    .popup-confirmation {
+        padding: 5px 10px;
+        border-radius: 4px;
+        width: 70vw;
+        p {
+            font-size: 15px;
+        }
+    }
 }

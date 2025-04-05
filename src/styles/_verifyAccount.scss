@@ -7,12 +7,14 @@
     width: 100%;
     background-color: rgb(255, 240, 240);
     p {
+        text-align: center;
         color: green;
         font-size: 35px;
         margin-top: 50px;
         font-weight: 600;
     }
     .message-verify-account {
+        text-align: center;
         font-size: 25px;
         font-weight: 300;
         color: black;
@@ -86,6 +88,54 @@
         color: black;
         font-size: 20px;
         margin-top: 30px;
+    }
+    @media (max-width: 625px) {
+        margin-top: 45px;
+        p {
+            font-size: 22px;
+            margin-top: 30px;
+        }
+        .message-verify-account {
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+        .resend-email-after-failed {
+            max-width: 500px;
+            border-radius: 8px;
+            padding: 10px;
+            label {
+                font-size: 12px;
+                margin-bottom: 12px;
+            }
+            input {
+                padding: 5px;
+                font-size: 10px;
+                border-radius: 3px;
+                margin-bottom: 10px;
+                &:focus {
+                    border: 1px solid rgb(72, 126, 212);
+                    box-shadow: 0px 0px 3px rgb(72, 126, 212);
+                }
+            }
+            .btn-resend-email {
+                padding: 5px 10px;
+                font-size: 12px;
+                border: 1px solid rgb(108, 194, 252);
+                border-radius: 10px;
+            }
+        }
+        
+        .btn-redirect-login-page {
+            margin-top: 12px;
+            padding: 5px 10px;
+            font-size: 12px;
+            border: 1px solid rgb(108, 194, 252);
+            border-radius: 10px;
+        }
+        .msg-error-resend {
+            font-size: 12px;
+            margin-top: 20px;
+        }
     }
 }
 
