@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
 import { NavLink } from "react-router-dom"
 import Caroussel from "./caroussel"
+import { ThemeContext } from "../context/themeContext"
 
 export default function Presentation() {
+    const { theme } = useContext(ThemeContext)
     const slogan = useRef(null)
     useEffect(() => {
         let slogans = ["Track Earnings, Control Spending, with IncomesExpenses", "Master Your Money Journey with IncomesExpenses", "Track, Plan, and Prosper with IncomesExpenses", "Made Your Financial Roadmap Easy with IncomesExpenses", "Made Your Monthly Budget Simple with IncomesExpenses"]
@@ -17,7 +19,7 @@ export default function Presentation() {
         }, 2000)
     }, [])
     return (
-        <section className="presentation">
+        <section className={theme === 'light' ? "presentation" : "presentation dark"}>
             <div id="home" className="home">
                 <p>Record <span>income</span> Money </p>
                 <p>And <span>expense</span> Money </p>

@@ -7,12 +7,13 @@ import { useNavigate, NavLink } from 'react-router-dom'
 import { AuthContext } from "../context/authContext"
 import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
 import PopupConfirmation from "./popupConfirmation"
+import { ThemeContext } from "../context/themeContext"
 
 export default function Header() {
+    const { theme, toggleTheme } = useContext(ThemeContext)
     const { user, logout, getColorFromLetter, isPopupAuth, msgPopupAuth, setIsPopupAuth, setMsgPopupAuth } = useContext(AuthContext);
     const navigate = useNavigate()
     const [selectLangage, setSelectLanage] = useState('en')
-    const [theme, setTheme] = useState(true)
     const [modalProfilPicture, setModalProfilPicture] = useState(false)
     function changeLangage() {
         if (selectLangage === 'en') {
@@ -75,7 +76,7 @@ export default function Header() {
         });
     }
     return(
-        <header>
+        <header className={theme === 'light' ? '' : 'dark'}>
             <div className='container'>
                 <div className='title-and-logo'>
                     <img className='logo' src={logoWallet} alt="Income-Expenses logo" />
@@ -90,7 +91,7 @@ export default function Header() {
                             <option value="fr">FR</option>
                         </select>
                     </div>
-                    <span onClick={() => {setTheme(!theme)}} className='navigation'>Theme <i className={`fa-solid fa-${theme === true ? 'sun' : 'moon'}`}></i></span>
+                    <span onClick={() => {toggleTheme()}} className='navigation'>Theme <i className={`fa-solid fa-${theme === 'light' ? 'sun' : 'moon'}`}></i></span>
                     <HashLink to="/#contact" className='navigation' href='#'>Contact</HashLink>
                     <span onClick={() => AddClassActive()} id='user' className={user ? 'navigation active-account' : 'navigation'}>
                         { user 
