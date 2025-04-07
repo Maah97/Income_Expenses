@@ -4,8 +4,10 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { AuthContext } from "../context/authContext"
 import { useContext, useState } from 'react'
+import { ThemeContext } from "../context/themeContext"
 
 export default function ProfilPictureUpdateForm(props) {
+    const { theme } = useContext(ThemeContext)
     const { user, getColorFromLetter } = useContext(AuthContext)
     const [preview, setPreview] = useState(null);
     // creation fonction pour la verification du type d'image
@@ -79,8 +81,8 @@ export default function ProfilPictureUpdateForm(props) {
     return (
         <Modal
             isOpen={props.isOpen}
-            className="content-modal-info picture"
-            overlayClassName="overlay-modal-info"
+            className={theme === 'light' ? "content-modal-info picture" : "content-modal-info picture dark"}
+            overlayClassName={theme === 'light' ? "overlay-modal-info" : "overlay-modal-info dark"}
             onRequestClose={() => props.setIsOpen(false)}
         >
             <div className="title-info">

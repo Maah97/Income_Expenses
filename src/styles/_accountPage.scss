@@ -37,12 +37,12 @@
     }
     .container-account-income-expense {
         height: auto;
-        width: 80%;
+        width: 100%;
         text-align: center;
         display: flex;
         align-items: center;
         flex-direction: column;
-        padding-left: 200px;
+        padding-left: 250px;
         h3 {
             background: #9ea174;
             width: 100%;
@@ -113,6 +113,7 @@
                 background-color: rgb(226, 255, 226);
                 border-radius: 10px 0px 0px 10px;
                 padding: 20px;
+                height: 100%;
                 p {
                     color: rgb(0, 82, 0);
                 }
@@ -121,6 +122,7 @@
                 width: 34%;
                 background-color: rgb(255, 214, 214);
                 padding: 20px;
+                height: 100%;
                 p {
                     color: rgb(116, 0, 0);
                 }
@@ -130,6 +132,13 @@
                 width: 33%;
                 border-radius: 0px 10px 10px 0px;
                 padding: 20px;
+                height: 100%;
+            }
+            @media (max-width: 1409px) {
+                width: 65%;
+            }
+            @media (max-width: 1320px) {
+                width: 71%;
             }
         }
         .add-income-expense-icone {
@@ -224,8 +233,9 @@
             }
         }
         .container-account-income-expense {
-            width: 90%;
+            width: 100%;
             align-items: center;
+            padding-left: 180px;
             h3 {
                 padding: 10px;
                 font-size: 25px;
@@ -240,9 +250,11 @@
                 }
             }
             h3 {
+                width: 80%;
                 margin-left: 40px;
             }
             .container-income-expense {
+                width: 90%;
                 margin: 15px 0px 35px 0px;
                 gap: 20px 0px;
             }
@@ -253,7 +265,7 @@
                 margin-left: 40px;
             }
             .incomes-expenses-balance {
-                width: 100%;
+                width: 80%;
                 margin-left: 40px;
             }
             .add-income-expense-icone {
@@ -293,14 +305,14 @@
                 padding: 8px;
                 font-size: 20px;
                 margin-bottom: 8px;
-                margin-left: -30px;
+                margin-left: -10px;
             }
             .container-income-expense {
                 margin: 10px 0px 25px 0px;
                 gap: 12px 0px;
             }
             .btn-income-expenses {
-                margin-left: -30px;
+                margin-left: -20px;
                 button {
                     margin: 10px 10px 10px 20px;
                     padding: 6px;
@@ -314,7 +326,8 @@
                 font-size: 12px;
             }
             .incomes-expenses-balance {
-                margin-left: -30px;
+                width: 85%;
+                margin-left: -10px;
                 p {
                     font-size: 12px;
                 }
@@ -332,13 +345,29 @@
             }
             .graph {
                 width: 100%;
-                margin-left: -30px;
+                margin-left: -10px;
                 p {
                     font-size: 12px;
                 }
             }
             #description {
-                margin-left: -30px;
+                margin-left: -20px;
+            }
+        }
+    }
+    @media (max-width:682px) {
+        .container-account-income-expense {
+            .incomes-expenses-balance {
+                width: 100%;
+            }
+        }
+    }
+    @media (max-width:607px) {
+        .container-account-income-expense {
+            .incomes-expenses-balance {
+                p {
+                    font-size: 10px;
+                }
             }
         }
     }
@@ -432,21 +461,22 @@
             }
         }
         .container-account-income-expense {
+            padding-left: 175px;
             width: 100%;
             h3 {
-                margin-left: -60px;
+                margin-left: -40px;
                 padding: 2px;
                 margin-bottom: 3px;
             }
             #description {
-                margin-left: -55px;
+                margin-left: -45px;
             }
             .container-income-expense {
                 margin: 4px 0px 9px 0px;
                 gap: 5px 0px;
             }
             .btn-income-expenses {
-                margin-left: -60px;
+                margin-left: -40px;
                 button {
                     margin: 4px 4px 4px 12px;
                     padding: 2px;
@@ -464,7 +494,7 @@
             }
             .incomes-expenses-balance {
                 box-shadow: 0px 0px 1px black;
-                margin-left: -55px;
+                margin-left: -35px;
                 .incomes-total {
                     border-radius: 2px 0px 0px 2px;
                     padding: 5px;
@@ -475,23 +505,61 @@
                 .balance-total {
                     border-radius: 0px 2px 2px 0px;
                     padding: 5px;
+                    height: 100%;
                 }
             }
             .graph {
                 width: 125%;
-                margin-left: -55px;
+                margin-left: -35px;
                 p {
                     font-size: 8px;
                 }
             }
             .add-income-expense-icone {
-                margin-left: -55px;
+                margin-left: -35px;
                 .btn-income-expenses {
                     margin-left: 0px;
                     button {
                         margin: 4px;
                     }
                 }
+            }
+        }
+    }
+}
+
+.account-page.dark {
+    .list-of-accounts {
+        background: rgb(32, 32, 32);
+        box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.637);
+        h3 {
+            color: white;
+            border-bottom: 2px solid rgb(255, 255, 255);
+        }
+    }
+    .container-account-income-expense {
+        background-color: black;
+        h3 {
+            background: #989991;
+            box-shadow: 0px 0px 5px #989991;
+        }
+        #description {
+            color: white;
+        }
+        .add-income-expense-icone {
+            color: white;
+            &:hover {
+                color: rgba(158, 158, 158, 0.753);
+            }
+        }
+        .graph {
+            box-shadow: 0px 0px 5px rgb(255, 252, 252);
+            p {
+                color: white;
+            }
+            .line {
+                background-color: rgb(255, 255, 255);
+                margin-bottom: 20px;
             }
         }
     }

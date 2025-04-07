@@ -222,6 +222,9 @@
                     }
                     .info.picture-profil {
                         padding: 0px 20px 0px 10px;
+                        p {
+                            font-size: 12px;
+                        }
                         .file-img-picture {
                             margin-top: 10px;
                             p {
@@ -230,11 +233,10 @@
                                 height: 40px;
                             }
                             .icone-camera {
-                                position: relative;
-                                top: -25px;
-                                left: 3%;
-                                width: 28px;
-                                height: 12.5px;
+                                top: -16px;
+                                left: 5%;
+                                width: 37px;
+                                height: 15px;
                                 i {
                                     font-size: 10px;
                                 }
@@ -302,11 +304,143 @@
                     }
                 }
             }
+            .form-update-user {
+                .container-infos  {
+                    .info.picture-profil {
+                        padding: 0px 20px 0px 10px;
+                        p {
+                            font-size: 10px;
+                        }
+                        .file-img-picture {
+                            p {
+                                font-size: 20px;
+                                width: 40px;
+                                height: 40px;
+                            }
+                            .icone-camera {
+                                top: -16px;
+                                left: 5%;
+                                width: 37px;
+                                height: 15px;
+                                i {
+                                    font-size: 11px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     @media (max-width: 355px) {
         .user-information {
             max-width: 300px;
+            .form-update-user {
+                .container-infos  {
+                    .info.picture-profil {
+                        padding: 0px 20px 0px 10px;
+                        p {
+                            font-size: 10px;
+                        }
+                        .file-img-picture {
+                            p {
+                                font-size: 20px;
+                                width: 40px;
+                                height: 40px;
+                            }
+                            .icone-camera {
+                                top: -16px;
+                                left: 5%;
+                                width: 37px;
+                                height: 15px;
+                                i {
+                                    font-size: 11px;
+                                }
+                            }
+                        }
+                        .img-profil-picture {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+                    .info.gender-profil, .info.phone-profil {
+                        border-radius: 0px 0px 5px 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container-user-information.dark {
+    background-color: black;
+    .user-information {
+        h3 {
+            color: white;
+        }
+        .description {
+            .txt-description {
+               .title-txt-description {
+                color: white;
+                    .title-txt-description-income {
+                        color: green;
+                    }
+                    .title-txt-description-expense {
+                        color: red;
+                    }
+                }
+                .paragraphe-description {
+                    color: rgb(204, 204, 204);
+                }
+            }
+        }
+        .form-update-user {
+            .container-infos {
+                h4 {
+                    color: white;
+                }
+                .info {
+                    border-bottom: 1px solid rgb(65, 64, 64);
+                    &:hover {
+                        background-color: rgb(105, 104, 104);
+                    }
+                    .label {
+                        color: white;
+                    }
+                    .input {
+                        color: rgb(255, 255, 255);
+                    }
+                    i {
+                        color: rgb(230, 230, 230);
+                    }
+                }
+                .info.picture-profil {
+                    p {
+                        color: white;
+                    }
+                    label {
+                        color: white;
+                    }
+                    .file-img-picture {
+                        p {
+                            color: rgb(0, 0, 0);
+                        }
+                        .icone-camera {
+                            background-color: rgba(255, 255, 255, 0.24);
+                            i {
+                                color: rgb(0, 0, 0);
+                            }
+                        }
+                    }
+                }
+            }
+            .container-infos.security-information {
+                p {
+                    color: white;
+                }
+            }
         }
     }
 }

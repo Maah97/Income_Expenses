@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+import { useContext } from "react"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import img from "../assets/Tracking-Income-Expenses.webp"
@@ -8,10 +9,12 @@ import img3 from "../assets/Saving-Investment-Planning.webp"
 import img4 from "../assets/Debt-Bill-Management.webp"
 import img5 from "../assets/Multi-Month-Long-Term-Financial-Analysis.webp"
 import img6 from "../assets/Personal-Business-Use.webp"
+import { ThemeContext } from "../context/themeContext"
 
 
 
 export default function Caroussel() {
+    const { theme } = useContext(ThemeContext)
     const settings = {
         dots: true, // Affiche les points de navigation
         infinite: true, // Défilement infini
@@ -22,7 +25,7 @@ export default function Caroussel() {
         autoplaySpeed: 4000, // Vitesse de l'auto-scroll (ms)
     };
     return (
-        <div className="carrousel-container">
+        <div className={theme === 'light' ? "carrousel-container" : "carrousel-container dark"}>
             <h3><span>Incomes</span><span>Expenses</span> can be used for</h3>
             <Slider {...settings}>
                 <div>

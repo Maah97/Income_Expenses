@@ -9,8 +9,10 @@ import EmailUpdateForm from "../components/emailUpdateModal"
 import PhoneUpdateForm from "../components/phoneUpdateModal"
 import PasswordUpdateForm from "../components/passwordUpdateModal"
 import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
+import { ThemeContext } from "../context/themeContext"
 
 export default function UserInformation() {
+    const { theme } = useContext(ThemeContext)
     const { user, getColorFromLetter } = useContext(AuthContext)
     const [modalUserName, setModalUserName] = useState(false)
     const [modalBirthday, setModalBirthday] = useState(false)
@@ -21,7 +23,7 @@ export default function UserInformation() {
     const [modalPassword, setModalPassword] = useState(false)
     const [modalProfilPicture, setModalProfilPicture] = useState(false)
     return (
-        <div className="container-user-information">
+        <div className={theme === 'light' ? "container-user-information" : "container-user-information dark"}>
             <div className='user-information'>
                 <h3>Personal informations</h3>
                 <div className="description">
@@ -37,14 +39,14 @@ export default function UserInformation() {
                     <div className="container-infos general-information">
                         <h4>General informations</h4>
                         <div onClick={() => setModalProfilPicture(true)} className="info picture-profil">
-                            <p>profile picture</p>
+                            <p>Profile picture</p>
                             {
                                 user.pictureProfilUrl 
                                 ? 
                                 <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" /> 
                                 :
                                 <>
-                                    <p>Add a profile picture to personalize your account</p>
+                                    <p style={{color: theme === 'light' ? "rgb(163, 163, 163)" : "rgb(73, 73, 73)"}}>Add a profile picture to personalize your account</p>
                                     <div className='file-img-picture'>
                                         <p style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}}>{user.userName[0].toUpperCase()}</p>
                                         <div className='icone-camera'>
@@ -61,12 +63,12 @@ export default function UserInformation() {
                         </div>
                         <div onClick={() => setModalBirthday(true)} className="info birthday-profil">
                             <p className='label'>Birthday</p>
-                            <p className='input' style={user.birthDay ? {color: "black"} : {color: "rgb(163, 163, 163)"}}>{user.birthDay ? user.birthDay : "Put your birhday"}</p>
+                            <p className='input' style={user.birthDay ? {color: theme === 'light' ? "black" : "white"} : {color: "rgb(163, 163, 163)"}}>{user.birthDay ? user.birthDay : "Put your birhday"}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
                         <div onClick={() => setModalOccupation(true)} className="info occupation-profil">
                             <p className='label'>Occupation</p>
-                            <p className='input' style={user.occupation ? {color: "black"} : {color: "rgb(163, 163, 163)"}}>{user.occupation ? user.occupation : "Put your occupation"}</p>
+                            <p className='input' style={user.occupation ? {color: theme === 'light' ? "black" : "white"} : {color: theme === 'light' ? "rgb(163, 163, 163)" : "rgb(73, 73, 73)"}}>{user.occupation ? user.occupation : "Put your occupation"}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
                         <div onClick={() => setModalGender(true)} className='info gender-profil'>
@@ -84,7 +86,7 @@ export default function UserInformation() {
                         </div>
                         <div onClick={() => setModalPhone(true)} className="info phone-profil">
                             <p className='label'>Phone</p>
-                            <p style={user.phoneNumber ? {color: "black"} : {color: "rgb(163, 163, 163)"}} className='input'>{user.phoneNumber ? user.phoneNumber : "Put your phone number"}</p>
+                            <p style={user.phoneNumber ? {color: theme === 'light' ? "black" : "white"} : {color: theme === 'light' ? "rgb(163, 163, 163)" :  "rgb(73, 73, 73)"}} className='input'>{user.phoneNumber ? user.phoneNumber : "Put your phone number"}</p>
                             <i className="fa-solid fa-angle-right"></i>
                         </div>
                     </div>

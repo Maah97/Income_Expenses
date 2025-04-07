@@ -5,12 +5,14 @@ import Account from './account'
 Modal.setAppElement('#root')
 import { AccountContext } from "../context/accountContext"
 import AccountForm from './accountForm'
+import { ThemeContext } from "../context/themeContext"
 
 export default function Container() {
+    const { theme } = useContext(ThemeContext)
     const { accounts } = useContext(AccountContext)
     const [isOpen, setIsOpen] = useState(false)
     return (
-        <section className="container">
+        <section className={theme === 'light' ? "container" : "container dark"}>
             <div className="container-btn">
                 <button onClick={() => setIsOpen(true)} className="btn-add-account">+ Create account</button>
             </div>

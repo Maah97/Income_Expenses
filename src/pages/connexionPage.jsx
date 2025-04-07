@@ -3,8 +3,10 @@ import { NavLink, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik'
 import { AuthContext } from "../context/authContext"
 import WaitingConfirmation from "../components/waitingConfirmation"
+import { ThemeContext } from "../context/themeContext"
 
 export default function ConnexionPage() {
+    const { theme } = useContext(ThemeContext)
     const navigate = useNavigate()
     const [isRegistered, setIsRegistered] = useState(false)
     const { login, message, setIsPopupAuth, setMsgPopupAuth } = useContext(AuthContext);
@@ -51,7 +53,7 @@ export default function ConnexionPage() {
     }
     if (isRegistered) return <WaitingConfirmation userEmail={formik.values.email} />
     return (
-        <div className="connexion-page">
+        <div className={theme === 'light' ? "connexion-page" : "connexion-page dark"}>
             <p>Log In</p>
             <form onSubmit={formik.handleSubmit} className="form-login">
                 <label htmlFor="email">Email</label>

@@ -2,8 +2,11 @@ import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 import { useFormik } from 'formik'
 import axios from 'axios'
+import { useContext } from 'react'
+import { ThemeContext } from "../context/themeContext"
 
 export default function EmailUpdateForm(props) {
+    const { theme } = useContext(ThemeContext)
     const initialValues = {
         email: props.email
     }
@@ -41,8 +44,8 @@ export default function EmailUpdateForm(props) {
     return (
         <Modal
             isOpen={props.isOpen}
-            className="content-modal-info"
-            overlayClassName="overlay-modal-info"
+            className={theme === 'light' ? "content-modal-info" : "content-modal-info dark"}
+            overlayClassName={theme === 'light' ? "overlay-modal-info" : "overlay-modal-info dark"}
             onRequestClose={() => props.setIsOpen(false)}
         >
             <div className="title-info">

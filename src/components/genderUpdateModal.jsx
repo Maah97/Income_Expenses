@@ -1,9 +1,12 @@
 import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 import { useFormik } from 'formik'
+import { useContext } from 'react'
 import axios from 'axios'
+import { ThemeContext } from "../context/themeContext"
 
 export default function GenderUpdateForm(props) {
+    const { theme } = useContext(ThemeContext)
     const initialValues = {
         gender: props.gender
     }
@@ -38,8 +41,8 @@ export default function GenderUpdateForm(props) {
     return (
         <Modal
             isOpen={props.isOpen}
-            className="content-modal-info"
-            overlayClassName="overlay-modal-info"
+            className={theme === 'light' ? "content-modal-info" : "content-modal-info dark"}
+            overlayClassName={theme === 'light' ? "overlay-modal-info" : "overlay-modal-info dark"}
             onRequestClose={() => props.setIsOpen(false)}
         >
             <div className="title-info">

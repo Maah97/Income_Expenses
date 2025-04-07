@@ -140,3 +140,18 @@
         }
     }
 }
+
+.account.dark {
+    .space {
+        background: #313131;
+    }
+    .account-header {
+        background-color: #dddddd;
+        color: black;
+    }
+    &:hover {
+        .space, .account-header {
+            box-shadow: 0px 0px 10px 0px rgb(206, 205, 205);
+        }
+    }
+}

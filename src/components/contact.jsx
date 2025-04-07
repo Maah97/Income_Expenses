@@ -1,8 +1,10 @@
 import { useFormik } from 'formik'
 import { useContext } from "react"
 import { AccountContext } from "../context/accountContext"
+import { ThemeContext } from "../context/themeContext"
 
 export default function Contact() {
+    const { theme } = useContext(ThemeContext)
     const { sendCommentUser } = useContext(AccountContext);
     const emailregExp = new RegExp("[a-z0-9._-]+@[a-z]+\\.[a-z]+$")
     const initialValues = {
@@ -36,7 +38,7 @@ export default function Contact() {
         validate
     })
     return (
-        <section id="contact" className="contact">
+        <section id="contact" className={theme === 'light' ? "contact" : "contact dark"}>
             <h3>Contact</h3>
             <p>Feel free to Contact us by mail or by submitting the form below and we will get back to you as soon as possible</p>
             <form onSubmit={formik.handleSubmit} className="form-contact">

@@ -15,6 +15,11 @@
         margin-top: 45px;
     }
 }
+
+.overlay-modal-info.dark {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
 .content-modal-info {
     position: absolute;
     top: 40px;
@@ -353,6 +358,85 @@
         }
     }
 }
+
+.content-modal-info.dark {
+    background-color: black;
+    .title-info {
+        .i {
+            &:hover {
+                background-color: rgb(34, 34, 34);
+            }
+            i {
+                color: rgb(226, 226, 226);
+            }
+        }
+    }
+    h3 {
+        color: white;
+    }
+    p {
+        color: #c9c8c8;
+    }
+    .update-form.password {
+        label {
+            color: white;
+        }
+        .btn-save-info {
+            color: white;
+            background-color: #2b2b2b;
+            &:hover {
+                background-color: #a5a5a5;
+            }
+        }
+    }
+    .update-form.picture {
+        .picture-profil {
+            .first-picture-profil {
+                color: rgb(0, 0, 0);
+            }
+            .btn-add-picture-profil {
+                background-color: rgba(255, 255, 255, 0.288);
+                border-radius: 9999px;
+                padding: 10px 25px;
+                cursor: pointer;
+                &:hover {
+                    background-color: rgba(68, 68, 68, 0.493);
+                    box-shadow: 0px 0px 5px rgba(90, 94, 99, 0.705);;
+                }
+                i {
+                    color: #e6e6e6;
+                }
+                p {
+                    color: rgb(255, 255, 255)
+                }
+            }
+        }
+    }
+    .update-form {
+       input, select {
+            &:focus {
+                box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.363);
+            }
+        }
+        label {
+            color: white;
+        }
+        .btn-save-info {
+            color: white;
+            background-color: #2b2b2b;
+            &:hover {
+                background-color: #a5a5a5;
+            }
+        }
+        #msg-error {
+            color: rgb(250, 149, 149);
+        }
+    }
+    .error-password {
+        color: rgb(250, 149, 149);
+    }
+}
+
 .content-modal-info.picture {
     top: 20px;
     left: 20px;

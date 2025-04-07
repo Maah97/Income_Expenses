@@ -96,3 +96,16 @@
         color: black;
     }
 }
+
+.carrousel-container.dark {
+    background-color: rgb(0, 0, 0);
+    h3 {
+        color: rgb(255, 255, 255);
+    }
+    .slick-dots li button:before {
+        color: rgb(255, 255, 255);
+    }
+    .slick-prev:before, .slick-next:before {
+        color: rgb(255, 255, 255);
+    }
+}

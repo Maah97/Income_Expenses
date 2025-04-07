@@ -3,9 +3,11 @@ import Modal from 'react-modal'
 import { useFormik } from 'formik'
 import PhoneInput from "react-phone-input-2"
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { ThemeContext } from "../context/themeContext"
 
 export default function PhoneUpdateForm(props) {
+    const { theme } = useContext(ThemeContext)
     const [formattedPhone, setFormattedPhone] = useState("");
     const formatPhoneNumber = (phone) => {
         if (!phone) return "";
@@ -48,8 +50,8 @@ export default function PhoneUpdateForm(props) {
     return (
         <Modal
             isOpen={props.isOpen}
-            className="content-modal-info"
-            overlayClassName="overlay-modal-info"
+            className={theme === 'light' ? "content-modal-info" : "content-modal-info dark"}
+            overlayClassName={theme === 'light' ? "overlay-modal-info" : "overlay-modal-info dark"}
             onRequestClose={() => props.setIsOpen(false)}
         >
             <div className="title-info">

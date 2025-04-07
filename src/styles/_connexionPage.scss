@@ -2,13 +2,14 @@
     width: 100%;
     height: auto;
     min-height: 63.5vh;
-    margin-top: 100px;
+    margin-top: 70px;
     font-weight: 600;
     text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
     p {
+        margin-top: 30px;
         font-size: 40px;
     }
     .form-login {
@@ -310,6 +311,49 @@
         .msg-error-send {
             font-size: 10px;
             margin-top: 20px;
+        }
+    }
+}
+
+.connexion-page.dark {
+    background-color: black;
+    p {
+        color: white;
+    }
+    .form-login {
+        label {
+            color: white;
+        }
+        .container-password {
+            .msg-error {
+                color: rgb(250, 149, 149);
+            }
+        }
+        input {
+            border-color: white;
+            &:focus {
+                border: 2px solid rgb(253, 253, 253);
+                box-shadow: 0px 0px 5px rgb(255, 255, 255);
+            }
+        }
+        .btn {
+            .link-to-reset-password {
+                color: white;
+            }
+        }
+        p {
+            .link-to-signup {
+                color: rgb(93, 144, 255);;
+            }
+        }
+        .msg-error {
+            color: rgb(250, 149, 149);
+        }
+        .msg-error-existing-email {
+            color: rgb(250, 149, 149);
+        }
+        .msg-error-send {
+            color: rgb(250, 149, 149);
         }
     }
 }

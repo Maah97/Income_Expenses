@@ -8,8 +8,10 @@ import WaitingConfirmation from "../components/waitingConfirmation"
 import { AuthContext } from "../context/authContext"
 import { format } from "date-fns"
 import { enUS } from "date-fns/locale"
+import { ThemeContext } from "../context/themeContext"
 
 export default function SignUpPage() {
+    const { theme } = useContext(ThemeContext)
     const { user } = useContext(AuthContext);
     const date = format(new Date(), "MM/dd/yyyy", { locale: enUS });
     const [passwordVisible, setPasswordVisible] = useState(false)
@@ -136,7 +138,7 @@ export default function SignUpPage() {
     if (isRegistered) return <WaitingConfirmation userEmail={email} />
 
     return (
-        <div className="signUp-page">
+        <div className={theme === 'light' ? "signUp-page" : "signUp-page dark"}>
             <p>{user ? "Add an Account" : "Sign Up"}</p>
             <form onSubmit={formik.handleSubmit} className="form-login">
                 <div className="general-informations">
@@ -195,7 +197,7 @@ export default function SignUpPage() {
                     <button type="submit">Sign Up</button>
                 </div>
                 {message === "This email is already in use." ? <p className="msg-error-existing-email">Registration failed because this email is already in use. Change this Email and retry.</p> : null}
-                <p id="question-logIn">You have an account ? <NavLink className="link-to-signup" to="/login">Log In</NavLink></p>
+                <p id="question-logIn">You have an account ? <NavLink className="link-to-login" to="/login">Log In</NavLink></p>
             </form>
         </div>
     )

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 import { useFormik } from 'formik'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import axios from 'axios'
+import { ThemeContext } from "../context/themeContext"
 
 export default function UserNameUpdateForm(props) {
+    const { theme } = useContext(ThemeContext)
     const [msg, setMsg] = useState("")
     const [oldPasswordVisible, setOldPasswordVisible] = useState(false)
     const [passwordVisible, setPasswordVisible] = useState(false)
@@ -110,8 +112,8 @@ export default function UserNameUpdateForm(props) {
     return (
         <Modal
             isOpen={props.isOpen}
-            className="content-modal-info password"
-            overlayClassName="overlay-modal-info"
+            className={theme === 'light' ? "content-modal-info password" : "content-modal-info password dark"}
+            overlayClassName={theme === 'light' ? "overlay-modal-info" : "overlay-modal-info dark"}
             onRequestClose={() => props.setIsOpen(false)}
         >
             <div className="title-info">

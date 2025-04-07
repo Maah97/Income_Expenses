@@ -3,8 +3,10 @@ import { NavLink } from 'react-router-dom'
 import AccountForm from './accountForm'
 import { useState, useContext } from 'react'
 import { AccountContext } from "../context/accountContext"
+import { ThemeContext } from "../context/themeContext"
 
 export default function Account(props) {
+    const { theme } = useContext(ThemeContext)
     const { deleteAccount, setMessage } = useContext(AccountContext)
     const [isOpen, setIsOpen] = useState(false)
     async function deleteOneAccount() {
@@ -16,7 +18,7 @@ export default function Account(props) {
         }
     }
     return (
-        <div className="account">
+        <div className={theme === 'light' ? "account" : "account dark"}>
             <div className='space'></div>
             <div className="account-header">
                 <h2>{props.account.nameAccount}</h2>

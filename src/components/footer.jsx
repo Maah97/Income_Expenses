@@ -1,7 +1,11 @@
+import { useContext } from "react"
+import { ThemeContext } from "../context/themeContext"
+
 export default function Footer() {
+    const { theme } = useContext(ThemeContext)
     const date = new Date();
     return(
-        <footer>
+        <footer className={theme === 'light' ? "" : "dark"}>
             <div className="container-footer">
                 <div className="address">
                         <p>Address</p>

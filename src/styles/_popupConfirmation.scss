@@ -16,6 +16,14 @@
         text-align: center;
     }
 }
+
+.popup-confirmation.dark {
+    background-color: rgba(255, 255, 255, 0.8);
+   p {
+        color: rgb(0, 0, 0);
+    }
+}
+
 .popup-confirmation.income-expense {
     left: 60%;
     transform: translateX(-60%);

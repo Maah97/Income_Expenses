@@ -4,7 +4,10 @@ import { useContext } from 'react'
 import { AccountContext } from "../context/accountContext"
 import Modal from 'react-modal'
 Modal.setAppElement('#root')
+import { ThemeContext } from "../context/themeContext"
+
 export default function AccountForm(props) {
+    const { theme } = useContext(ThemeContext)
     const { createAccount, modifyAccount, message, setMessage, reload, setReload } = useContext(AccountContext)
     const initialValues = {
         nameAccount: props.account ? props.account.nameAccount : '',
@@ -48,7 +51,7 @@ export default function AccountForm(props) {
     return (
         <Modal 
             isOpen={props.isOpen}
-            className="content-modal"
+            className={theme === 'light' ? "content-modal" : "content-modal dark"}
             overlayClassName="overlay-modal"
             onRequestClose={() => props.setIsOpen(false)}
         >

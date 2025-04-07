@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useParams, NavLink, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik'
 import axios from 'axios'
+import { ThemeContext } from "../context/themeContext"
 
 export default function ResetPassword() {
+    const { theme } = useContext(ThemeContext)
     const { token } = useParams();
     const navigate = useNavigate() 
     const [passwordVisible, setPasswordVisible] = useState(false)
@@ -80,7 +82,7 @@ export default function ResetPassword() {
         }
     })
     return (
-        <section className="reset-password-page">
+        <section className={theme === 'light' ? "reset-password-page" : "reset-password-page dark"}>
             {
                 email
                 ?

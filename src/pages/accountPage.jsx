@@ -8,8 +8,10 @@ import CardIncomeExpense from "../components/cardIncomeExpense"
 import GraphIncomesExpenses from "../components/graphIncomesExpenses"
 import { AccountContext } from "../context/accountContext"
 import PopupConfirmation from "../components/popupConfirmation"
+import { ThemeContext } from "../context/themeContext"
 
 export default function AccountPage() {
+    const { theme } = useContext(ThemeContext)
     const { accounts, isPopupIncomeExpense, msgPopup } = useContext(AccountContext)
     const { id } = useParams()
     const account = accounts.find(item => item._id == id)
@@ -77,7 +79,7 @@ export default function AccountPage() {
         const titles = document.querySelectorAll('.title')
         const title = document.getElementById(`${account._id}`)
         for (let i = 0; i < titles.length; i++) {
-            titles[i].style.color = 'black'
+            titles[i].style.color = theme === 'light' ? 'black' : 'white'
             titles[i].style.backgroundColor = 'transparent'
             titles[i].style.borderRadius = 'none'
             titles[i].style.boxShadow = 'none'
@@ -86,13 +88,13 @@ export default function AccountPage() {
                     titles[i].style.backgroundColor = 'rgb(206, 145, 145)'
                     titles[i].style.borderRadius = 'none'
                     titles[i].style.boxShadow = 'none'
-                    titles[i].style.color = 'black'
+                    titles[i].style.color = theme === 'light' ? 'black' : 'white'
                 })
                 titles[i].addEventListener('mouseleave', () => {
                     titles[i].style.backgroundColor = 'transparent'
                     titles[i].style.borderRadius = 'none'
                     titles[i].style.boxShadow = 'none'
-                    titles[i].style.color = 'black'
+                    titles[i].style.color = theme === 'light' ? 'black' : 'white'
                 })
             }
         }
@@ -124,7 +126,7 @@ export default function AccountPage() {
         })
     }
     return (
-        <section className="account-page">
+        <section className={theme === 'light' ? "account-page" : "account-page dark"}>
             <div className="list-of-accounts">
                 <h3>List of accounts</h3>
                 {

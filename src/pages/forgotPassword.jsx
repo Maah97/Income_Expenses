@@ -1,8 +1,10 @@
 import { useFormik } from 'formik'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import axios from 'axios'
+import { ThemeContext } from "../context/themeContext"
 
 export default function ForgotPassword() {
+    const { theme } = useContext(ThemeContext)
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState("")
     const initialValues = {
@@ -37,7 +39,7 @@ export default function ForgotPassword() {
         validate
     })
     return (
-        <div className="connexion-page">
+        <div className={theme === 'light' ? "connexion-page" : "connexion-page dark"}>
             <p>Reset Password</p>
             <form onSubmit={formik.handleSubmit} className="form-login">
                 <label htmlFor="email">Email</label>
