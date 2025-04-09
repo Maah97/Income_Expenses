@@ -3,8 +3,10 @@ import { useParams, NavLink, useNavigate } from "react-router-dom"
 import { useFormik } from 'formik'
 import axios from 'axios'
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function ResetPassword() {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const { token } = useParams();
     const navigate = useNavigate() 
@@ -39,24 +41,24 @@ export default function ResetPassword() {
     const validate = values => {
         let errors = {}
         if (!values.password) {
-            errors.password = 'You must enter your password'
+            errors.password = t("resetPassword.errors.error1")
         }
         if (values.password && values.password.length < 8) {
-            errors.password = 'Password must be at least 8 characters'
+            errors.password = t("resetPassword.errors.error2")
         } else if (values.password && !passwordPresenceChiffre.test(values.password)) {
-            errors.password = 'Password must contain at least one number'
+            errors.password = t("resetPassword.errors.error3")
         } else if (values.password && !passwordPresenceMinuscule.test(values.password)) {
-            errors.password = 'Password must contain at least one lowercase letter'
+            errors.password = t("resetPassword.errors.error4")
         } else if (values.password && !passwordPresenceMajuscule.test(values.password)) {
-            errors.password = 'Password must contain at least one uppercase letter'
+            errors.password = t("resetPassword.errors.error5")
         } else if (values.password && passwordAbsenceCaractereSpeciaux.test(values.password)) {
-            errors.password = 'Password must not contain special characters except : @, _, -, !, $, &'
+            errors.password = t("resetPassword.errors.error6")
         }
         if (!values.confirmPassword) {
-            errors.confirmPassword = 'Confirm your password'
+            errors.confirmPassword = t("resetPassword.errors.error7")
         }
         if (values.password !== values.confirmPassword) {
-            errors.confirmPassword = 'Passwords do not match'
+            errors.confirmPassword = t("resetPassword.errors.error8")
         }
         return errors
     }
@@ -87,23 +89,23 @@ export default function ResetPassword() {
                 email
                 ?
                 <>
-                    <h3>Reset password</h3>
+                    <h3>{t("resetPassword.h3")}</h3>
                     <form onSubmit={formik.handleSubmit} className="form-reset-password">
                         <label htmlFor="email">Email</label>
                         <input name="email" type="text" disabled value={formik.values.email} />
-                        <label htmlFor="password">New password</label>
+                        <label htmlFor="password">{t("resetPassword.labelPassword")}</label>
                         <div className="container-password">
-                            <input name="password" id="password" type={passwordVisible === true ? "text" : "password"} autoComplete="new-password" required placeholder="Enter your password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} />
+                            <input name="password" id="password" type={passwordVisible === true ? "text" : "password"} autoComplete="new-password" required placeholder={t("resetPassword.placeHolderPassword")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} />
                             <i onClick={() => VisibilityPassword()} className={`fa-regular fa-eye${passwordVisible === true ? "" : "-slash"}`}></i>
                             {formik.touched.password && formik.errors.password ? <p className='msg-error'>{formik.errors.password}</p> : null}
                         </div>
-                        <label htmlFor="confirmPassword">Repeat Password</label>
+                        <label htmlFor="confirmPassword">{t("resetPassword.labelConfirmPassword")}</label>
                         <div className="container-password">
-                            <input name="confirmPassword" id="repeat-password" type={confirmPasswordVisible === true ? "text" : "password"} required placeholder="Repeat your password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.confirmPassword} />
+                            <input name="confirmPassword" id="repeat-password" type={confirmPasswordVisible === true ? "text" : "password"} required placeholder={t("resetPassword.placeHolderConfirmPassword")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.confirmPassword} />
                             <i onClick={() => VisibilityConfirmPassword()} className={`fa-regular fa-eye${confirmPasswordVisible === true ? "" : "-slash"}`}></i>
                             {formik.touched.confirmPassword && formik.errors.confirmPassword ? <p className='msg-error'>{formik.errors.confirmPassword}</p> : null}
                         </div>
-                        <button type="submit">Reset password</button>
+                        <button type="submit">{t("resetPassword.btnSubmit")}</button>
                     </form>
                     {message === "" ? null : <p className='msg-error-send'>{message}</p>} 
                 </>
@@ -111,14 +113,14 @@ export default function ResetPassword() {
                     message === "Password reset successful"
                     ?
                     <div className="reset-password-success">
-                        <p className="intro"><i className="fa-regular fa-circle-check"></i> Your password has been successfully reset.</p>
-                        <p>You will be redirected to the login page......</p>
+                        <p className="intro"><i className="fa-regular fa-circle-check"></i> {t("resetPassword.p1")}</p>
+                        <p>{t("resetPassword.p2")}</p>
                     </div>
                     :
                     <div className="link-used">
-                        <p className="intro"> <i className="fa-solid fa-circle-exclamation"></i> This link is already used</p>
-                        <p>Click below to resend the email for reset your password</p>
-                        <NavLink className="link-to" to="/forgotPassword">Reset password</NavLink>
+                        <p className="intro"> <i className="fa-solid fa-circle-exclamation"></i> T{t("resetPassword.p3")}</p>
+                        <p>{t("resetPassword.p4")}</p>
+                        <NavLink className="link-to" to="/forgotPassword">{t("resetPassword.btnSendMail")}</NavLink>
                     </div>
             }
         </section>

@@ -4,8 +4,10 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { useContext } from 'react'
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function EmailUpdateForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const initialValues = {
         email: props.email
@@ -14,9 +16,9 @@ export default function EmailUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (!values.email) {
-            errors.email = 'Email required'
+            errors.email = t("emailUpdateModal.errors.email")
         } else if (values.email && !emailregExp.test(values.email)) {
-             errors.email = 'Enter a valid email like : web.dev02@project.com'
+             errors.email = t("emailUpdateModal.errors.emailValid")
         }
         return errors
     }
@@ -54,12 +56,12 @@ export default function EmailUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Change your address mail</h3>
-            <p>Your email address helps us to identify you and send you our offers and services, but also to present you with the new features of the web application.</p>
+            <h3>{t("emailUpdateModal.h3")}</h3>
+            <p>{t("emailUpdateModal.p")}</p>
             <form onSubmit={formik.handleSubmit} className='update-form'>
-                <input name='email' type="email" placeholder='Enter your new email' required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} />
+                <input name='email' type="email" placeholder={t("emailUpdateModal.placeHolder")} required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} />
                 {formik.touched.email && formik.errors.email ? <p id='msg-error'>{formik.errors.email}</p> : null}
-                <input type="submit" className="btn-save-info" value="Save" />
+                <input type="submit" className="btn-save-info" value={t("emailUpdateModal.save")} />
             </form>
         </Modal>
     )

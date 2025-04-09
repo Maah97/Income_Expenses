@@ -1,27 +1,29 @@
 import { useContext } from "react"
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function Footer() {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const date = new Date();
     return(
         <footer className={theme === 'light' ? "" : "dark"}>
             <div className="container-footer">
                 <div className="address">
-                        <p>Address</p>
+                        <p>{t("footer.p")}</p>
                         <ul>
                             <li>IncomeExpense LLP,</li>
-                            <li>North Region, Garoua</li>
-                            <li>Cameroon</li>
+                            <li>{t("footer.ulLi1")}</li>
+                            <li>{t("footer.ulLi2")}</li>
                             <li>Contact : +237 656 368 060</li>
                         </ul>
                 </div>
                 <div className="about">
-                        <p>About the website</p>
-                        <p>Income-Expenses, is your ultimate financial tracking tool ! We are here to helps you monitor your income and expenses over any period, from months to years, giving you a clear view of your financial health.</p>
+                        <p>{t("footer.about.p1")}</p>
+                        <p>{t("footer.about.p2")}</p>
                 </div>
                 <div className="follow-us">
-                    <p>Follow Us</p>
+                    <p>{t("footer.followUs")}</p>
                     <div className="links">
                         <a href="mailto:mahmoudouaboul@gmail.com">
                             <i className="fa-solid fa-envelope"></i>
@@ -39,7 +41,7 @@ export default function Footer() {
                 </div>
             </div>
             <p className="droit-reserve">
-                <i className="fa-regular fa-copyright"></i>{" " + date.getFullYear() + " IncomesExpenses, " + "all rights reserved"}
+                <i className="fa-regular fa-copyright"></i>{" " + date.getFullYear() + " IncomesExpenses, " + t("footer.allRights")}
             </p>
         </footer>
     )

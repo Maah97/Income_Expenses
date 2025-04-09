@@ -3,8 +3,10 @@ import axios from "axios"
 import PropTypes from 'prop-types'
 import { AccountContext } from "./accountContext"
 import { useEffect } from "react"
+import { useTranslation } from "react-i18next"
 
 export const AccountProvider = ({ children }) => {
+    const { t } = useTranslation()
     const [accounts, setAccounts] = useState([])
     const [message, setMessage] = useState("")
     const [reload, setReload] = useState(false)
@@ -33,7 +35,7 @@ export const AccountProvider = ({ children }) => {
             fetchAccounts()
             setReload(!reload)
             setIsPopup(true)
-            setMsgPopup('Account create with success !')
+            setMsgPopup(t("accountProvider.msg1"))
             setTimeout(() => {
                 setIsPopup(false)
             }, "3000")
@@ -69,7 +71,7 @@ export const AccountProvider = ({ children }) => {
             fetchAccounts()
             setReload(!reload)
             setIsPopup(true)
-            setMsgPopup('Account modify with success !')
+            setMsgPopup(t("accountProvider.msg2"))
             setTimeout(() => {
                 setIsPopup(false)
             }, "3000")
@@ -104,13 +106,13 @@ export const AccountProvider = ({ children }) => {
             setReload(!reload)
             setMessage(response.data.message)
             setIsPopup(true)
-            setMsgPopup('Account delete with success !')
+            setMsgPopup(t("accountProvider.msg3"))
             setTimeout(() => {
                 setIsPopup(false)
             }, "3000")
             return true
         } catch (error) {
-            alert(`Error in deleting account : ${error.response.data.message}`)
+            alert(`${t("accountProvider.msg4")} : ${error.response.data.message}`)
             return false
         }
     }
@@ -133,7 +135,7 @@ export const AccountProvider = ({ children }) => {
             setReload(!reload)
             setMessage(response.data.message)
             setIsPopupIncomeExpense(true)
-            setMsgPopup('Income / Expense create with success !')
+            setMsgPopup(t("accountProvider.msg5"))
             setTimeout(() => {
                 setIsPopupIncomeExpense(false)
             }, "3000")
@@ -161,7 +163,7 @@ export const AccountProvider = ({ children }) => {
             setReload(!reload)
             setMessage(response.data.message)
             setIsPopupIncomeExpense(true)
-            setMsgPopup('Income / Expense modify with success !')
+            setMsgPopup(t("accountProvider.msg6"))
             setTimeout(() => {
                 setIsPopupIncomeExpense(false)
             }, "3000")
@@ -179,13 +181,13 @@ export const AccountProvider = ({ children }) => {
             setReload(!reload)
             setMessage(response.data.message)
             setIsPopupIncomeExpense(true)
-            setMsgPopup('Income / Expense delete with success !')
+            setMsgPopup(t("accountProvider.msg7"))
             setTimeout(() => {
                 setIsPopupIncomeExpense(false)
             }, "3000")
             return true
         } catch (error) {
-            alert(`Error in deleting income / expense : ${error.response.data.message}`)
+            alert(`${t("accountProvider.msg8")} : ${error.response.data.message}`)
             return false
         }
     }
@@ -194,7 +196,7 @@ export const AccountProvider = ({ children }) => {
             await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/comment`,
                 {name: values.name, message: values.comment, email: values.email})
             setIsPopup(true)
-            setMsgPopup('Your message or recommandation has been send with succes !')
+            setMsgPopup(t("accountProvider.msg9"))
             setTimeout(() => {
                 setIsPopup(false)
             }, "3000")    

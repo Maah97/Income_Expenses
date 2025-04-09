@@ -2,8 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 import { useParams } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 export function VerifyAccount() {
+    const { t } = useTranslation()
     const { token } = useParams();
     const [message, setMessage] = useState("Vérification en cours...");
     const [loading, setLoading] = useState(true);
@@ -14,21 +16,21 @@ export function VerifyAccount() {
         axios.get(`${import.meta.env.VITE_BASE_URL_USER}/verify/${token}`)
         .then((response) => {
             if (response.data.message === true) {
-              setMessage("Your account is now active ! Click to the link bellow you will be redirected to the login page");
+              setMessage(t("verifyAccount.message"));
               setIsVerified(true);
             } else {
-              setMessage("Invalid or expired link.");
+              setMessage(t("verifyAccount.message1"));
               setIsVerified(false);
               setEmail(response.data.email);
             }
             setLoading(false);
         })
         .catch(() => {
-            setMessage("Error connecting to the server.")
+            setMessage(t("verifyAccount.message2"))
             setLoading(false);
             setIsVerified(false);
         });
-    }, [token]);
+    }, [token, t]);
     const resendEmail = async () => {
         setLoading(true);
         try {
@@ -44,13 +46,13 @@ export function VerifyAccount() {
 
     return (
         <div className="verify-account">
-            <p style={isVerified ? {color: "green"} : {color: "red"}}>{isVerified ? "Felicitations your account is verified !" : "Sorry ! Your account verification failed"}</p>
+            <p style={isVerified ? {color: "green"} : {color: "red"}}>{isVerified ? t("verifyAccount.p1") : t("verifyAccount.p2")}</p>
             <p className="message-verify-account">{message}</p>
             {
                 isVerified 
                 ? 
                 <NavLink className="btn-redirect-login-page" to="/login" disabled={loading}>
-                    {loading ? "Redirection in progress..." : "Log In"}
+                    {loading ? t("verifyAccount.loading") : t("verifyAccount.logIn")}
                 </NavLink>
                 :
                 <div className="resend-email-after-failed">
@@ -60,12 +62,12 @@ export function VerifyAccount() {
                         null
                         :
                         <>
-                            <label htmlFor="email">Enter your email to resend the verification email</label>
+                            <label htmlFor="email">{t("verifyAccount.labelEmail")}</label>
                             <input name="email"  onChange={(e) => setEmail(e.target.value)} type="text" required />
                         </>  
                     }
                     <button type="sumit" className="btn-resend-email" onClick={resendEmail} disabled={loading}>
-                        {loading ? "Sending in progress..." : "Resend mail"}
+                        {loading ? t("verifyAccount.progress") : t("verifyAccount.resend")}
                     </button>
                     {messageResend === "" ? null : <p className='msg-error-resend'>{messageResend}</p>}
                 </div>

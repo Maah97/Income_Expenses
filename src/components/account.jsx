@@ -4,13 +4,15 @@ import AccountForm from './accountForm'
 import { useState, useContext } from 'react'
 import { AccountContext } from "../context/accountContext"
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function Account(props) {
+    const { t } = useTranslation();
     const { theme } = useContext(ThemeContext)
     const { deleteAccount, setMessage } = useContext(AccountContext)
     const [isOpen, setIsOpen] = useState(false)
     async function deleteOneAccount() {
-        if (confirm("Are you sure you want to continue deleting ?")) {
+        if (confirm(t("account.confirmation"))) {
             await deleteAccount(props.account._id)
             setMessage("")
         } else {
@@ -22,13 +24,13 @@ export default function Account(props) {
             <div className='space'></div>
             <div className="account-header">
                 <h2>{props.account.nameAccount}</h2>
-                <p>Create at : {props.account.createDate}</p>
-                <p>Modify at : {props.account.modifyDate}</p>
+                <p>{t("account.createInfo")} : {props.account.createDate}</p>
+                <p>{t("account.modifyInfo")} : {props.account.modifyDate}</p>
             </div>
             <div className="btn-modify-delete-open">
-                <NavLink onClick={() => window.scrollTo(0, 0)} to={'/accounts/' + props.account._id} className="button open"><i className="fa-regular fa-folder-open"></i> Open</NavLink>
-                <button onClick={() => setIsOpen(true)} className="button modify"><i className="fa-solid fa-pen-to-square"></i> Modify</button>
-                <button onClick={() => deleteOneAccount()} className="button delete"><i className="fa-solid fa-trash"></i> Delete</button>
+                <NavLink onClick={() => window.scrollTo(0, 0)} to={'/accounts/' + props.account._id} className="button open"><i className="fa-regular fa-folder-open"></i> {t("account.open")}</NavLink>
+                <button onClick={() => setIsOpen(true)} className="button modify"><i className="fa-solid fa-pen-to-square"></i> {t("account.modify")}</button>
+                <button onClick={() => deleteOneAccount()} className="button delete"><i className="fa-solid fa-trash"></i> {t("account.delete")}</button>
             </div>
             <AccountForm key={props.account._id} id={props.account._id} isOpen={isOpen} setIsOpen={setIsOpen} account={props.account} />
         </div>

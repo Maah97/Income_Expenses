@@ -1,0 +1,490 @@
+{
+    "home": "Accueil",
+    "account": {
+        "confirmation": "Êtes-vous sûr de vouloir continuer la suppression ?",
+        "createInfo": "Crée le",
+        "modifyInfo": "Modifié le",
+        "open": "Ouvrir",
+        "modify": "Modifier",
+        "delete": "Supprimer"
+    },
+    "accountForm": {
+        "errors": {
+            "nameAccount": "Vous devez entrer un nom pour votre compte",
+            "descriptionAccount": "Vous devez saisir la description de votre compte"
+        },
+        "title": "Créer un compte",
+        "titleMofifyAccount": "Modifier votre compte",
+        "name": "Nom du compte",
+        "placeHolderName": "Entrer le nom de votre compte (Exemple : Dépenses du mois de Mars)",
+        "description": "Description du compte",
+        "placeHolderDescription": "Entrer une description de votre compte",
+        "modify": "Modifier",
+        "cancel": "Annuler"
+    },
+    "birthdayUpdateModal": {
+        "errors": {
+            "birthday": "Date de naissance requise"
+        },
+        "h3": "Modifer votre date de naissance",
+        "p": "Votre date de naissance aide les autres utilisateurs à vous souhaiter un joyeux anniversaire et à établir une estimation de vos revenus financiers en fonction de votre âge.",
+        "placeHolder": "Entrer votre date de naissance",
+        "save": "Sauvegarder"
+    },
+    "cardIncomeExpense": {
+        "confirm": "Êtes-vous sûr de vouloir continuer la suppression ?",
+        "date": "Date",
+        "paymentMode": "Mode de paiement",
+        "category": "Categorie",
+        "remark": "Remarque",
+        "income": "Revenu",
+        "expense": "Dépense",
+        "modify": "Modifier",
+        "delete": "Supprimer"
+    },
+    "caroussel": {
+        "h3": "peut être utilisé pour",
+        "imgH4": "Suivi des revenus et des dépenses",
+        "imgP": "Suivez tous vos revenus et dépenses en un seul endroit. Catégorisez vos transactions pour plus de clarté.",
+        "img1H4": "Planification budgétaire",
+        "img1P": "Définissez des budgets mensuels ou annuels pour contrôler vos dépenses. Recevez des alertes lorsque vous approchez de vos limites budgétaires.",
+        "img2H4": "Informations et rapports financiers",
+        "img2P": "Obtenez des rapports détaillés sur vos revenus et vos dépenses. Identifiez vos habitudes de dépenses et optimisez vos finances.",
+        "img3H4": "Planification de l'épargne et des investissements",
+        "img3P": "Planifiez vos objectifs d'épargne en fonction de vos revenus et de vos dépenses. Affectez des fonds à vos futurs investissements.",
+        "img4H4": "Gestion de la dette et des factures",
+        "img4P": "Suivez vos factures et paiements récurrents. Évitez les frais de retard en programmant des rappels de paiement.",
+        "img5H4": "Analyse financière sur plusieurs mois et à long terme",
+        "img5P": "Analysez les tendances financières sur plusieurs mois ou années. Prenez des décisions éclairées pour votre stabilité financière.",
+        "img6H4": "Usage personnel et professionnel",
+        "img6P": "Gérez efficacement vos finances personnelles. Suivez vos dépenses professionnelles si vous êtes travailleur indépendant."
+    },
+    "contact": {
+        "errors": {
+            "name": "Vous devez entrer votre nom",
+            "email1": "Vous devez entrer votre email",
+            "email2": "Entrez une adresse e-mail valide",
+            "comment": "Vous devez saisir votre message ou votre recommandation"
+        },
+        "h3": "Contact",
+        "p": "N'hésitez pas à nous contacter par mail ou en remplissant le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+        "labelName": "Nom",
+        "placeHolderName": "Entrer votre nom",
+        "labelEmail": "Email",
+        "placeHolderEmail": "Entrer votre Email",
+        "labelMessage": "Votre message ou recommandation",
+        "placeHolderMessage": "Entrez votre message ou une recommandation pour une meilleure expérience utilisateur",
+        "submit": "Soumettre"
+    },
+    "container": {
+        "buttonCreateAccount": "Créer un compte",
+        "noAccountP": "Pas de compte disponible"
+    },
+    "emailUpdateModal": {
+        "errors": {
+            "email": "Email requis",
+            "emailValid": "Entrez une adresse e-mail valide comme : web.dev02@project.com"
+        },
+        "h3": "Changer votre addresse Email",
+        "p": "Votre adresse email nous aide à vous identifier et à vous envoyer nos offres et services, mais aussi à vous présenter les nouveautés de l'application web.",
+        "placeHolder": "Entrer votre nouvelle addresse email",
+        "save": "Sauvegarder"
+    },
+    "expenseForm": {
+        "errors": {
+            "amount": "Vous devez saisir le montant de vos dépenses",
+            "amountValid": "Vous devez entrer un nombre",
+            "category": "Vous devez saisir la catégorie de la dépense",
+            "paymentMode": "Vous devez entrer le mode de paiement",
+            "remark": "Vous devez saisir la description ou la remarque de votre dépense",
+            "date": "Vous devez définir la date",
+            "hour": "Vous devez définir l'heure"
+        },
+        "addH3": "Ajouter une dépense",
+        "modifyH3": "Modifier une dépense",
+        "labelExpense": "Dépense",
+        "placeHolderExpenses":"Entrer le montant de votre dépense",
+        "labelCategory": "Catégorie",
+        "optionPurchase": "Achat",
+        "optionFoodAndDrinks": "Nourriture et boissons",
+        "optionOtherExpense": "Autres dépenses",
+        "optionToiletries": "articles de toilette",
+        "optionInsurance": "Assurance",
+        "optionCarInsurance": "Assurance voiture",
+        "optionHomeInsurance": "Assurance maison",
+        "optionHealthInsurance": "Assurance santé",
+        "optionBaptismAndMariage": "Baptême et mariage",
+        "optionTransportAndTaxi": "Transports et taxis",
+        "optionLaundry": "Lessive",
+        "optionGifts": "Cadeaux",
+        "optionFuel": "Carburant",
+        "optionGaz": "Gaz",
+        "optionMobile": "Mobile",
+        "optionInternet": "Internet",
+        "optionEntertainment": "Divertissement",
+        "optionInvestmentCosts": "Coûts d'investissement",
+        "optionHouseKeepers": "Les gardiens de maison",
+        "optionCardFees": "Frais de carte",
+        "optionGymansium": "Gymnase",
+        "optionLocation": "Location",
+        "optionRepairAndMaintenance": "Réparation et entretien",
+        "optionHealth": "Santé",
+        "optionClothing": "Vêtements",
+        "optionSchoolAndEducation": "École et éducation",
+        "optionElectricityBill": "Facture d'électricité",
+        "optionOthersBill": "Autres factures (eau,...)",
+        "labelPaymentMode": "Mode de paiement",
+        "optionOthers": "Autres dépenses",
+        "optionBank": "Banque",
+        "optionMap": "Carte",
+        "optionSpicies": "Épices",
+        "labelRemark": "Reamrque",
+        "placeHolderRemark": "Entrer la description de votre dépense",
+        "labelDate": "Date",
+        "modify": "Modier la dépense",
+        "save": "Sauvegarder",
+        "cancel": "Annuler"
+    },
+    "footer": {
+        "p": "Adresse",
+        "ulLi1": "Région du Nord, Garoua",
+        "ulLi2": "Cameroun",
+        "about": {
+            "p1": "A propos du site",
+            "p2": "Incomes-Expenses, est votre outil de suivi financier idéal ! Nous vous aidons à suivre vos revenus et dépenses sur une période donnée, de quelques mois à plusieurs années, pour une vision claire de votre santé financière."
+        },
+        "followUs": "Suivez-nous",
+        "allRights": "Tous droits réservés"
+    },
+    "genderUpdateModal": {
+        "errorGender": "Genre requis",
+        "h3": "Changer votre genre",
+        "p": "Vous pouvez modifier le sexe de vos informations ici si vous le souhaitez",
+        "option": {
+            "choose": "-- choisir",
+            "male": "HOMME",
+            "female": "FEMME"
+        },
+        "save": "Sauvegarder"
+    },
+    "graphIncomesExpenses": {
+        "p": "Chargement en cours..."
+    },
+    "header": {
+        "logIn": "Connexion",
+        "msgLogout": "Vous êtes déconnecté avec succès",
+        "informationPopup": {
+            "welcome": "Bienvenu",
+            "p": "Gérez votre compte",
+            "p1": "Ajouter un compte",
+            "p2": "Déconnexion",
+            "p4": "Votre compte est vérifié",
+            "p5": "Compte non vérifié"
+        }
+    },
+    "incomeForm": {
+        "errors": {
+            "amount": "Vous devez saisir le montant de vos dépenses",
+            "amountValid": "Vous devez entrer un nombre",
+            "category": "Vous devez saisir la catégorie de la dépense",
+            "paymentMode": "Vous devez entrer le mode de paiement",
+            "remark": "Vous devez saisir la description ou la remarque de votre dépense",
+            "date": "Vous devez définir la date",
+            "hour": "Vous devez définir l'heure"
+        },
+        "addH3": "Ajouter un revenu",
+        "modifyH3": "Modifier un revenu",
+        "labelIncome": "Revenu",
+        "placeHolderIncome":"Entrer le montant de votre revenu",
+        "labelCategory": "Catégorie",
+        "optionsCategory": {
+            "business": "Business",
+            "allocation": "Allocation",
+            "otherIncome": "Other Income",
+            "prime": "Prime",
+            "repayment": "Remboursement prêt",
+            "pension": "Pension",
+            "investment": "Revenu d'investissement",
+            "salary": "Salaire"
+        },
+        "labelPaymentMode": "Mode de paiement",
+        "optionsPaymentMode": {
+            "bank": "Banque",
+            "others": "Autres",
+            "map": "Carte",
+            "species": "Espèces"
+        },
+        "labelRemark": "Remarque",
+        "placeHolderRemark": "Entrer la description de votre revenu",
+        "labelDate": "Date",
+        "modify": "Modifier le revenu",
+        "save": "Sauvegarder",
+        "cancel": "Annuler"
+    },
+    "occupationUpdateModal": {
+        "errorOccupation": "Occupation requise",
+        "h3": "Changer votre occupation",
+        "p": "Votre profession nous aide à vous identifier et à vous adresser nos offres et services, mais aussi à vous présenter les nouveautés de l'application web.",
+        "placeHolder": "Entrez votre nouvelle profession",
+        "save": "Sauvegarder"
+    },
+    "passwordUpdateModal": {
+        "errors": {
+            "error1": "Ancien mot de passe requis",
+            "error2": "Nouveau mot de passe requis",
+            "error3": "Confirmation requise",
+            "error4": "Le mot de passe doit contenir au moins 8 caractères",
+            "error5": "Le mot de passe doit contenir au moins un chiffre",
+            "error6": "Le mot de passe doit contenir au moins une lettre minuscule",
+            "error7": "Le mot de passe doit contenir au moins une lettre majuscule",
+            "error8": "Le mot de passe ne doit pas contenir de caractères spéciaux sauf : @, _, -, !, $, &",
+            "error9": "Le mot de passe et la confirmation ne correspondent pas"
+        },
+        "h3": "Changer votre mot de passe",
+        "p": "Vous pouvez modifier votre mot de passe si vous pensez qu'il est compromis.",
+        "labelOldPassword": "Ancien mot de passe",
+        "placeHolderOldPassword": "Entrez votre ancien mot de passe",
+        "labelNewPassword": "Nouveau mot de passe",
+        "placeHolderNewPassword": "Entrez votre nouveau mot de passe",
+        "labelConfirmNewPassword": "Confirmer le nouveau mot de passe",
+        "placeHolderConfirmNewPassword": "Répétez votre nouveau mot de passe",
+        "save": "Sauvegarder"
+    },
+    "phoneUpdateModal": {
+        "errorPhone": "Numéro de téléphone requis",
+        "h3": "Changez votre numéro de téléphone",
+        "p": "Votre numéro de téléphone nous permet de vous assister et de vous identifier et de vous faire part de nos offres et services, mais aussi de vous présenter les nouveautés de l'application web.",
+        "placeHolder": "Entrez votre nouveau numéro de téléphone",
+        "save": "Sauvegarder"
+    },
+    "pictureProfilUpdateModal": {
+        "errors": {
+            "error1": "Image requise",
+            "error2": "Vous devez sélectionner une image de type jpeg, jpg, png, gif ou webp",
+            "error3": "Votre image ne doit pas dépasser 2Mo"
+        },
+        "h3": "Changer votre photo de profil",
+        "p": "Votre photo de profil nous aide à vous identifier et à vous envoyer nos offres et services, mais aussi à vous présenter les nouveautés de l'application web.",
+        "btnChange": "Changer la photo de profil",
+        "btnAdd": "Ajouter une photo de profil",
+        "save": "Sauvegarder"
+    },
+    "presentation": {
+        "slogans": {
+            "slogan1": "Suivre les revenus et contrôler les dépenses avec IncomesExpenses",
+            "slogan2": "Maîtrisez votre parcours financier avec IncomesExpenses",
+            "slogan3": "Suivez, planifiez et prospérez avec IncomesExpenses",
+            "slogan4": "Simplifiez votre feuille de route financière avec IncomesExpenses",
+            "slogan5": "Simplifiez votre budget mensuel avec IncomesExpenses"
+        },
+        "p1": {
+            "record": "Enregistrer votre",
+            "income": "Revenu",
+            "money": "d'Argent"
+        },
+        "p2": {
+            "and": "et",
+            "expense": "Dépense",
+            "money": "d'Argent"
+        },
+        "btnGetStarted": "Commencer",
+        "why": "Pourquoi",
+        "answers": {
+            "answer1": {
+                "p1": "Simplifié",
+                "p2": "Ajoutez simplement vos revenus et vos dépenses, suivez votre budget et obtenez des informations financières claires pour gérer votre argent judicieusement !"
+            },
+            "answer2": {
+                "p1": "Constructeur intelligent",
+                "p2": "Surveillez et optimisez l’efficacité financière d’un bâtiment intelligent en suivant les dépenses, en gérant les budgets et en analysant les tendances des coûts en temps réel."
+            },
+            "answer3": {
+                "p1": "Analyser les résultats",
+                "p2": "Visualisez vos tendances financières avec un graphique interactif des revenus par rapport aux dépenses, facilitant l'analyse des résultats, l'identification des tendances et l'optimisation de votre budget."
+            },
+            "answer4": {
+                "p1": "Personnalisation",
+                "p2": "Personnalisez votre expérience avec des paramètres personnalisables, notamment les modes sombre et clair, pour une expérience de suivi financier fluide et confortable."
+            },
+            "answer5": {
+                "p1": "Prise en charge de deux langues",
+                "p2": "Gérez vos finances sans effort grâce à un support multilingue, offrant à la fois le français et l'anglais, les langues internationales les plus parlées au monde."
+            },
+            "answer6": {
+                "p1": "Service client",
+                "p2": "Bénéficiez d'une assistance transparente grâce à notre support client dédié, doté d'un formulaire de contact pour des réponses rapides et efficaces à vos demandes de suivi financier."
+            },
+            "answer7": {
+                "p1": "Sécurité et confidentialité",
+                "p2": "Assurez la sécurité de vos données financières grâce à la fonctionnalité de connexion/déconnexion, à la vérification des e-mails et à la protection par mot de passe pour une confidentialité et une tranquillité d'esprit accrues."
+            }
+        }
+    },
+    "protectedCompenents": {
+        "p": "Chargement..."
+    },
+    "protectedRoute": {
+         "p": "Chargement..."
+    },
+    "userNameUpdateModal": {
+        "errorName": "Le nom est requis",
+        "h3": "Changer votre nom", 
+        "p": "Votre nom nous aide à vous identifier et à vous envoyer nos offres et services, mais aussi à vous présenter les nouveautés de l'application web.",
+        "placeHolder": "Entrer votre nouveau nom",
+        "save": "Sauvegarder"
+    },
+    "waitingConfirmation": {
+        "p1": "Inscription réussie, confirmez votre email",
+        "p2": "Un E-mail de confirmation a été envoyé à",
+        "p3": "Veuillez vérifier votre boîte de réception.",
+        "p4": "Si vous ne l'avez pas reçu, vous pouvez le retourner.",
+        "progress": "Envoi en cours...",
+        "resend": "Renvoyer le mail"
+    },
+    "accountProvider": {
+        "msg1": "Compte créé avec succès !",
+        "msg2": "Modification du compte avec succès !",
+        "msg3": "Suppression du compte avec succès !",
+        "msg4": "Erreur lors de la suppression du compte",
+        "msg5": "Revenu ou Dépense créés avec succès !",
+        "msg6": "Modification du revenu ou  de la dépense avec succès !",
+        "msg7": "Revenu ou Dépense supprimé avec succès !",
+        "msg8": "Erreur lors de la suppression de revenu ou de dépense",
+        "msg9": "Votre message ou recommandation a été envoyé avec succès !"
+    },
+    "accountPage": {
+        "h3": "Liste des comptes",
+        "btnIncome": "Revenu",
+        "btnExpense": "Dépense",
+        "totalIncome": "Revenus totaux",
+        "totalExpense": "Dépenses totales",
+        "balance": "Solde"
+    },
+    "connexionPage": {
+        "errors": {
+            "email": "Vous devez entrer une adresse email",
+            "emailValid": "Adresse e-mail invalide",
+            "password": "Vous devez entrer un mot de passe"
+        },
+        "p": "Connexion",
+        "msgPopup": "Vous êtes connecté avec succès",
+        "placeHolderEmail": "Entrez votre e-mail",
+        "labelPassword": "Mot de passe",
+        "placeHolderPassword": "Entrez votre mot de passe",
+        "btnSubmit": "Se connecter",
+        "btnForgotPassword": "Mot de passe oublié ?",
+        "btnSend": "Envoyer un e-mail de confirmation",
+        "pSignUp": "Vous n'avez pas de compte ?",
+        "btnSignup": "S'inscrire"
+    },
+    "forgotPassword": {
+        "errors": {
+            "email": "Vous devez entrer une adresse email",
+            "emailValid": "Adresse e-mail invalide"
+        },
+        "p": "Réinitialiser le mot de passe",
+        "placeHolderEmail": "Enter your email",
+        "btnRedirection": "Redirection en cours...",
+        "btnSend": "Envoyer",
+        "pRecovery": "Un lien de récupération vous sera envoyé par e-mail si vous cliquez sur Envoyer"
+    },
+    "resetPassword": {
+        "errors": {
+            "error1": "Vous devez entrer votre mot de passe",
+            "error2": "Le mot de passe doit contenir au moins 8 caractères",
+            "error3": "Le mot de passe doit contenir au moins un chiffre",
+            "error4": "Le mot de passe doit contenir au moins une lettre minuscule",
+            "error5": "Le mot de passe doit contenir au moins une lettre majuscule",
+            "error6": "Le mot de passe ne doit pas contenir de caractères spéciaux sauf : @, _, -, !, $, &",
+            "error7": "Confirmez votre mot de passe",
+            "error8": "Les mots de passe ne correspondent pas"
+        },
+        "h3": "Réinitialiser le mot de passe",
+        "labelPassword": "Nouveau mot de passe",
+        "placeHolderPassword": "Entrez votre nouveau mot de passe",
+        "labelConfirmPassword": "Confirmez le mot de passe",
+        "placeHolderConfirmPassword": "Répétez votre nouveau mot de passe",
+        "btnSubmit": "Réinitialiser",
+        "p1": "Votre mot de passe a été réinitialisé avec succès.",
+        "p2": "Vous serez redirigé vers la page de connexion......",
+        "p3": "Ce lien est déjà utilisé",
+        "p4": "Cliquez ci-dessous pour renvoyer l'e-mail pour réinitialiser votre mot de passe",
+        "btnSendMail": "Réinitialiser le mot de passe"
+    },
+    "signUpPage": {
+        "errors": {
+            "userName": "Vous devez entrer votre nom",
+            "userNameValid": "Mettez un nom d'au moins 04 caractéres",
+            "gender": "Vous devez choisir votre sexe",
+            "email": "Vous devez entrer votre addresse mail",
+            "userEmailValid": "Entrer une addresse mail valide comme par exemple : web.dev02@project.com",
+            "password": "Vous devez entrer votre mot de passe",
+            "passwordValid1": "Votre mot de passe doit avoir au moins 8 caractères",
+            "passwordValid2": "Votre mot de passe doit contenir au moins un chiffre",
+            "passwordValid3": "Votre mot de passe doit contenir au moins une lettre minuscule",
+            "passwordValid4": "Votre mot de passe doit contenir au moins une lettre majuscule",
+            "passwordValid5": "Le mot de passe ne doit pas contenir de caractères spéciaux sauf : @, _, -, !, $, &",
+            "repeatPassword": "Vous devez confirmer votre mot de passe",
+            "repeatPasswordValid": "Les mots de passe ne correspondent pas"
+        },
+        "p1": "Ajouter un utilisateur",
+        "p2": "S'inscrire",
+        "form": {
+            "p1": "Informations générales",
+            "labelName": "Nom",
+            "placeHolderName": "Enter your name",
+            "labelBirthday": "Date de naissance",
+            "labelGender": "Sexe",
+            "chooseGender": "-- choisir",
+            "genderMale": "HOMME",
+            "genderFemale": "FEMME",
+            "labelOccupation": "Profession",
+            "placeHolderOccupation": "Entrer votre profession",
+            "labelPhone": "Numéro de téléphone",
+            "placeHolderPhone": "Entrer votre numéro de téléphone",
+            "p2": "Informations d'authentification",
+            "placeHolderEmail": "Entrer votre Email",
+            "labelPassword": "Mot de passe",
+            "placeHolderPassword": "Entrer votre mot de passe",
+            "labelRepeatPassword": "Confirmez votre mot de passe",
+            "placeHolderRepeatPassword": "Répétez votre mot de passe",
+            "p3": "Remarque : les champs marqués d'un astérisque sont obligatoires.",
+            "btnSubmit": "S'inscrire",
+            "p4": "L'inscription a échoué, car cette adresse e-mail est déjà utilisée. Modifiez-la et réessayez.",
+            "p5": "Vous avez un compte utilisateur ?",
+            "btnLogin": "Se connecter"
+        }
+    },
+    "userInformation": {
+        "h3": "Informations personnelles",
+        "p1": "Vos informations de profil dans les services de ",
+        "p3": "Voici vos informations personnelles et les options pour les gérer (par exemple, vos coordonnées pour être facilement joignable). Vous pouvez également consulter un résumé de votre profil.",
+        "h4": "Informations générales",
+        "p4": "Photo de profil",
+        "p5": "Ajoutez une photo de profil pour personnaliser votre compte",
+        "labelName": "Nom",
+        "labelBirthday": "Date de naissance",
+        "birthday": "Mettez votre date de naissance",
+        "labelOccupation": "Profession",
+        "occupation": "Mettez votre profession",
+        "labelGender": "Sexe",
+        "contact": "Coordonnées",
+        "labelEmail": "Addresse mail",
+        "labelPhone": "Téléphone",
+        "placeHolderPhone": "Mettez votre numéro de téléphone",
+        "password": "Mot de passe",
+        "passwordP": "Un mot de passe fort contribue à protéger votre compte"
+    },
+    "verifyAccount": {
+        "message": "Votre compte est désormais actif ! Cliquez sur le lien ci-dessous pour accéder à la page de connexion.",
+        "message1": "Lien invalide ou expiré.",
+        "message2": "Erreur de connexion au serveur.",
+        "p1": "FFélicitations votre compte est vérifié !",
+        "p2": "Désolé ! La vérification de votre compte a échoué.",
+        "loading": "Redirection en cours...",
+        "logIn": "Se connecter",
+        "labelEmail": "Saisissez votre email pour renvoyer l'email de vérification",
+        "progress": "Envoi en cours...",
+        "resend": "Renvoyer le courrier"
+    }
+}

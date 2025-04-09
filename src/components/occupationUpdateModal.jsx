@@ -4,8 +4,10 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { ThemeContext } from "../context/themeContext"
 import { useContext } from 'react'
+import { useTranslation } from "react-i18next"
 
 export default function OccupationUpdateForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const initialValues = {
         occupation: props.occupation
@@ -13,7 +15,7 @@ export default function OccupationUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (!values.occupation) {
-            errors.occupation = 'Occupation Required'
+            errors.occupation = t("occupationUpdateModal.errorOccupation")
         }
         return errors
     }
@@ -51,12 +53,12 @@ export default function OccupationUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Change your occupation</h3>
-            <p>Your occupation helps other users what professional activities you are doing.</p>
+            <h3>{t("occupationUpdateModal.h3")}</h3>
+            <p>{t("occupationUpdateModal.p")}</p>
             <form onSubmit={formik.handleSubmit} className='update-form'>
-                <input name='occupation' type="text" placeholder='Enter your new occupation' required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.occupation} />
+                <input name='occupation' type="text" placeholder={t("occupationUpdateModal.placeHolder")} required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.occupation} />
                 {formik.touched.occupation && formik.errors.occupation ? <p id='msg-error'>{formik.errors.occupation}</p> : null}
-                <input type="submit" className="btn-save-info" value="Save" />
+                <input type="submit" className="btn-save-info" value={t("occupationUpdateModal.save")} />
             </form>
         </Modal>
     )

@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { useTranslation } from "react-i18next"
 
 export default function GraphIncomesExpenses (props) {
+    const { t } = useTranslation()
     const [data, setData] = useState([])
     useEffect(() => {
         setTimeout(() => {
@@ -24,7 +26,7 @@ export default function GraphIncomesExpenses (props) {
                         <Bar dataKey="amount" fill="#8884d8" />
                     </BarChart>
                 </ResponsiveContainer> : 
-                <p>Chargement en cours...</p>
+                <p>{t("graphIncomesExpenses.p")}</p>
             }
         </div>
     )

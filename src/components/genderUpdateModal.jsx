@@ -4,8 +4,10 @@ import { useFormik } from 'formik'
 import { useContext } from 'react'
 import axios from 'axios'
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function GenderUpdateForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const initialValues = {
         gender: props.gender
@@ -13,7 +15,7 @@ export default function GenderUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (!values.gender) {
-            errors.gender = 'Gender Required'
+            errors.gender = t("genderUpdateModal.errorGender")
         }
         return errors
     }
@@ -51,16 +53,16 @@ export default function GenderUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Change your gender</h3>
-            <p>Your may change your information gender here if you want</p>
+            <h3>{t("genderUpdateModal.h3")}</h3>
+            <p>{t("genderUpdateModal.p")}</p>
             <form onSubmit={formik.handleSubmit} className='update-form'>
                 <select name="gender" id="gender" required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.gender}>
-                    <option value="">-- choose</option>
-                    <option value="MALE">MALE</option>
-                    <option value="FEMALE">FEMALE</option>
+                    <option value="">{t("genderUpdateModal.option.choose")}</option>
+                    <option value={t("genderUpdateModal.option.male")}>{t("genderUpdateModal.option.male")}</option>
+                    <option value={t("genderUpdateModal.option.female")}>{t("genderUpdateModal.option.female")}</option>
                 </select>
                 {formik.touched.gender && formik.errors.gender ? <p id='msg-error'>{formik.errors.gender}</p> : null}
-                <input type="submit" className="btn-save-info" value="Save" />
+                <input type="submit" className="btn-save-info" value={t("genderUpdateModal.save")} />
             </form>
         </Modal>
     )

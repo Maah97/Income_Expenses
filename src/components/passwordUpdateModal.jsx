@@ -4,8 +4,10 @@ import { useFormik } from 'formik'
 import { useState, useContext } from 'react'
 import axios from 'axios'
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function UserNameUpdateForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const [msg, setMsg] = useState("")
     const [oldPasswordVisible, setOldPasswordVisible] = useState(false)
@@ -44,27 +46,27 @@ export default function UserNameUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (!values.oldPassword) {
-            errors.oldPassword = 'Old password Required'
+            errors.oldPassword = t("passwordUpdateModal.errors.error1")
         }
         if (!values.password) {
-            errors.password = 'New password Required'
+            errors.password = t("passwordUpdateModal.errors.error2")
         }
         if (!values.confirmPassword) {
-            errors.confirmPassword = 'Confirmation Required'
+            errors.confirmPassword = t("passwordUpdateModal.errors.error3")
         }
         if (values.password && values.password.length < 8) {
-            errors.password = 'Password must be at least 8 characters'
+            errors.password = t("passwordUpdateModal.errors.error4")
         } else if (values.password && !passwordPresenceChiffre.test(values.password)) {
-            errors.password = 'Password must contain at least one number'
+            errors.password = t("passwordUpdateModal.errors.error5")
         } else if (values.password && !passwordPresenceMinuscule.test(values.password)) {
-            errors.password = 'Password must contain at least one lowercase letter'
+            errors.password = t("passwordUpdateModal.errors.error6")
         } else if (values.password && !passwordPresenceMajuscule.test(values.password)) {
-            errors.password = 'Password must contain at least one uppercase letter'
+            errors.password = t("passwordUpdateModal.errors.error7")
         } else if (values.password && passwordAbsenceCaractereSpeciaux.test(values.password)) {
-            errors.password = 'Password must not contain special characters except : @, _, -, !, $, &'
+            errors.password = t("passwordUpdateModal.errors.error8")
         }
         if (values.password !== values.confirmPassword) {
-            errors.confirmPassword = 'Passwords do not match'
+            errors.confirmPassword = t("passwordUpdateModal.errors.error9")
         }
         return errors
     }
@@ -122,22 +124,22 @@ export default function UserNameUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Change your Password</h3>
-            <p>You can change your password if you feel it is compromised.</p>
+            <h3>{t("passwordUpdateModal.h3")}</h3>
+            <p>{t("passwordUpdateModal.p")}</p>
             <form onSubmit={formik.handleSubmit} className='update-form password'>
-                <label id="label-old-password" htmlFor="oldPassword">Old password</label>
-                <input name="oldPassword" id="input-old-password" type={oldPasswordVisible === true ? "text" : "password"} required placeholder="Enter your old password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.oldPassword} />
+                <label id="label-old-password" htmlFor="oldPassword">{t("passwordUpdateModal.labelOldPassword")}</label>
+                <input name="oldPassword" id="input-old-password" type={oldPasswordVisible === true ? "text" : "password"} required placeholder={t("passwordUpdateModal.placeHolderOldPassword")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.oldPassword} />
                 <i onClick={() => VisibilityOldPassword()} className={`fa-regular fa-eye${oldPasswordVisible === true ? "" : "-slash"}`}></i>
                 {formik.touched.oldPassword && formik.errors.oldPassword ? <p id='msg-error'>{formik.errors.oldPassword}</p> : null}
-                <label htmlFor="password">New password</label>
-                <input name="password" id="password" type={passwordVisible === true ? "text" : "password"} required placeholder="Enter your new password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} />
+                <label htmlFor="password">{t("passwordUpdateModal.labelNewPassword")}</label>
+                <input name="password" id="password" type={passwordVisible === true ? "text" : "password"} required placeholder={t("passwordUpdateModal.placeHolderNewPassword")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} />
                 <i onClick={() => VisibilityPassword()} className={`fa-regular fa-eye${passwordVisible === true ? "" : "-slash"}`}></i>
                 {formik.touched.password && formik.errors.password ? <p id='msg-error'>{formik.errors.password}</p> : null}
-                <label htmlFor="confirmPassword">Confirm password</label>
-                <input name="confirmPassword" id="confirmPassword" type={confirmPasswordVisible === true ? "text" : "password"} required placeholder="Repeat your new password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.confirmPassword} />
+                <label htmlFor="confirmPassword">{t("passwordUpdateModal.labelConfirmNewPassword")}</label>
+                <input name="confirmPassword" id="confirmPassword" type={confirmPasswordVisible === true ? "text" : "password"} required placeholder={t("passwordUpdateModal.placeHolderConfirmNewPassword")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.confirmPassword} />
                 <i onClick={() => VisibilityConfirmPassword()} className={`fa-regular fa-eye${confirmPasswordVisible === true ? "" : "-slash"}`}></i>
                 {formik.touched.confirmPassword && formik.errors.confirmPassword ? <p id='msg-error'>{formik.errors.confirmPassword}</p> : null}
-                <button id='btn-submit' type="submit" className="btn-save-info">Save</button>
+                <button id='btn-submit' type="submit" className="btn-save-info">{t("passwordUpdateModal.save")}</button>
             </form>
             <p className='error-password'>{msg}</p>
         </Modal>

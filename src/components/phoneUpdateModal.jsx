@@ -5,8 +5,10 @@ import PhoneInput from "react-phone-input-2"
 import axios from 'axios'
 import { useState, useContext } from 'react'
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function PhoneUpdateForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const [formattedPhone, setFormattedPhone] = useState("");
     const formatPhoneNumber = (phone) => {
@@ -19,7 +21,7 @@ export default function PhoneUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (!values.phone) {
-            errors.phone = 'Phone number Required'
+            errors.phone = t("phoneUpdateModal.errorPhone")
         }
         return errors
     }
@@ -60,8 +62,8 @@ export default function PhoneUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Change your phone number</h3>
-            <p>Your phone number helps us to assist and identify you and tell you our offers and services, but also to present you with the new features of the web application.</p>
+            <h3>{t("phoneUpdateModal.h3")}</h3>
+            <p>{t("phoneUpdateModal.p")}</p>
             <form onSubmit={formik.handleSubmit} className='update-form'>
                 <PhoneInput
                     country={"us"}
@@ -69,7 +71,7 @@ export default function PhoneUpdateForm(props) {
                         name: "phone"
                     }}
                     enableSearch={true}
-                    placeholder="Enter your phone number"
+                    placeholder={t("phoneUpdateModal.placeHolder")}
                     onBlur={formik.handleBlur} 
                     onChange={(value) => {
                             formik.setFieldValue("phone", value)
@@ -79,7 +81,7 @@ export default function PhoneUpdateForm(props) {
                     value={formik.values.phone}
                 />
                 {formik.touched.phone && formik.errors.phone ? <p id='msg-error'>{formik.errors.phone}</p> : null}
-                <input type="submit" className="btn-save-info" value="Save" />
+                <input type="submit" className="btn-save-info" value={t("phoneUpdateModal.save")} />
             </form>
         </Modal>
     )

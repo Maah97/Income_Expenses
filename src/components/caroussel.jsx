@@ -10,10 +10,10 @@ import img4 from "../assets/Debt-Bill-Management.webp"
 import img5 from "../assets/Multi-Month-Long-Term-Financial-Analysis.webp"
 import img6 from "../assets/Personal-Business-Use.webp"
 import { ThemeContext } from "../context/themeContext"
-
-
+import { useTranslation } from "react-i18next"
 
 export default function Caroussel() {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const settings = {
         dots: true, // Affiche les points de navigation
@@ -26,55 +26,55 @@ export default function Caroussel() {
     };
     return (
         <div className={theme === 'light' ? "carrousel-container" : "carrousel-container dark"}>
-            <h3><span>Incomes</span><span>Expenses</span> can be used for</h3>
+            <h3><span>Incomes</span><span>Expenses</span> {t("caroussel.h3")}</h3>
             <Slider {...settings}>
                 <div>
                     <img src={img} alt="Slide 1" />
                     <div className="txt">
-                        <h4>Tracking Income and Expenses</h4>
-                        <p>Monitor all your earnings and spending in one place. Categorize transactions for better clarity.</p>
+                        <h4>{t("caroussel.imgH4")}</h4>
+                        <p>{t("caroussel.imgP")}</p>
                     </div>
                 </div>
                 <div>
                     <img src={img1} alt="Slide 2" />
                     <div className="txt">
-                        <h4>Budget Planning</h4>
-                        <p>Set monthly or yearly budgets to control spending. eceive alerts when you approach your budget limits.</p>
+                        <h4>{t("caroussel.img1H4")}</h4>
+                        <p>{t("caroussel.img1P")}</p>
                     </div>
                 </div>
                 <div>
                     <img src={img2} alt="Slide 3" />
                     <div className="txt">
-                        <h4>Financial Insights and Reports</h4>
-                        <p>Get detailed reports on income vs. expenses. Identify spending patterns and optimize finances.</p>
+                        <h4>{t("caroussel.img2H4")}</h4>
+                        <p>{t("caroussel.img2P")}</p>
                     </div>
                 </div>
                 <div>
                     <img src={img3} alt="Slide 1" />
                     <div className="txt">
-                        <h4>Saving and Investment Planning</h4>
-                        <p>Plan savings goals based on your income and expenses. Allocate funds for future investments.</p>
+                        <h4>{t("caroussel.img3H4")}</h4>
+                        <p>{t("caroussel.img3P")}</p>
                     </div>
                 </div>
                 <div>
                     <img src={img4} alt="Slide 2" />
                     <div className="txt">
-                        <h4>Debt and Bill Management</h4>
-                        <p>Keep track of recurring bills and payments. Avoid late fees by setting payment reminders.</p>
+                        <h4>{t("caroussel.img4H4")}</h4>
+                        <p>{t("caroussel.img4P")}</p>
                     </div>
                 </div>
                 <div>
                     <img src={img5} alt="Slide 3" />
                     <div className="txt">
-                        <h4>Multi-Month and Long-Term Financial Analysis</h4>
-                        <p>Analyze financial trends over months or years. Make informed decisions for financial stability.</p>
+                        <h4>{t("caroussel.img5H4")}</h4>
+                        <p>{t("caroussel.img5P")}</p>
                     </div>
                 </div>
                 <div>
                     <img src={img6} alt="Slide 3" />
                     <div className="txt">
-                        <h4>Personal and Business Use</h4>
-                        <p>Manage personal finances efficiently. Track business expenses if youC&apos;re self-employed.</p>
+                        <h4>{t("caroussel.img6H4")}</h4>
+                        <p>{t("caroussel.img6P")}</p>
                     </div>
                 </div>
             </Slider>

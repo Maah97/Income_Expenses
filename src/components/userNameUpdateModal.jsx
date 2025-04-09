@@ -4,8 +4,10 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { ThemeContext } from "../context/themeContext"
 import { useContext } from 'react'
+import { useTranslation } from "react-i18next"
 
 export default function UserNameUpdateForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const initialValues = {
         name: props.name
@@ -13,7 +15,7 @@ export default function UserNameUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (!values.name) {
-            errors.name = 'Name Required'
+            errors.name = t("userNameUpdateModal.errorName")
         }
         return errors
     }
@@ -51,12 +53,12 @@ export default function UserNameUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Change your name</h3>
-            <p>Your name helps other users recognize when you note this website and lets you know when you are logged in to your account. </p>
+            <h3>{t("userNameUpdateModal.h3")}</h3>
+            <p>{t("userNameUpdateModal.p")} </p>
             <form onSubmit={formik.handleSubmit} className='update-form'>
-                <input name='name' type="text" placeholder='Enter your new name' required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} />
+                <input name='name' type="text" placeholder={t("userNameUpdateModal.placeHolder")} required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} />
                 {formik.touched.name && formik.errors.name ? <p id='msg-error'>{formik.errors.name}</p> : null}
-                <input type="submit" className="btn-save-info" value="Save" />
+                <input type="submit" className="btn-save-info" value={t("userNameUpdateModal.save")} />
             </form>
         </Modal>
     )

@@ -5,8 +5,10 @@ import { AccountContext } from "../context/accountContext"
 import Modal from 'react-modal'
 Modal.setAppElement('#root')
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function AccountForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const { createAccount, modifyAccount, message, setMessage, reload, setReload } = useContext(AccountContext)
     const initialValues = {
@@ -35,10 +37,10 @@ export default function AccountForm(props) {
         let errors = {}
 
         if (!values.nameAccount) {
-            errors.nameAccount = 'You must enter a name of your account'
+            errors.nameAccount = t("accountForm.errors.nameAccount")
         }
         if (!values.descriptionAccount) {
-            errors.descriptionAccount = 'You must enter the description of your account'
+            errors.descriptionAccount = t("accountForm.errors.descriptionAccount")
         }
 
         return errors
@@ -55,17 +57,17 @@ export default function AccountForm(props) {
             overlayClassName="overlay-modal"
             onRequestClose={() => props.setIsOpen(false)}
         >
-            <h1>Create your account</h1>
+            <h1>{props.account ? t("accountForm.titleMofifyAccount") : t("accountForm.title")}</h1>
             <form onSubmit={formik.handleSubmit}>
-                <label htmlFor="nameAccount">Name</label>
-                <input className='input-txt' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} name='nameAccount' id='nameAccount' placeholder='Enter the name account (Example : Expenses for the month of March)' type="text" />
+                <label htmlFor="nameAccount">{t("accountForm.name")}</label>
+                <input className='input-txt' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.nameAccount} name='nameAccount' id='nameAccount' placeholder={t("accountForm.placeHolderName")} type="text" />
                 {formik.touched.nameAccount && formik.errors.nameAccount ? <p id='msg-error-name'>{formik.errors.nameAccount}</p> : null}
-                <label htmlFor="descriptionAccount">Description</label>
-                <textarea className='input-txt' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.descriptionAccount} name='descriptionAccount' id='descriptionAccount' placeholder='Enter the description account' type="text" />
+                <label htmlFor="descriptionAccount">{t("accountForm.description")}</label>
+                <textarea className='input-txt' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.descriptionAccount} name='descriptionAccount' id='descriptionAccount' placeholder={t("accountForm.placeHolderDescription")} type="text" />
                 {formik.touched.descriptionAccount && formik.errors.descriptionAccount ? <p id='msg-error-description'>{formik.errors.descriptionAccount}</p> : null}
                 <div className='btn-ok-cancel'>
-                    <button type='submit' className='ok'>{props.account ? 'Modify' : 'Ok'}</button>
-                    <button onClick={() => props.setIsOpen(false)} className='cancel'>Cancel</button>
+                    <button type='submit' className='ok'>{props.account ? t("accountForm.modify") : 'Ok'}</button>
+                    <button onClick={() => props.setIsOpen(false)} className='cancel'>{t("accountForm.cancel")}</button>
                 </div>
             </form>
             {

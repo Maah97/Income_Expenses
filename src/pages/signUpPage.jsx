@@ -9,8 +9,10 @@ import { AuthContext } from "../context/authContext"
 import { format } from "date-fns"
 import { enUS } from "date-fns/locale"
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function SignUpPage() {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const { user } = useContext(AuthContext);
     const date = format(new Date(), "MM/dd/yyyy", { locale: enUS });
@@ -95,38 +97,38 @@ export default function SignUpPage() {
     const validate = values => {
         let errors = {}
         if (!values.userName) {
-            errors.userName = 'You must enter your name'
+            errors.userName = t("signUpPage.errors.userName")
         }
         if (values.userName && values.userName.length < 4) {
-            errors.userName = 'Put a name whose has at least 4 characters'
+            errors.userName = t("signUpPage.errors.userNameValid")
         }
         if (!values.gender) {
-            errors.gender = 'You must select your gender'
+            errors.gender = t("signUpPage.errors.gender")
         }
         if (!values.email) {
-            errors.email = 'You must enter your email'
+            errors.email = t("signUpPage.errors.email")
         } else if (values.email && !emailregExp.test(values.email)) {
-             errors.email = 'Enter a valid email like : web.dev02@project.com'
+             errors.email = t("signUpPage.errors.userEmailValid")
         }  
         if (!values.password) {
-            errors.password = 'You must enter your password'
+            errors.password = t("signUpPage.errors.password")
         }
         if (values.password && values.password.length < 8) {
-            errors.password = 'Password must be at least 8 characters'
+            errors.password = t("signUpPage.errors.passwordValid1")
         } else if (values.password && !passwordPresenceChiffre.test(values.password)) {
-            errors.password = 'Password must contain at least one number'
+            errors.password = t("signUpPage.errors.passwordValid2")
         } else if (values.password && !passwordPresenceMinuscule.test(values.password)) {
-            errors.password = 'Password must contain at least one lowercase letter'
+            errors.password = t("signUpPage.errors.passwordValid3")
         } else if (values.password && !passwordPresenceMajuscule.test(values.password)) {
-            errors.password = 'Password must contain at least one uppercase letter'
+            errors.password = t("signUpPage.errors.passwordValid4")
         } else if (values.password && passwordAbsenceCaractereSpeciaux.test(values.password)) {
-            errors.password = 'Password must not contain special characters except : @, _, -, !, $, &'
+            errors.password = t("signUpPage.errors.passwordValid5")
         }
         if (!values.repeatPassword) {
-            errors.repeatPassword = 'You must confirm your password'
+            errors.repeatPassword = t("signUpPage.errors.repeatPassword")
         }
         if (values.password !== values.repeatPassword) {
-            errors.repeatPassword = 'Passwords do not match'
+            errors.repeatPassword = t("signUpPage.errors.repeatPasswordValid")
         }
         return errors
     }
@@ -139,32 +141,32 @@ export default function SignUpPage() {
 
     return (
         <div className={theme === 'light' ? "signUp-page" : "signUp-page dark"}>
-            <p>{user ? "Add an Account" : "Sign Up"}</p>
+            <p>{user ? t("signUpPage.p1") : t("signUpPage.p2")}</p>
             <form onSubmit={formik.handleSubmit} className="form-login">
                 <div className="general-informations">
-                    <p>General informations</p>
-                    <label id="label-userName" htmlFor="userName">Name <span>*</span></label>
-                    <input type="text" name="userName" placeholder="Enter your name" required id="userName" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.userName} />
+                    <p>{t("signUpPage.form.p1")}</p>
+                    <label id="label-userName" htmlFor="userName">{t("signUpPage.form.labelName")} <span>*</span></label>
+                    <input type="text" name="userName" placeholder={t("signUpPage.form.placeHolderName")} required id="userName" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.userName} />
                     {formik.touched.userName && formik.errors.userName ? <p className='msg-error'>{formik.errors.userName}</p> : null}
-                    <label htmlFor="birthday">Birthday</label>
+                    <label htmlFor="birthday">{t("signUpPage.form.labelBirthday")}</label>
                     <input type="date" name="birthday" id="birthday" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.birthday} />
-                    <label htmlFor="gender">Gender <span>*</span></label>
+                    <label htmlFor="gender">{t("signUpPage.form.labelGender")} <span>*</span></label>
                     <select name="gender" id="gender" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.gender} required>
-                        <option value="">-- choose</option>
-                        <option value="MALE">MALE</option>
-                        <option value="FEMALE">FEMALE</option>
+                        <option value="">{t("signUpPage.form.chooseGender")}</option>
+                        <option value={t("signUpPage.form.genderMale")}>{t("signUpPage.form.genderMale")}</option>
+                        <option value={t("signUpPage.form.genderFemale")}>{t("signUpPage.form.genderFemale")}</option>
                     </select>
                     {formik.touched.gender && formik.errors.gender ? <p className='msg-error'>{formik.errors.gender}</p> : null}
-                    <label htmlFor="occupation">Occcupation</label>
-                    <input type="text" name="occupation" placeholder="Enter your occupation" id="occupation" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.occupation} />
-                    <label htmlFor="phoneNumber">Phone Number</label>
+                    <label htmlFor="occupation">{t("signUpPage.form.labelOccupation")}</label>
+                    <input type="text" name="occupation" placeholder={t("signUpPage.form.placeHolderOccupation")} id="occupation" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.occupation} />
+                    <label htmlFor="phoneNumber">{t("signUpPage.form.labelPhone")}</label>
                     <PhoneInput
                         country={"us"}
                         inputProps={{
                             name: "phoneNumber"
                         }}
                         enableSearch={true}
-                        placeholder="Enter your phone number"
+                        placeholder={t("signUpPage.form.placeHolderPhone")}
                         onBlur={formik.handleBlur} 
                         onChange={(value) => {
                                 formik.setFieldValue("phoneNumber", value)
@@ -172,32 +174,32 @@ export default function SignUpPage() {
                         }
                         value={formik.values.phoneNumber}
                     />
-                    <p id="note">Note : Fields with asterisks are required.</p>
+                    <p id="note">{t("signUpPage.form.p3")}</p>
                 </div>
                 <div className="auhentification-info">
-                    <p>Authentification informations</p>
+                    <p>{t("signUpPage.form.p2")}</p>
                     <label className="required-label" id="email-label" htmlFor="email">Email <span>*</span></label>
-                    <input className="required-input" name="email" type="email" placeholder="Enter your Email" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} required />
+                    <input className="required-input" name="email" type="email" placeholder={t("signUpPage.form.placeHolderEmail")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email} required />
                     {formik.touched.email && formik.errors.email ? <p  id="msg-error-email" className='msg-error'>{formik.errors.email}</p> : null}
-                    <label htmlFor="password">Password <span>*</span></label>
+                    <label htmlFor="password">{t("signUpPage.form.labelPassword")} <span>*</span></label>
                     <div className="container-password">
-                        <input name="password" id="password" type={passwordVisible === true ? "text" : "password"} autoComplete="new-password" required placeholder="Enter your password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} />
+                        <input name="password" id="password" type={passwordVisible === true ? "text" : "password"} autoComplete="new-password" required placeholder={t("signUpPage.form.placeHolderPassword")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.password} />
                         <i onClick={() => VisibilityPassword()} className={`fa-regular fa-eye${passwordVisible === true ? "" : "-slash"}`}></i>
                         {formik.touched.password && formik.errors.password ? <p className='msg-error'>{formik.errors.password}</p> : null}
                     </div>
-                    <label id="label-repeat-password" htmlFor="password">Confirm your password <span>*</span></label>
+                    <label id="label-repeat-password" htmlFor="password">{t("signUpPage.form.labelRepeatPassword")} <span>*</span></label>
                     <div className="container-password">
-                        <input name="repeatPassword" id="repeat-password" type={confirmPasswordVisible === true ? "text" : "password"} required placeholder="Repeat your password" onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.repeatPassword} />
+                        <input name="repeatPassword" id="repeat-password" type={confirmPasswordVisible === true ? "text" : "password"} required placeholder={t("signUpPage.form.placeHolderRepeatPassword")} onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.repeatPassword} />
                         <i onClick={() => VisibilityConfirmPassword()} className={`fa-regular fa-eye${confirmPasswordVisible === true ? "" : "-slash"}`}></i>
                         {formik.touched.repeatPassword && formik.errors.repeatPassword ? <p className='msg-error'>{formik.errors.repeatPassword}</p> : null}
                     </div>
-                    <p id="note">Note : Fields with asterisks are required.</p>
+                    <p id="note">{t("signUpPage.form.p3")}</p>
                 </div>
                 <div className="btn">
-                    <button type="submit">Sign Up</button>
+                    <button type="submit">{t("signUpPage.form.btnSubmit")}</button>
                 </div>
-                {message === "This email is already in use." ? <p className="msg-error-existing-email">Registration failed because this email is already in use. Change this Email and retry.</p> : null}
-                <p id="question-logIn">You have an account ? <NavLink className="link-to-login" to="/login">Log In</NavLink></p>
+                {message === "This email is already in use." ? <p className="msg-error-existing-email">{t("signUpPage.form.p4")}</p> : null}
+                <p id="question-logIn">{t("signUpPage.form.p5")} <NavLink className="link-to-login" to="/login">{t("signUpPage.form.btnLogin")}</NavLink></p>
             </form>
         </div>
     )

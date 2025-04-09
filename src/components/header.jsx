@@ -8,19 +8,19 @@ import { AuthContext } from "../context/authContext"
 import ProfilPictureUpdateForm from "../components/pictureProfilUpdateModal"
 import PopupConfirmation from "./popupConfirmation"
 import { ThemeContext } from "../context/themeContext"
+import { LangueContext } from "../context/langueContext"
+import { useTranslation } from "react-i18next"
 
 export default function Header() {
+    const { t, i18n } = useTranslation();
+    const { langue, toggleLangue } = useContext(LangueContext)
     const { theme, toggleTheme } = useContext(ThemeContext)
     const { user, logout, getColorFromLetter, isPopupAuth, msgPopupAuth, setIsPopupAuth, setMsgPopupAuth } = useContext(AuthContext);
     const navigate = useNavigate()
-    const [selectLangage, setSelectLanage] = useState('en')
     const [modalProfilPicture, setModalProfilPicture] = useState(false)
-    function changeLangage() {
-        if (selectLangage === 'en') {
-            setSelectLanage('fr')
-        } else {
-            setSelectLanage('en')
-        }
+    const changeLangage = (e) => {
+        const selectedLang = e.target.value;
+        toggleLangue(selectedLang)
     }
     function AddClassActive() {
         const userS = document.querySelector(".log")
@@ -37,7 +37,7 @@ export default function Header() {
         userS.classList.remove('open')
         window.location.reload()
         setIsPopupAuth(true)
-        setMsgPopupAuth("You are successfully logged out")
+        setMsgPopupAuth(t("header.msgLogout"))
         setTimeout(() => {
             setIsPopupAuth(false)
         }, "3000")
@@ -83,10 +83,10 @@ export default function Header() {
                     <h1><span>Incomes</span>Expenses</h1>
                 </div>
                 <nav>
-                    <NavLink to="/" className='navigation'>Home</NavLink>
+                    <NavLink to="/" className='navigation'>{t("home")}</NavLink>
                     <div className='navigation'>
-                        <img className='img-lang' src={selectLangage === 'en' ? imgLangEn : imgLangFr} alt="English langage icone" />
-                        <select onChange={changeLangage} className='select-langage' name="langage" id="selectLangage">
+                        <img className='img-lang' src={langue === 'en' ? imgLangEn : imgLangFr} alt="English langage icone" />
+                        <select value={i18n.language} onChange={changeLangage} className='select-langage' name="langage" id="selectLangage">
                             <option value="en">EN</option>
                             <option value="fr">FR</option>
                         </select>
@@ -139,25 +139,25 @@ export default function Header() {
                                 </>
                             }
                         </div>
-                        <p>Welcome {user.userName} !</p>
+                        <p>{langue === 'fr' && user.gender === 'FEMALE' ? `${t("header.informationPopup.welcome")}e ${user.userName} !` : `${t("header.informationPopup.welcome")} ${user.userName} !`}</p>
                         <NavLink  to="/personal-info" className='manage-your-account'>
-                            <p>Manage your account</p>
+                            <p>{t("header.informationPopup.p")}</p>
                         </NavLink>
                         <div className='add-account-and-logout'>
                             <div onClick={() => AddAccount()} className="add-account">
                                 <i className="fa-solid fa-plus"></i>
-                                <p>Add an account</p>
+                                <p>{t("header.informationPopup.p1")}</p>
                             </div>
                             <div onClick={() => Logout()} className='logout'>
                                 <i className="fa-solid fa-right-from-bracket"></i>
-                                <p>Logout</p>
+                                <p>{t("header.informationPopup.p2")}</p>
                             </div>
                         </div>
-                        <div className='account-verification'>{user.verified ? <p className='txt'>Your account is verified</p> : "Account not verified"}</div>
+                        <div className='account-verification'>{user.verified ? <p className='txt'>{t("header.informationPopup.p4")}</p> : t("header.informationPopup.p5")}</div>
                         <ProfilPictureUpdateForm name={user.userName} isOpen={modalProfilPicture} setIsOpen={setModalProfilPicture} />
                     </div>
                     :
-                    <NavLink to="/login" className="button">Log In</NavLink>
+                    <NavLink to="/login" className="button">{t("header.logIn")}</NavLink>
                 }
             </div>
             <PopupConfirmation message={msgPopupAuth} isPopup={isPopupAuth}  />

@@ -2,68 +2,85 @@ import { useContext, useEffect, useRef } from "react"
 import { NavLink } from "react-router-dom"
 import Caroussel from "./caroussel"
 import { ThemeContext } from "../context/themeContext"
+import { LangueContext } from "../context/langueContext"
+import { useTranslation } from "react-i18next"
 
 export default function Presentation() {
+    const { t } = useTranslation();
+    const { langue } = useContext(LangueContext)
     const { theme } = useContext(ThemeContext)
-    const slogan = useRef(null)
+    const slogan1 = useRef(null)
+    const slogan2 = useRef(null)
     useEffect(() => {
-        let slogans = ["Track Earnings, Control Spending, with IncomesExpenses", "Master Your Money Journey with IncomesExpenses", "Track, Plan, and Prosper with IncomesExpenses", "Made Your Financial Roadmap Easy with IncomesExpenses", "Made Your Monthly Budget Simple with IncomesExpenses"]
-        const txtSlogan = slogan.current
-        let i = 1
+        const slogans1 = [ "Suivre les revenus et contrôler les dépenses grâce à IncomesExpenses", "Maîtrisez votre parcours financier avec IncomesExpenses", "Suivez, planifiez et prospérez avec IncomesExpenses", "Simplifiez votre feuille de route financière avec IncomesExpenses", "Simplifiez votre budget mensuel avec IncomesExpenses"]
+        const slogans2 = ["Track Earnings, Control Spending, with IncomesExpenses", "Master Your Money Journey with IncomesExpenses", "Track, Plan, and Prosper with IncomesExpenses", "Made Your Financial Roadmap Easy with IncomesExpenses", "Made Your Monthly Budget Simple with IncomesExpenses"]
+        const txtSlogan1 = slogan1.current
+        const txtSlogan2 = slogan2.current
+        let i1 = 1
+        let i2 = 1
         setInterval(() => {
-            txtSlogan.textContent = slogans[i]
-            i++
-            if (i === slogans.length) {
-                i = 0
+            txtSlogan1.textContent = slogans1[i1]
+            i1++
+            if (i1 === slogans1.length) {
+                i1 = 0
             }
         }, 2000)
+        setInterval(() => {
+            txtSlogan2.textContent = slogans2[i2]
+            i2++
+            if (i2 === slogans2.length) {
+                i2 = 0
+            }
+        }, 2000)
+        
     }, [])
     return (
         <section className={theme === 'light' ? "presentation" : "presentation dark"}>
             <div id="home" className="home">
-                <p>Record <span>income</span> Money </p>
-                <p>And <span>expense</span> Money </p>
-                <p ref={slogan} className="slogan">Track Earnings, Control Spending, with IncomesExpenses</p>
-                <NavLink to="/signUp" className="btn-get-started">Get Started</NavLink>
+                <p>{t("presentation.p1.record")} <span>{t("presentation.p1.income")}</span> {t("presentation.p1.money")} </p>
+                <p>{t("presentation.p2.and")} <span>{t("presentation.p2.expense")} </span> {t("presentation.p2.money")}  </p>
+                <p ref={slogan1} style={langue === 'fr' ? {display: "block"} : {display: "none"}} className="slogan"></p>
+                <p ref={slogan2} style={langue === 'en' ? {display: "block"} : {display: "none"}} className="slogan"></p>
+                <NavLink to="/signUp" className="btn-get-started">{t("presentation.btnGetStarted")} </NavLink>
             </div>
             <Caroussel />
             <div className="why-income-expense">
-                <h3>Why <span>Incomes</span><span>Expenses</span> ?</h3>
+                <h3>{t("presentation.why")}  <span>Incomes</span><span>Expenses</span> ?</h3>
                 <div className="container-answers">
                     <div className="answer">
                         <i className="fa-solid fa-square-poll-vertical"></i>
-                        <p>Simplified</p>
-                        <p>Simply add your income and expenses, track your budget, and get clear financial insights to manage your money wisely !</p>
+                        <p>{t("presentation.answers.answer1.p1")} </p>
+                        <p>{t("presentation.answers.answer1.p2")}</p>
                     </div>
                     <div className="answer">
                         <i className="fa-solid fa-screwdriver-wrench"></i>
-                        <p>Smart Builder</p>
-                        <p>Monitor and optimize a smart building’s financial efficiency by tracking expenses, managing budgets, and analyzing cost trends in real time.</p>
+                        <p>{t("presentation.answers.answer2.p1")}</p>
+                        <p>{t("presentation.answers.answer2.p2")}</p>
                     </div>
                     <div className="answer">
                         <i className="fa-solid fa-chart-column"></i>
-                        <p>Analyze the Results</p>
-                        <p>Visualize your financial trends with an interactive income vs. expenses graph, making it easy to analyze results, identify patterns, and optimize your budget.</p>
+                        <p>{t("presentation.answers.answer3.p1")}</p>
+                        <p>{t("presentation.answers.answer3.p2")}</p>
                     </div>
                     <div className="answer">
                         <i className="fa-solid fa-bars"></i>
-                        <p>Customization</p>
-                        <p>Personalize your experience with customizable settings, including dark and light mode, for a seamless and comfortable financial tracking experience.</p>
+                        <p>{t("presentation.answers.answer4.p1")}</p>
+                        <p>{t("presentation.answers.answer4.p2")}</p>
                     </div>
                     <div className="answer">
                         <i className="fa-solid fa-language"></i>
-                        <p>Two Language Support</p>
-                        <p>Effortlessly manage your finances with multilingual support, offering both French and English the world&apos;s most widely spoken international languages.</p>
+                        <p>{t("presentation.answers.answer5.p1")}</p>
+                        <p>{t("presentation.answers.answer5.p2")}</p>
                     </div>
                     <div className="answer">
                         <i className="fa-solid fa-headset"></i>
-                        <p>Customer Support</p>
-                        <p>Get seamless assistance through our dedicated customer support, featuring a contact form for quick and efficient responses to your financial tracking inquiries.</p>
+                        <p>{t("presentation.answers.answer6.p1")}</p>
+                        <p>{t("presentation.answers.answer6.p2")}</p>
                     </div>
                     <div className="answer">
                         <i className="fa-solid fa-user-lock"></i>
-                        <p>Security and Privacy</p>
-                        <p>Ensure your financial data stays secure with login/logout functionality, email verification, and password protection for enhanced privacy and peace of mind</p>
+                        <p>{t("presentation.answers.answer7.p1")}</p>
+                        <p>{t("presentation.answers.answer7.p2")}</p>
                     </div>
                 </div>
             </div>

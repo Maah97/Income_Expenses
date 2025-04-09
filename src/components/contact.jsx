@@ -2,8 +2,10 @@ import { useFormik } from 'formik'
 import { useContext } from "react"
 import { AccountContext } from "../context/accountContext"
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function Contact() {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const { sendCommentUser } = useContext(AccountContext);
     const emailregExp = new RegExp("[a-z0-9._-]+@[a-z]+\\.[a-z]+$")
@@ -20,15 +22,15 @@ export default function Contact() {
         let errors = {}
 
         if (!values.name) {
-            errors.name = 'You must enter your name'
+            errors.name = t("contact.errors.name")
         }
         if (!values.email) {
-            errors.email = 'You must enter your email'
+            errors.email = t("contact.errors.email1")
         } else if (values.email && !emailregExp.test(values.email)) {
-             errors.email = 'Enter a valid email'
+             errors.email = t("contact.errors.email2")
         }
         if(!values.comment) {
-            errors.comment = 'You must enter your message or recommandation'
+            errors.comment = t("contact.errors.comment")
         }
         return errors
     }
@@ -39,19 +41,19 @@ export default function Contact() {
     })
     return (
         <section id="contact" className={theme === 'light' ? "contact" : "contact dark"}>
-            <h3>Contact</h3>
-            <p>Feel free to Contact us by mail or by submitting the form below and we will get back to you as soon as possible</p>
+            <h3>{t("contact.h3")}</h3>
+            <p>{t("contact.p")}</p>
             <form onSubmit={formik.handleSubmit} className="form-contact">
-                <label htmlFor="name">Name</label>
-                <input name='name' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" placeholder="Enter your name" />
+                <label htmlFor="name">{t("contact.labelName")}</label>
+                <input name='name' onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.name} type="text" placeholder={t("contact.placeHolderName")} />
                 {formik.touched.name && formik.errors.name ? <p id='msg-error'>{formik.errors.name}</p> : null}
-                <label htmlFor="email">Email</label>
-                <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email}  type="email" name='email' placeholder="Enter your Email" />
+                <label htmlFor="email">{t("contact.labelEmail")}</label>
+                <input onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.email}  type="email" name='email' placeholder={t("contact.placeHolderEmail")} />
                 {formik.touched.email && formik.errors.email ? <p id='msg-error'>{formik.errors.email}</p> : null}
-                <label htmlFor="comment">Your message or recommandation</label>
-                <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.comment}  name="comment" id="comment" placeholder="Enter your message or a recommandatoion for a better user experience" />
+                <label htmlFor="comment">{t("contact.labelMessage")}</label>
+                <textarea onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.comment}  name="comment" id="comment" placeholder={t("contact.placeHolderMessage")} />
                 {formik.touched.comment && formik.errors.comment ? <p id='msg-error'>{formik.errors.comment}</p> : null}
-                <button type="submit">Submit</button>
+                <button type="Submit">{t("contact.submit")}</button>
             </form>
         </section>
     )

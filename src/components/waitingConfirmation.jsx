@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 import { useState } from "react"
 import axios from "axios"
+import { useTranslation } from "react-i18next"
 
 export default function WaitingConfirmation(props) {
+    const { t } = useTranslation()
     const [loading, setLoading] = useState(false);
     const [messageResend, setMessageResend] = useState("")
     const resendEmail = async () => {
@@ -19,11 +21,11 @@ export default function WaitingConfirmation(props) {
     };
     return (
         <div className="confirmation-page">
-            <p className="title-registration">Registration successful, confirm your mail</p>
-            <p className="msg-inscription-done">A confirmation email has been sent to <span>{props.userEmail}</span> Please check your inbox.</p>
-            <p className="msg-inscription-done">If you have not received it, you can return it.</p> 
+            <p className="title-registration">{t("waitingConfirmation.p1")}</p>
+            <p className="msg-inscription-done">{t("waitingConfirmation.p2")} <span>{props.userEmail}</span> {t("waitingConfirmation.p3")}</p>
+            <p className="msg-inscription-done">If {t("waitingConfirmation.p4")}</p> 
             <button className="btn-resend-email" onClick={resendEmail} disabled={loading}>
-                {loading ? "Sending in progress..." : "Resend mail"}
+                {loading ? t("waitingConfirmation.progress") : t("waitingConfirmation.resend")}
             </button>
             <p className='msg-error-resend'>{messageResend === "" ? null : messageResend}</p>
         </div> 

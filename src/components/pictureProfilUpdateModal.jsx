@@ -5,8 +5,10 @@ import axios from 'axios'
 import { AuthContext } from "../context/authContext"
 import { useContext, useState } from 'react'
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function ProfilPictureUpdateForm(props) {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const { user, getColorFromLetter } = useContext(AuthContext)
     const [preview, setPreview] = useState(null);
@@ -33,13 +35,13 @@ export default function ProfilPictureUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (values.picture == null) {
-            errors.picture = 'picture Required'
+            errors.picture = t("pictureProfilUpdateModal.errors.error1")
         }
         if (!fileTypeVerification(values.picture)) {
-            errors.picture = 'You must select an image of type jpeg, jpg, png, gif or webp'
+            errors.picture = t("pictureProfilUpdateModal.errors.error2")
         }
         if (!fileSizeVerification(values.picture)) {
-            errors.picture = 'Your image must not exceed 2MB'
+            errors.picture = t("pictureProfilUpdateModal.errors.error3")
         }
         return errors
     }
@@ -91,8 +93,8 @@ export default function ProfilPictureUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Picture profil</h3>
-            <p className='parapgraphe-picture'>Your profile picture helps other users recognize you and lets you know when you are logged in to your account.</p>
+            <h3>{t("pictureProfilUpdateModal.h3")}</h3>
+            <p className='parapgraphe-picture'>{t("pictureProfilUpdateModal.p")}</p>
             <form onSubmit={formik.handleSubmit} className='update-form picture'>
                 <label name="picture" className='picture-profil'>
                     {
@@ -104,12 +106,12 @@ export default function ProfilPictureUpdateForm(props) {
                     }
                     <div className="btn-add-picture-profil">
                         <i className="fa-solid fa-camera"></i>
-                        <p>{user.pictureProfilUrl === "" ? (preview ? "Change profil picture" : "add profile picture") : "Change profil picture"}</p>
+                        <p>{user.pictureProfilUrl === "" ? (preview ? t("pictureProfilUpdateModal.btnChange") : "add profile picture") : t("pictureProfilUpdateModal.btnAdd")}</p>
                     </div>
                     <input id='file-img' name='picture' type="file" accept="image/*" required onBlur={formik.handleBlur("picture")} onChange={handleFileChange} />
                 </label>
                 {formik.touched.picture && formik.errors.picture ? <p id='msg-error'>{formik.errors.picture}</p> : null}
-                <input type="submit" className="btn-save-info" value="Save" />
+                <input type="submit" className="btn-save-info" value={t("pictureProfilUpdateModal.save")} />
             </form>
         </Modal>
     )

@@ -4,8 +4,10 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { useContext } from 'react'
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function BirthdayUpdateForm(props) {
+    const { t } = useTranslation();
     const { theme } = useContext(ThemeContext)
     const initialValues = {
         birthday: props.birthday
@@ -13,7 +15,7 @@ export default function BirthdayUpdateForm(props) {
     const validate = values => {
         let errors = {}
         if (!values.birthday) {
-            errors.birthday = 'birthday Required'
+            errors.birthday = t("birthdayUpdateModal.errors.birthday")
         }
         return errors
     }
@@ -51,12 +53,12 @@ export default function BirthdayUpdateForm(props) {
                         <i className="fa-solid fa-xmark"></i>
                     </div>
             </div>
-            <h3>Change your birthday</h3>
-            <p>Your birthday helps other users when to tell you happy birthday and crate an estimation financial income with your age. </p>
+            <h3>{t("birthdayUpdateModal.h3")}</h3>
+            <p>{t("birthdayUpdateModal.p")} </p>
             <form onSubmit={formik.handleSubmit} className='update-form'>
-                <input name='birthday' type="date" placeholder='Enter your new birthday' required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.birthday} />
+                <input name='birthday' type="date" placeholder={t("birthdayUpdateModal.placeHolder")} required onBlur={formik.handleBlur} onChange={formik.handleChange} value={formik.values.birthday} />
                 {formik.touched.birthday && formik.errors.birthday ? <p id='msg-error'>{formik.errors.birthday}</p> : null}
-                <input type="submit" className="btn-save-info" value="Save" />
+                <input type="submit" className="btn-save-info" value={t("birthdayUpdateModal.save")} />
             </form>
         </Modal>
     )

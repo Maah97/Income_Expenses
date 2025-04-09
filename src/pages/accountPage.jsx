@@ -9,8 +9,10 @@ import GraphIncomesExpenses from "../components/graphIncomesExpenses"
 import { AccountContext } from "../context/accountContext"
 import PopupConfirmation from "../components/popupConfirmation"
 import { ThemeContext } from "../context/themeContext"
+import { useTranslation } from "react-i18next"
 
 export default function AccountPage() {
+    const { t } = useTranslation()
     const { theme } = useContext(ThemeContext)
     const { accounts, isPopupIncomeExpense, msgPopup } = useContext(AccountContext)
     const { id } = useParams()
@@ -128,7 +130,7 @@ export default function AccountPage() {
     return (
         <section className={theme === 'light' ? "account-page" : "account-page dark"}>
             <div className="list-of-accounts">
-                <h3>List of accounts</h3>
+                <h3>{t("accountPage.h3")}</h3>
                 {
                     accounts.map((account) => {
                        return <NavLink onClick={() => window.scrollTo(0, 0)} to={'/accounts/' + account._id} id={account._id} className="title" key={account._id}>{account.nameAccount}</NavLink>
@@ -139,20 +141,20 @@ export default function AccountPage() {
                 <h3>{account.nameAccount}</h3>
                 <p id="description">{account.description}</p>
                 <div className="btn-income-expenses">
-                    <button onClick={() => setModalIncome(true)} className="income">Income</button>
-                    <button onClick={() => setModalExpense(true)} className="expenses">Expense</button>
+                    <button onClick={() => setModalIncome(true)} className="income">{t("accountPage.btnIncome")}</button>
+                    <button onClick={() => setModalExpense(true)} className="expenses">{t("accountPage.btnExpense")}</button>
                 </div>
                 <div className="incomes-expenses-balance">
                     <div className="incomes-total">
-                        <p>Total Incomes</p>
+                        <p>{t("accountPage.totalIncome")}</p>
                         <p>{incomesAmount}</p>
                     </div>
                     <div className="expenses-total">
-                        <p>Total Expenses</p>
+                        <p>{t("accountPage.totalExpense")}</p>
                         <p>{expensesAmount}</p>
                     </div>
                     <div className="balance-total">
-                        <p style={balance > 0 ? {color: "rgb(0, 82, 0)"} : balance < 0 ? {color: "rgb(173, 0, 0)"} : {color: "rgb(0, 0, 0)"}}>Balance</p>
+                        <p style={balance > 0 ? {color: "rgb(0, 82, 0)"} : balance < 0 ? {color: "rgb(173, 0, 0)"} : {color: "rgb(0, 0, 0)"}}>{t("accountPage.balance")}</p>
                         <p style={balance > 0 ? {color: "rgb(0, 82, 0)"} : balance < 0 ? {color: "rgb(173, 0, 0)"} : {color: "rgb(0, 0, 0)"}}>{balance}</p>
                     </div>
                 </div>
@@ -166,8 +168,8 @@ export default function AccountPage() {
                 <div className="add-income-expense-icone">
                     <i onClick={() => AddClassActive()} className="fa-solid fa-circle-plus"></i>
                     <div ref={btnAddIncone} id="add-icone-btn" className="btn-income-expenses">
-                        <button onClick={() => setModalIncome(true)} className="income">Income</button>
-                        <button onClick={() => setModalExpense(true)} className="expenses">Expense</button>
+                        <button onClick={() => setModalIncome(true)} className="income">{t("accountPage.btnIncome")}</button>
+                        <button onClick={() => setModalExpense(true)} className="expenses">{t("accountPage.btnExpense")}</button>
                     </div>
                 </div>
                 {

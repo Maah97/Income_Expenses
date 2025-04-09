@@ -1,0 +1,491 @@
+{
+    "home": "Home",
+    "account": {
+        "confirmation": "Are you sure you want to continue deleting ?",
+        "createInfo": "Create at",
+        "modifyInfo": "Modify at",
+        "open": "Open",
+        "modify": "Modify",
+        "delete": "Delete"
+    },
+    "accountForm": {
+        "errors": {
+            "nameAccount": "You must enter a name of your account",
+            "descriptionAccount": "You must enter the description of your account"
+        },
+        "title": "Create your account",
+        "titleMofifyAccount": "Modify your account",
+        "name": "Name",
+        "placeHolderName": "Enter the name account (Example : Expenses for the month of March)",
+        "description": "Description",
+        "placeHolderDescription": "Enter the description of your account",
+        "modify": "Modify",
+        "cancel": "Cancel"
+    },
+    "birthdayUpdateModal": {
+        "errors": {
+            "birthday": "Birthday required"
+        },
+        "h3": "Change your birthday",
+        "p": "Your birthday helps other users when to tell you happy birthday and crate an estimation financial income with your age.",
+        "placeHolder": "Enter your birthday",
+        "save": "Save"
+    },
+    "cardIncomeExpense": {
+        "confirm": "Are you sure you want to continue deleting ?",
+        "date": "Date",
+        "paymentMode": "Payment mode",
+        "category": "Category",
+        "remark": "Remark",
+        "income": "Income",
+        "expense": "Expense",
+        "modify": "Modify",
+        "delete": "Delete"
+    },
+    "caroussel": {
+        "h3": "can be used for",
+        "imgH4": "Tracking Income and Expenses",
+        "imgP": "Monitor all your earnings and spending in one place. Categorize transactions for better clarity.",
+        "img1H4": "Budget Planning",
+        "img1P": "Set monthly or yearly budgets to control spending. eceive alerts when you approach your budget limits.",
+        "img2H4": "Financial Insights and Reports",
+        "img2P": "Get detailed reports on income vs. expenses. Identify spending patterns and optimize finances.",
+        "img3H4": "Saving and Investment Planning",
+        "img3P": "Plan savings goals based on your income and expenses. Allocate funds for future investments.",
+        "img4H4": "Debt and Bill Management",
+        "img4P": "Keep track of recurring bills and payments. Avoid late fees by setting payment reminders.",
+        "img5H4": "Multi-Month and Long-Term Financial Analysis",
+        "img5P": "Analyze financial trends over months or years. Make informed decisions for financial stability.",
+        "img6H4": "Personal and Business Use",
+        "img6P": "Manage personal finances efficiently. Track business expenses if youC&apos;re self-employed."
+    },
+    "contact": {
+        "errors": {
+            "name": "You must enter your name",
+            "email1": "You must enter your email",
+            "email2": "Enter a valid email",
+            "comment": "You must enter your message or recommandation"
+        },
+        "h3": "Contact",
+        "p": "Feel free to Contact us by mail or by submitting the form below and we will get back to you as soon as possible",
+        "labelName": "Name",
+        "placeHolderName": "Enter your name",
+        "labelEmail": "Email",
+        "placeHolderEmail": "Enter your email",
+        "labelMessage": "Your message or recommandation",
+        "placeHolderMessage": "Enter your message or a recommandatoion for a better user experience",
+        "submit": "Submit"
+    },
+    "container": {
+        "buttonCreateAccount": "Create account",
+        "noAccountP": "No account available"
+    },
+    "emailUpdateModal": {
+        "errors": {
+            "email": "Email required",
+            "emailValid": "Enter a valid email like : web.dev02@project.com"
+        },
+        "h3": "Change your address Email",
+        "p": "Your email address helps us to identify you and send you our offers and services, but also to present you with the new features of the web application.",
+        "placeHolder": "Enter your new email address",
+        "save": "Save"
+    },
+    "expenseForm": {
+        "errors": {
+            "amount": "You must enter your expense amount",
+            "amountValid": "You must enter a number",
+            "category": "You must enter the category of the expense",
+            "paymentMode": "You must enter the payment mode",
+            "remark": "You must enter the description or remark of your expense",
+            "date": "You must define the date",
+            "hour": "You must define the hour"
+        },
+        "addH3": "Add an expense",
+        "modifyH3": "Modify an expense",
+        "labelExpense": "Expense",
+        "placeHolderExpenses":"Enter your expense amount",
+        "labelCategory": "Category",
+        "optionPurchase": "Purchase",
+        "optionFoodAndDrinks": "Food and Drinks",
+        "optionOtherExpense": "Other Expense",
+        "optionToiletries": "Toiletries",
+        "optionInsurance": "Insurance",
+        "optionCarInsurance": "Car Insurance",
+        "optionHomeInsurance": "Home Insurance",
+        "optionHealthInsurance": "Health Insurance",
+        "optionBaptismAndMariage": "Baptism and Mariage",
+        "optionTransportAndTaxi": "Transport and Taxi",
+        "optionLaundry": "Laundry",
+        "optionGifts": "Gifts",
+        "optionFuel": "Fuel",
+        "optionGaz": "Gaz",
+        "optionMobile": "Mobile",
+        "optionInternet": "Internet",
+        "optionEntertainment": "Entertainment",
+        "optionInvestmentCosts": "Investment Costs",
+        "optionHouseKeepers": "House Keepers",
+        "optionCardFees": "Card Fees",
+        "optionGymansium": "Gymansium",
+        "optionLocation": "Location",
+        "optionRepairAndMaintenance": "Repair and Maintenance",
+        "optionHealth": "Health",
+        "optionClothing": "Clothing",
+        "optionSchoolAndEducation": "School and Education",
+        "optionElectricityBill": "Electricity Bill",
+        "optionOthersBill": "Others Bill (water,...)",
+        "labelPaymentMode": "Payment mode",
+        "optionOthers": "Others",
+        "optionBank": "Bank",
+        "optionMap": "Map",
+        "optionSpicies": "Spicies",
+        "labelRemark": "Remark",
+        "placeHolderRemark": "Enter the description of your expense",
+        "labelDate": "Date",
+        "modify": "Modify expense",
+        "save": "Save",
+        "cancel": "Cancel"
+    },
+    "footer": {
+        "p": "Address",
+        "ulLi1": "North Region, Garoua",
+        "ulLi2": "Cameroon",
+        "about": {
+            "p1": "About the website",
+            "p2": "Incomes-Expenses, is your ultimate financial tracking tool ! We are here to helps you monitor your income and expenses over any period, from months to years, giving you a clear view of your financial health."
+        },
+        "followUs": "Follow Us",
+        "allRights": "All rights reserved"
+    },
+    "genderUpdateModal": {
+        "errorGender": "Gender required",
+        "h3": "Change your gender",
+        "p": "Your may change your information gender here if you want",
+        "option": {
+            "choose": "-- choose",
+            "male": "MALE",
+            "female": "FEMALE"
+        },
+        "save": "Save"
+    },
+    "graphIncomesExpenses": {
+        "p": "Loading in progress..."
+    },
+    "header": {
+        "logIn": "Log In",
+        "msgLogout": "You are successfully logged out",
+        "informationPopup": {
+            "welcome": "Welcome",
+            "p": "Manage your account",
+            "p1": "Add an account",
+            "p2": "Logout",
+            "p4": "Your account is verified",
+            "p5": "Account not verified"
+        }
+    },
+    "incomeForm": {
+        "errors": {
+            "amount": "You must enter your expense amount",
+            "amountValid": "You must enter a number",
+            "category": "You must enter the category of the expense",
+            "paymentMode": "You must enter the payment mode",
+            "remark": "You must enter the description or remark of your expense",
+            "date": "You must define the date",
+            "hour": "You must define the hour"
+        },
+        "addH3": "Add an income",
+        "modifyH3": "Modify an income",
+        "labelIncome": "Income",
+        "placeHolderIncome":"Enter your income amount",
+        "labelCategory": "Category",
+        "optionsCategory": {
+            "business": "Business",
+            "allocation": "Allocation",
+            "otherIncome": "Other Income",
+            "prime": "Prime",
+            "repayment": "Loan repayment",
+            "pension": "Pension",
+            "investment": "Investment income",
+            "salary": "Salary"
+        },
+        "labelPaymentMode": "Payment mode",
+        "optionsPaymentMode": {
+            "bank": "Bank",
+            "others": "Others",
+            "map": "Map",
+            "species": "Species"
+        },
+        "labelRemark": "Remark",
+        "placeHolderRemark": "Enter the description of your income",
+        "labelDate": "Date",
+        "modify": "Modify income",
+        "save": "Save",
+        "cancel": "Cancel"
+    },
+    "occupationUpdateModal": {
+        "errorOccupation": "Occupation required",
+        "h3": "Change your occupation",
+        "p": "Your occupation helps us to identify you and send you our offers and services, but also to present you with the new features of the web application.",
+        "placeHolder": "Enter your new occupation",
+        "save": "Save"
+    },
+    "passwordUpdateModal": {
+        "errors": {
+            "error1": "Old password Required",
+            "error2": "New password Required",
+            "error3": "Confirmation required",
+            "error4": "Password must be at least 8 characters",
+            "error5": "Password must contain at least one number",
+            "error6": "Password must contain at least one lowercase letter",
+            "error7": "Password must contain at least one uppercase letter",
+            "error8": "Password must not contain special characters except : @, _, -, !, $, &",
+            "error9": "Password and confirmation do not match"
+        },
+        "h3": "Change your password",
+        "p": "You can change your password if you feel it is compromised.",
+        "labelOldPassword": "Old password",
+        "placeHolderOldPassword": "Enter your old password",
+        "labelNewPassword": "New password",
+        "placeHolderNewPassword": "Enter your new password",
+        "labelConfirmNewPassword": "Confirm new password",
+        "placeHolderConfirmNewPassword": "Repeat your new password",
+        "save": "Save"
+    },
+    "phoneUpdateModal": {
+        "errorPhone": "Phone number Required",
+        "h3": "Change your phone number",
+        "p": "Your phone number helps us to assist and identify you and tell you our offers and services, but also to present you with the new features of the web application.",
+        "placeHolder": "Enter your new phone number",
+        "save": "Save"
+    },
+    "pictureProfilUpdateModal": {
+        "errors": {
+            "error1": "Picture Required",
+            "error2": "You must select an image of type jpeg, jpg, png, gif or webp",
+            "error3": "Your image must not exceed 2MB"
+        },
+        "h3": "Change your profile picture",
+        "p": "Your profile picture helps us to identify you and send you our offers and services, but also to present you with the new features of the web application.",
+        "btnChange": "Change profil picture",
+        "btnAdd": "Add profil picture",
+        "save": "Save"
+    },
+    "presentation": {
+        "slogans": {
+            "slogan1": "Track Earnings, Control Spending, with IncomesExpenses",
+            "slogan2": "Master Your Money Journey with IncomesExpenses",
+            "slogan3": "Track, Plan, and Prosper with IncomesExpenses",
+            "slogan4": "Made Your Financial Roadmap Easy with IncomesExpenses",
+            "slogan5": "Made Your Monthly Budget Simple with IncomesExpenses"
+        },
+        "p1": {
+            "record": "Record",
+            "income": "income",
+            "money": "Money"
+        },
+        "p2": {
+            "and": "And",
+            "expense": "expense",
+            "money": "Money"
+        },
+        "slogan": "Track Earnings, Control Spending, with IncomesExpenses",
+        "btnGetStarted": "Get Started",
+        "why": "Why",
+        "answers": {
+            "answer1": {
+                "p1": "Simplified",
+                "p2": "Simply add your income and expenses, track your budget, and get clear financial insights to manage your money wisely !"
+            },
+            "answer2": {
+                "p1": "Smart Builder",
+                "p2": "Monitor and optimize a smart building’s financial efficiency by tracking expenses, managing budgets, and analyzing cost trends in real time."
+            },
+            "answer3": {
+                "p1": "Analyze the Results",
+                "p2": "Visualize your financial trends with an interactive income vs. expenses graph, making it easy to analyze results, identify patterns, and optimize your budget."
+            },
+            "answer4": {
+                "p1": "Customization",
+                "p2": "Personalize your experience with customizable settings, including dark and light mode, for a seamless and comfortable financial tracking experience."
+            },
+            "answer5": {
+                "p1": "Two Language Support",
+                "p2": "Effortlessly manage your finances with multilingual support, offering both French and English the world&apos;s most widely spoken international languages."
+            },
+            "answer6": {
+                "p1": "Customer Support",
+                "p2": "Get seamless assistance through our dedicated customer support, featuring a contact form for quick and efficient responses to your financial tracking inquiries."
+            },
+            "answer7": {
+                "p1": "Security and Privacy",
+                "p2": "Ensure your financial data stays secure with login/logout functionality, email verification, and password protection for enhanced privacy and peace of mind."
+            }
+        }
+    },
+    "protectedCompenents": {
+        "p": "Loading..."
+    },
+    "protectedRoute": {
+         "p": "Loading..."
+    },
+    "userNameUpdateModal": {
+        "errorName": "Name is required",
+        "h3": "Change your name", 
+        "p": "Your name helps us to identify you and send you our offers and services, but also to present you with the new features of the web application.",
+        "placeHolder": "Enter your new name",
+        "save": "Save"
+    },
+    "waitingConfirmation": {
+        "p1": "Registration successful, confirm your mail",
+        "p2": "A confirmation email has been sent to",
+        "p3": "Please check your inbox.",
+        "p4": "If you have not received it, you can return it.",
+        "progress": "Sending in progress...",
+        "resend": "Resend mail"
+    },
+    "accountProvider": {
+        "msg1": "Account create with success !",
+        "msg2": "Account modify with success !",
+        "msg3": "Account delete with success !",
+        "msg4": "Error in deleting account",
+        "msg5": "Income / Expense create with success !",
+        "msg6": "Income / Expense modify with success !",
+        "msg7": "Income / Expense delete with success !",
+        "msg8": "Error in deleting income / expense",
+        "msg9": "Your message or recommandation has been send with succes !"
+    },
+    "accountPage": {
+        "h3": "List of accounts",
+        "btnIncome": "Income",
+        "btnExpense": "Expense",
+        "totalIncome": "Total Incomes",
+        "totalExpense": "Total Expenses",
+        "balance": "Balance"
+    },
+    "connexionPage": {
+        "errors": {
+            "email": "You must enter an email address",
+            "emailValid": "Invalid email address",
+            "password": "You must enter a password"
+        },
+        "p": "Log In",
+        "msgPopup": "You are successfully logged in",
+        "placeHolderEmail": "Enter your Email",
+        "labelPassword": "Password",
+        "placeHolderPassword": "Enter your Password",
+        "btnSubmit": "Log In",
+        "btnForgotPassword": "Forgot password ?",
+        "btnSend": "Send confirmation email",
+        "pSignUp": "You don't have an account ?",
+        "btnSignup": "Sign Up"
+    },
+    "forgotPassword": {
+        "errors": {
+            "email": "You must enter an email address",
+            "emailValid": "Invalid email address"
+        },
+        "p": "Reset Password",
+        "placeHolderEmail": "Enter your email",
+        "btnRedirection": "Redirection in progress...",
+        "btnSend": "Send",
+        "pRecovery": "A recovery link will be sent to you by email if you click Send"
+    },
+    "resetPassword": {
+        "errors": {
+            "error1": "You must enter your password",
+            "error2": "Password must be at least 8 characters",
+            "error3": "Password must contain at least one number",
+            "error4": "Password must contain at least one lowercase letter",
+            "error5": "Password must contain at least one uppercase letter",
+            "error6": "Password must not contain special characters except : @, _, -, !, $, &",
+            "error7": "Confirm your password",
+            "error8": "Passwords do not match"
+        },
+        "h3": "Reset Password",
+        "labelPassword": "New password",
+        "placeHolderPassword": "Enter your new password",
+        "labelConfirmPassword": "Confirm password",
+        "placeHolderConfirmPassword": "Repeat your new password",
+        "btnSubmit": "Reset password",
+        "p1": "Your password has been successfully reset.",
+        "p2": "You will be redirected to the login page......",
+        "p3": "This link is already used",
+        "p4": "Click below to resend the email for reset your password",
+        "btnSendMail": "Reset password"
+    },
+    "signUpPage": {
+        "errors": {
+            "userName": "You must enter your name",
+            "userNameValid": "Put a name whose has at least 4 characters",
+            "gender": "You must select your gender",
+            "email": "You must enter your email",
+            "userEmailValid": "Enter a valid email like : web.dev02@project.com",
+            "password": "You must enter your password",
+            "passwordValid1": "Password must be at least 8 characters",
+            "passwordValid2": "Password must contain at least one number",
+            "passwordValid3": "Password must contain at least one lowercase letter",
+            "passwordValid4": "Password must contain at least one uppercase letter",
+            "passwordValid5": "Password must not contain special characters except : @, _, -, !, $, &",
+            "repeatPassword": "You must confirm your password",
+            "repeatPasswordValid": "Passwords do not match"
+        },
+        "p1": "Add an user",
+        "p2": "Sign Up",
+        "form": {
+            "p1": "General Informations",
+            "labelName": "Name",
+            "placeHolderName": "Enter your name",
+            "labelBirthday": "Birthday",
+            "labelGender": "Gender",
+            "chooseGender": "-- choose",
+            "genderMale": "MALE",
+            "genderFemale": "FEMALE",
+            "labelOccupation": "Occupation",
+            "placeHolderOccupation": "Enter your occupation",
+            "labelPhone": "Phone number",
+            "placeHolderPhone": "Enter your phone number",
+            "p2": "Authentification informations",
+            "placeHolderEmail": "Enter your Email",
+            "labelPassword": "Password",
+            "placeHolderPassword": "Enter your Password",
+            "labelRepeatPassword": "Confirm your password",
+            "placeHolderRepeatPassword": "Repeat your Password",
+            "p3": "Note : Fields with asterisks are required.",
+            "btnSubmit": "Sign Up",
+            "p4": "Registration failed because this email is already in use. Change this Email and retry.",
+            "p5": "You have an account ?",
+            "btnLogin": "Log In"
+        }
+    },
+    "userInformation": {
+        "h3": "Personal informations",
+        "p1": "Your profile information in ",
+        "p3": "Here is your personal information and options to manage it. (e.g. your contact details so you can be easily reached). You can also see a summary of your profile.",
+        "h4": "General informations",
+        "p4": "Profile picture",
+        "p5": "Add a profile picture to personalize your account",
+        "labelName": "Name",
+        "labelBirthday": "Birthday",
+        "birthday": "Put your birhday",
+        "labelOccupation": "Occupation",
+        "occupation": "Put your occupation",
+        "labelGender": "Gender",
+        "contact": "Contact details",
+        "labelEmail": "Email address",
+        "labelPhone": "Phone",
+        "placeHolderPhone": "Put your phone number",
+        "password": "Password",
+        "passwordP": "A strong password contribute to helps protect your account"
+    },
+    "verifyAccount": {
+        "message": "Your account is now active ! Click to the link bellow you will be redirected to the login page",
+        "message1": "Invalid or expired link.",
+        "message2": "Error connecting to the server.",
+        "p1": "Felicitations your account is verified !",
+        "p2": "Sorry ! Your account verification failed",
+        "loading": "Redirection in progress...",
+        "logIn": "Log In",
+        "labelEmail": "Enter your email to resend the verification email",
+        "progress": "Sending in progress...",
+        "resend": "Resend mail"
+    }
+}

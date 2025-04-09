@@ -165,7 +165,8 @@ header {
         .button {
             cursor: pointer;
             padding: 8px 5px 5px 5px;
-            width: 85px;
+            width: auto;
+            max-width: 110px;
             height: 40px;
             border-radius: 10px;
             font-size: 17px;
@@ -455,6 +456,9 @@ header.dark {
                 color: rgb(255, 255, 255);
                 .select-langage {
                     color: white;
+                    option {
+                        background-color: black;
+                    }
                 }
                 .fa-moon {
                     color: rgb(53, 50, 50);
