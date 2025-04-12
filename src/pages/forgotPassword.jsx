@@ -3,9 +3,11 @@ import { useState, useContext } from 'react'
 import axios from 'axios'
 import { ThemeContext } from "../context/themeContext"
 import { useTranslation } from "react-i18next"
+import { LangueContext } from "../context/langueContext"
 
 export default function ForgotPassword() {
     const { t } = useTranslation()
+    const { langue } = useContext(LangueContext)
     const { theme } = useContext(ThemeContext)
     const [loading, setLoading] = useState(false)
     const [message, setMessage] = useState("")
@@ -24,7 +26,7 @@ export default function ForgotPassword() {
     const onSubmit = async (values) => {
         setLoading(false);
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/sendMailResetPassword`, { email: values.email });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/sendMailResetPassword`, { email: values.email, langue: langue });
             setMessage(response.data.message);
             setLoading(true);
             localStorage.setItem("email", values.email);

@@ -9,10 +9,12 @@ import { AuthContext } from "../context/authContext"
 import { format } from "date-fns"
 import { enUS } from "date-fns/locale"
 import { ThemeContext } from "../context/themeContext"
+import { LangueContext } from "../context/langueContext"
 import { useTranslation } from "react-i18next"
 
 export default function SignUpPage() {
     const { t } = useTranslation()
+    const { langue } = useContext(LangueContext)
     const { theme } = useContext(ThemeContext)
     const { user } = useContext(AuthContext);
     const date = format(new Date(), "MM/dd/yyyy", { locale: enUS });
@@ -63,7 +65,8 @@ export default function SignUpPage() {
                 phoneNumber: values.phoneNumber,
                 email: values.email,
                 password: values.password,
-                dateInscription: date
+                dateInscription: date,
+                langue: langue
             }).then((response) => {
                 setIsRegistered(true);
                 setEmail(values.email);

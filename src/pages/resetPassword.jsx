@@ -4,9 +4,11 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { ThemeContext } from "../context/themeContext"
 import { useTranslation } from "react-i18next"
+import { LangueContext } from "../context/langueContext"
 
 export default function ResetPassword() {
     const { t } = useTranslation()
+    const { langue } = useContext(LangueContext)
     const { theme } = useContext(ThemeContext)
     const { token } = useParams();
     const navigate = useNavigate() 
@@ -64,7 +66,7 @@ export default function ResetPassword() {
     }
     const onSubmit = async (values) => {
         try {
-            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/resetPassword/${token}`, { email: values.email, newPassword: values.password });
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/resetPassword/${token}`, { email: values.email, newPassword: values.password, langue: langue });
             setMessage(response.data.message);
             localStorage.removeItem("email");
         } catch (error) {

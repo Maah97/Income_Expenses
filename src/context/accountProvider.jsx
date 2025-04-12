@@ -192,9 +192,10 @@ export const AccountProvider = ({ children }) => {
         }
     }
     const sendCommentUser = async (values) => {
+        const langue = localStorage.getItem("langue")
         try {
             await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/comment`,
-                {name: values.name, message: values.comment, email: values.email})
+                {name: values.name, message: values.comment, email: values.email, langue: langue})
             setIsPopup(true)
             setMsgPopup(t("accountProvider.msg9"))
             setTimeout(() => {
