@@ -15,7 +15,7 @@ export default function Footer() {
                             <li>IncomeExpense LLP,</li>
                             <li>{t("footer.ulLi1")}</li>
                             <li>{t("footer.ulLi2")}</li>
-                            <li>Contact : +237 656 368 060</li>
+                            <li>Contact : +237 686 430 366</li>
                         </ul>
                 </div>
                 <div className="about">
@@ -25,7 +25,7 @@ export default function Footer() {
                 <div className="follow-us">
                     <p>{t("footer.followUs")}</p>
                     <div className="links">
-                        <a href="mailto:mahmoudouaboul@gmail.com">
+                        <a href="mailto:support.contact@incomeexpense.org">
                             <i className="fa-solid fa-envelope"></i>
                         </a>
                         <a href="https://linkedin.com/in/mahmoudou-abdoul-nganiyyou-2b805a180" rel='noreferrer' target='_blank'>
