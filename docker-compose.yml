@@ -7,6 +7,8 @@ services:
       target: ${TARGET_STAGE}
     environment:
       - NODE_ENV=${NODE_ENV}
+    env_file:
+      - .env
     ports:
       - "${PORT}:${PORT_INSIDE}"
     volumes:

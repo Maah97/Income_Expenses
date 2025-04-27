@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const [isPopupAuth, setIsPopupAuth] = useState(false)
-    const [msgPopupAuth, setMsgPopupAuth] = useState(false)
+    const [msgPopupAuth, setMsgPopupAuth] = useState("")
     const getColorFromLetter = (letter) => {
         // Convertir la lettre en minuscule et obtenir son code ASCII
         const charCode = letter.toLowerCase().charCodeAt(0);

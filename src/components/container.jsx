@@ -21,7 +21,7 @@ export default function Container() {
             <div className="box-container-account">
                 <div className="container-account">
                     {
-                        accounts.length > 0 ? accounts.map(account => {
+                        Array.isArray(accounts) && accounts.length > 0 ? accounts.map(account => {
                             return <Account key={account._id} account={account} setIsOpen={setIsOpen} isOpen={isOpen} />
                         }) : <div className='img-no-account'><img src={imgContainerAccount} alt="" />
                         <p className='no-account'>{t("container.noAccountP")}</p></div>

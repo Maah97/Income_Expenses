@@ -4,6 +4,7 @@ COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
 RUN npm install -g vite
 RUN npm install
 COPY . .
+RUN npm run build
 FROM base AS dev
 # Expose le port Vite (par défaut 5173)
 EXPOSE 5173

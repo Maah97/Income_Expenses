@@ -94,14 +94,14 @@ export default function Header() {
                     <span onClick={() => {toggleTheme()}} className='navigation'>Theme <i className={`fa-solid fa-${theme === 'light' ? 'sun' : 'moon'}`}></i></span>
                     <HashLink to="/#contact" className='navigation' href='#'>Contact</HashLink>
                     <span onClick={() => AddClassActive()} id='user' className={user ? 'navigation active-account' : 'navigation'}>
-                        { user 
+                        { user !== null && user !== undefined
                             ?
                             (   
                                 user.pictureProfilUrl 
                                 ? 
                                 <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" /> 
                                 : 
-                                <div style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}} className='picture-profil'>
+                                user.userName && user.userName[0] && <div style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}} className='picture-profil'>
                                     <p>{user.userName[0].toUpperCase()}</p>
                                 </div>  
                             )
@@ -116,7 +116,7 @@ export default function Header() {
             </div>
             <div className='log'>
                 {
-                    user
+                    user !== null && user !== undefined
                     ?
                     <div className='settings-user'>
                         <div className='email-and-icone-close'>
@@ -132,7 +132,7 @@ export default function Header() {
                                 <img className='img-profil-picture' src={user.pictureProfilUrl} alt="profil-picture" />
                                 :
                                 <>
-                                    <p style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}}>{user.userName[0].toUpperCase()}</p>
+                                    {user.userName && user.userName[0] && <p style={{backgroundColor: `${getColorFromLetter(user.userName[0])}`}}>{user.userName[0].toUpperCase()}</p>}
                                     <div className='icone-modification'>
                                         <i className="fa-solid fa-pencil"></i>
                                     </div>

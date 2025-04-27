@@ -6,6 +6,8 @@ services:
       dockerfile: ./Dockerfile
     environment:
      - NODE_ENV=${NODE_ENV}
+    env_file:
+      - .env
     ports:
       - "${PORT}:${PORT_INSIDE}"
       - 9229:9229
