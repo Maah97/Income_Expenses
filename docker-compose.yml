@@ -1,0 +1,14 @@
+services:
+  incomeexpenses:
+    image: incomeexpenses
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      target: ${TARGET_STAGE}
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    ports:
+      - "${PORT}:${PORT_INSIDE}"
+    volumes:
+      - .:/app
+    restart: unless-stopped

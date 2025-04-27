@@ -1,0 +1,12 @@
+services:
+  incomeexpenses:
+    image: incomeexpenses
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+     - NODE_ENV=${NODE_ENV}
+    ports:
+      - "${PORT}:${PORT_INSIDE}"
+      - 9229:9229
+    command: ["node", "--inspect=0.0.0.0:9229", "index.js"]
