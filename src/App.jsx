@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation, Outlet } from 'react-router-dom';
+import { Routes, Route, useLocation, Outlet } from 'react-router-dom';
 import { useEffect , useState} from 'react';
 import './styles/app.scss'
 import Header from "./components/header.jsx"
@@ -37,33 +37,35 @@ function App() {
     return () => clearTimeout(timer);
   }, [location.pathname]);
   return (
-      <Router>
         <ThemeProvider>
           <LangueProvider>
             <AuthProvider>
               <AccountProvider>
                 <Header />
                 <>
-                  {isLoading && <Loader />}
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<ConnexionPage />} />
-                    <Route path="/signUp" element={<SignUpPage />} />
-                    <Route path="/personal-info" element={<ProtectedRoute><UserInformation /></ProtectedRoute>} />
-                    <Route path="/forgotPassword" element={<ForgotPassword />} />
-                    <Route path="/verify/:token" element={<VerifyAccount />} />
-                    <Route path="/resetPassword/:token" element={<ResetPassword />} />
-                    <Route path="/accounts/:id" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
-                    <Route path="*" element={<ErrorPage />} />
-                  </Routes>
-                  <Outlet />
+                  {isLoading ?
+                    <Loader /> : 
+                    <>
+                        <Routes>
+                          <Route path="/" element={<Home />} />
+                          <Route path="/login" element={<ConnexionPage />} />
+                          <Route path="/signUp" element={<SignUpPage />} />
+                          <Route path="/personal-info" element={<ProtectedRoute><UserInformation /></ProtectedRoute>} />
+                          <Route path="/forgotPassword" element={<ForgotPassword />} />
+                          <Route path="/verify/:token" element={<VerifyAccount />} />
+                          <Route path="/resetPassword/:token" element={<ResetPassword />} />
+                          <Route path="/accounts/:id" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
+                          <Route path="*" element={<ErrorPage />} />
+                        </Routes>
+                        <Outlet />
+                    </>
+                  }
                 </>
                 <Footer />
               </AccountProvider>
             </AuthProvider>
           </LangueProvider>
         </ThemeProvider>
-      </Router>
   )
 }
 
