@@ -37,33 +37,33 @@ function App() {
     return () => clearTimeout(timer);
   }, [location.pathname]);
   return (
-    <>
-      {isLoading && <Loader />}
       <Router>
         <ThemeProvider>
           <LangueProvider>
             <AuthProvider>
               <AccountProvider>
                 <Header />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/login" element={<ConnexionPage />} />
-                  <Route path="/signUp" element={<SignUpPage />} />
-                  <Route path="/personal-info" element={<ProtectedRoute><UserInformation /></ProtectedRoute>} />
-                  <Route path="/forgotPassword" element={<ForgotPassword />} />
-                  <Route path="/verify/:token" element={<VerifyAccount />} />
-                  <Route path="/resetPassword/:token" element={<ResetPassword />} />
-                  <Route path="/accounts/:id" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
-                  <Route path="*" element={<ErrorPage />} />
-                </Routes>
+                <>
+                  {isLoading && <Loader />}
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<ConnexionPage />} />
+                    <Route path="/signUp" element={<SignUpPage />} />
+                    <Route path="/personal-info" element={<ProtectedRoute><UserInformation /></ProtectedRoute>} />
+                    <Route path="/forgotPassword" element={<ForgotPassword />} />
+                    <Route path="/verify/:token" element={<VerifyAccount />} />
+                    <Route path="/resetPassword/:token" element={<ResetPassword />} />
+                    <Route path="/accounts/:id" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
+                    <Route path="*" element={<ErrorPage />} />
+                  </Routes>
+                  <Outlet />
+                </>
                 <Footer />
               </AccountProvider>
             </AuthProvider>
           </LangueProvider>
         </ThemeProvider>
       </Router>
-      <Outlet />
-    </>
   )
 }
 
