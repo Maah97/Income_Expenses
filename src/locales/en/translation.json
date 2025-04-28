@@ -487,5 +487,10 @@
         "labelEmail": "Enter your email to resend the verification email",
         "progress": "Sending in progress...",
         "resend": "Resend mail"
-    }
+    },
+    "errorPage": {
+        "h2": "Page Not Found",
+        "p": "The page you are looking for does not exist.",
+        "home": "Go back to Home"
+    } 
 }

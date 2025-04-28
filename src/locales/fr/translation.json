@@ -486,5 +486,10 @@
         "labelEmail": "Saisissez votre email pour renvoyer l'email de vérification",
         "progress": "Envoi en cours...",
         "resend": "Renvoyer le courrier"
+    },
+    "errorPage": {
+        "h2": "Page introuvable",
+        "p": "La page que vous recherchez n'existe pas.",
+        "home": "Retour à l'accueil"
     }
-}
+} 
