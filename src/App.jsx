@@ -32,7 +32,7 @@ function App() {
     const timer = setTimeout(() => {
       setIsLoading(false);
       NProgress.done();
-    }, 500); // petite pause pour que le loader soit visible même si la page est rapide
+    }, 2000); // petite pause pour que le loader soit visible même si la page est rapide
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
