@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useNavigation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect , useState} from 'react';
 import './styles/app.scss'
 import Header from "./components/header.jsx"
 import Footer from './components/footer.jsx'
