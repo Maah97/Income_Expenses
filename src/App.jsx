@@ -7,6 +7,7 @@ import AccountPage from './pages/accountPage.jsx'
 import ConnexionPage from './pages/connexionPage.jsx'
 import SignUpPage from './pages/signUpPage.jsx'
 import ForgotPassword from './pages/forgotPassword.jsx'
+import ErrorPage from './pages/error.jsx'
 import { VerifyAccount } from './pages/verifyAccount.jsx'
 import { AuthProvider } from "./context/authProvider";
 import { AccountProvider } from "./context/accountProvider";
@@ -34,6 +35,7 @@ function App() {
                   <Route path="/verify/:token" element={<VerifyAccount />} />
                   <Route path="/resetPassword/:token" element={<ResetPassword />} />
                   <Route path="/accounts/:id" element={<ProtectedRoute><AccountPage /></ProtectedRoute>} />
+                  <Route path="*" element={<ErrorPage />} />
                 </Routes>
                 <Footer />
               </AccountProvider>
