@@ -7,7 +7,7 @@ import AccountPage from './pages/accountPage.jsx'
 import ConnexionPage from './pages/connexionPage.jsx'
 import SignUpPage from './pages/signUpPage.jsx'
 import ForgotPassword from './pages/forgotPassword.jsx'
-import ErrorPage from './pages/error.jsx'
+import ErrorPage from './pages/404.jsx'
 import { VerifyAccount } from './pages/verifyAccount.jsx'
 import { AuthProvider } from "./context/authProvider";
 import { AccountProvider } from "./context/accountProvider";
