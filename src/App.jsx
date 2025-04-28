@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useNavigation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Outlet } from 'react-router-dom';
 import { useEffect , useState} from 'react';
 import './styles/app.scss'
 import Header from "./components/header.jsx"
@@ -23,17 +23,19 @@ import "nprogress/nprogress.css";
 import "./i18n"
 
 function App() {
-  const navigation = useNavigation();
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    if (navigation.state === "loading") {
-      NProgress.start();
-      setIsLoading(true);
-    } else {
-      NProgress.done();
+    setIsLoading(true);
+    NProgress.start();
+
+    const timer = setTimeout(() => {
       setIsLoading(false);
-    }
-  }, [navigation.state]);
+      NProgress.done();
+    }, 500); // petite pause pour que le loader soit visible même si la page est rapide
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
   return (
     <>
       {isLoading && <Loader />}
@@ -60,6 +62,7 @@ function App() {
           </LangueProvider>
         </ThemeProvider>
       </Router>
+      <Outlet />
     </>
   )
 }
