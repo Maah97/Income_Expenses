@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigation } from 'react-router-dom';
+import { useEffect } from 'react';
 import './styles/app.scss'
 import Header from "./components/header.jsx"
 import Footer from './components/footer.jsx'
@@ -16,10 +17,26 @@ import { LangueProvider } from './context/langueProvider.jsx';
 import ProtectedRoute from "./components/protectedRoute";
 import UserInformation from './pages/userInformation.jsx';
 import ResetPassword from './pages/resetPassword.jsx';
+import Loader from "./components/loader.jsx"; 
+import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 import "./i18n"
 
 function App() {
+  const navigation = useNavigation();
+  const [isLoading, setIsLoading] = useState(false);
+  useEffect(() => {
+    if (navigation.state === "loading") {
+      NProgress.start();
+      setIsLoading(true);
+    } else {
+      NProgress.done();
+      setIsLoading(false);
+    }
+  }, [navigation.state]);
   return (
+    <>
+      {isLoading && <Loader />}
       <Router>
         <ThemeProvider>
           <LangueProvider>
@@ -43,6 +60,7 @@ function App() {
           </LangueProvider>
         </ThemeProvider>
       </Router>
+    </>
   )
 }
 

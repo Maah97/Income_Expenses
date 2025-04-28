@@ -17,6 +17,7 @@
 @import '_resetPasswordPage.scss';
 @import '_popupConfirmation.scss';
 @import '_errorPage.scss';
+@import 'loader.scss';
 
 
 *, ::before, ::after {
@@ -39,3 +40,13 @@ body {
     text-align: center;
     min-height: 52vh;
 }
+
+#nprogress .bar {
+    background: #0070f3; /* Couleur de ta barre */
+    height: 3px;
+}
+
+#nprogress .peg {
+box-shadow: 0 0 10px #0070f3, 0 0 5px #0070f3;
+}
+  
