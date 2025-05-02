@@ -54,7 +54,9 @@ export const AuthProvider = ({ children }) => {
                     setMessage("")
                 })
             })
-            setMessage(error.response.data.message)
+            if (error.response.data !== undefined) {
+                setMessage(error.response.data.message)
+            }  
             return false
         }
     }

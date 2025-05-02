@@ -47,12 +47,15 @@ export default function Header() {
         document.addEventListener('click', (e) => {
             let isClickedInside = userS.contains(e.target)
             const icone = document.querySelector("#user").contains(e.target)
+            const manageYourAccount = document.querySelector(".manage-your-account")
             if ((!isClickedInside && !icone)) {
                 userS.classList.remove('open')
             }
-            document.querySelector(".manage-your-account").addEventListener("click", () => {
-                userS.classList.remove('open')
-            })
+            if (manageYourAccount) {
+                document.querySelector(".manage-your-account").addEventListener("click", () => {
+                    userS.classList.remove('open')
+                })
+            }
         })
         if (user) {
             document.querySelector(".icone-close").addEventListener("click", () => {
