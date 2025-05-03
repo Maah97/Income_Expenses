@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types'
-import { useState } from "react"
+import { useState, useContext } from "react"
 import axios from "axios"
 import { useTranslation } from "react-i18next"
+import { LangueContext } from "../context/langueContext"
 
 export default function WaitingConfirmation(props) {
     const { t } = useTranslation()
+    const { langue } = useContext(LangueContext)
     const [loading, setLoading] = useState(false);
     const [messageResend, setMessageResend] = useState("")
     const resendEmail = async () => {
         setLoading(true);
         try {
-          const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/resendMailVerification`, { email: props.userEmail });
+          const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/resendMailVerification`, { email: props.userEmail, langue: langue });
           setMessageResend(response.data.message);
         } catch (error) {
           setMessageResend(error.response.data.message);
