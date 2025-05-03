@@ -73,7 +73,7 @@ export default function ConnexionPage() {
                     <button type="submit">{t("connexionPage.btnSubmit")}</button>
                     <NavLink className="link-to-reset-password" to="/forgotPassword">{t("connexionPage.btnForgotPassword")}</NavLink>
                 </div>
-                {message === "" ? null : message === "Incorrect email / password pair" ? <p className="msg-error-existing-email">{t("connexionPage.errors.response1")}</p> : <><p className="msg-error-existing-email">{t("connexionPage.errors.response2")}</p><button className="btn-send-mail-confirmation" onClick={() => setIsRegistered(true)}>{t("connexionPage.btnSend")}</button></>}
+                {message === "" ? null : message === "Incorrect email / password pair" ? <p className="msg-error-existing-email">{t("connexionPage.errors.response1")}</p> : <><p className="msg-error-existing-email">{message}</p><button className="btn-send-mail-confirmation" onClick={() => setIsRegistered(true)}>{t("connexionPage.btnSend")}</button></>}
                 <p className="link-redirection-to-signup">{t("connexionPage.pSignUp")} <NavLink className="link-to-signup" to="/signUp">{t("connexionPage.btnSignup")}</NavLink></p>
             </form>
         </div>
