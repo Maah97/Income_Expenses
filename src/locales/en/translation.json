@@ -365,7 +365,9 @@
         "errors": {
             "email": "You must enter an email address",
             "emailValid": "Invalid email address",
-            "password": "You must enter a password"
+            "password": "You must enter a password",
+            "response1": "Incorrect email / password pair",
+            "response2": "Email is already used"
         },
         "p": "Log In",
         "msgPopup": "You are successfully logged in",

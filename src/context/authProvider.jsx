@@ -31,10 +31,10 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         fetchUserData()
     }, [])
-    const login = async (email, password) => {
+    const login = async (email, password, langue) => {
         try {
             const response = await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/login`, 
-                { email: email, password: password },
+                { email: email, password: password, langue: langue },
                 { withCredentials: true })
             setMessage(response.data.message)
             return true

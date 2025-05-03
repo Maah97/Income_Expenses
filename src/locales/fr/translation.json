@@ -364,7 +364,9 @@
         "errors": {
             "email": "Vous devez entrer une adresse email",
             "emailValid": "Adresse e-mail invalide",
-            "password": "Vous devez entrer un mot de passe"
+            "password": "Vous devez entrer un mot de passe",
+            "response1": "Email / Mot de passe incorrect",
+            "response2": "l'Email est déjà utilisé"
         },
         "p": "Connexion",
         "msgPopup": "Vous êtes connecté avec succès",
