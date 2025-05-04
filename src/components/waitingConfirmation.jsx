@@ -25,7 +25,7 @@ export default function WaitingConfirmation(props) {
         <div className="confirmation-page">
             <p className="title-registration">{t("waitingConfirmation.p1")}</p>
             <p className="msg-inscription-done">{t("waitingConfirmation.p2")} <span>{props.userEmail}</span> {t("waitingConfirmation.p3")}</p>
-            <p className="msg-inscription-done">If {t("waitingConfirmation.p4")}</p> 
+            <p className="msg-inscription-done">{t("waitingConfirmation.p4")}</p> 
             <button className="btn-resend-email" onClick={resendEmail} disabled={loading}>
                 {loading ? t("waitingConfirmation.progress") : t("waitingConfirmation.resend")}
             </button>
