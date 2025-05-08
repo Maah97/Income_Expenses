@@ -89,7 +89,7 @@ export default function IncomeForm(props) {
                     <option value={t("incomeForm.optionsCategory.prime")}>{t("incomeForm.optionsCategory.prime")}</option>
                     <option value={t("incomeForm.optionsCategory.repayment")}>{t("incomeForm.optionsCategory.repayment")}</option>
                     <option value={t("incomeForm.optionsCategory.pension")}>{t("incomeForm.optionsCategory.pension")}</option>
-                    <option value={t("incomeForm.optionsCategory.investment")}>{t("incomeForm.optionsCategory.salary")}</option>
+                    <option value={t("incomeForm.optionsCategory.investment")}>{t("incomeForm.optionsCategory.investment")}</option>
                     <option value={t("incomeForm.optionsCategory.salary")}>{t("incomeForm.optionsCategory.salary")}</option>
                 </select>
                 {formik.touched.category && formik.errors.category ? <p id='msg-error-category-income'>{formik.errors.category}</p> : null}

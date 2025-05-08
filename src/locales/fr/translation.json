@@ -200,7 +200,7 @@
         "optionsCategory": {
             "business": "Business",
             "allocation": "Allocation",
-            "otherIncome": "Other Income",
+            "otherIncome": "Autre revenu",
             "prime": "Prime",
             "repayment": "Remboursement prêt",
             "pension": "Pension",
@@ -481,7 +481,7 @@
         "message": "Votre compte est désormais actif ! Cliquez sur le lien ci-dessous pour accéder à la page de connexion.",
         "message1": "Lien invalide ou expiré.",
         "message2": "Erreur de connexion au serveur.",
-        "p1": "FFélicitations votre compte est vérifié !",
+        "p1": "Félicitations votre compte est vérifié !",
         "p2": "Désolé ! La vérification de votre compte a échoué.",
         "loading": "Redirection en cours...",
         "logIn": "Se connecter",

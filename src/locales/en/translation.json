@@ -482,7 +482,7 @@
         "message": "Your account is now active ! Click to the link bellow you will be redirected to the login page",
         "message1": "Invalid or expired link.",
         "message2": "Error connecting to the server.",
-        "p1": "Felicitations your account is verified !",
+        "p1": "Congratulations your account is verified !",
         "p2": "Sorry ! Your account verification failed",
         "loading": "Redirection in progress...",
         "logIn": "Log In",
