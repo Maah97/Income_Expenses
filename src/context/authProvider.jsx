@@ -62,10 +62,16 @@ export const AuthProvider = ({ children }) => {
         }
     }
     const logout = async () => {
-        await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/logout`, {}, 
-            { withCredentials: true }
-        )
-        setUser(null)
+        try {
+            await axios.post(`${import.meta.env.VITE_BASE_URL_USER}/logout`, {}, 
+                { withCredentials: true }
+            )
+            setUser(null)
+        } catch (error) {
+            if (error.response.data !== undefined) {
+                setMessage(error.response.data.message)
+            }
+        }
     }
 
     return (
