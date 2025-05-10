@@ -68,8 +68,8 @@
         .container-btn {
             height: 200px;
             .btn-add-account {
-                font-size: 20px;
-                border-radius: 12px;
+                font-size: 25px;
+                border-radius: 8px;
                 padding: 5px 5px;
                 box-shadow: 1px 1px 3px rgb(58, 58, 58);
             }
@@ -78,8 +78,9 @@
             .container-account {
                 justify-content: center;
                 top: -80px;
-                padding: 30px;
-                gap: 30px;
+                padding: 10px;
+                gap: 20px;
+                width: 90%;
                 .img-no-account {
                     img {
                         width: 300px;

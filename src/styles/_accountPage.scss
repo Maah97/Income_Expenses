@@ -42,7 +42,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        padding-left: 300px;
+        margin-left: 320px;
         h3 {
             background: #9ea174;
             width: 100%;
@@ -92,7 +92,7 @@
             width: 100%;
             flex-direction: column;
             align-items: center;
-            margin: 25px 0px 50px 0px;
+            margin: 25px 0px 50px 30px;
             gap: 30px 0px;
         }
         .incomes-expenses-balance {
@@ -235,7 +235,7 @@
         .container-account-income-expense {
             width: 100%;
             align-items: center;
-            padding-left: 180px;
+            margin-left: 230px;
             h3 {
                 padding: 10px;
                 font-size: 25px;
@@ -249,13 +249,9 @@
                     border-radius: 8px;
                 }
             }
-            h3 {
-                width: 80%;
-                margin-left: 40px;
-            }
             .container-income-expense {
-                width: 90%;
-                margin: 15px 0px 35px 0px;
+                width: 80%;
+                margin: 15px 0px 35px 20px;
                 gap: 20px 0px;
             }
             #description {
@@ -266,7 +262,7 @@
             }
             .incomes-expenses-balance {
                 width: 80%;
-                margin-left: 40px;
+                margin-left: 50px;
             }
             .add-income-expense-icone {
                 margin-left: 40px;
@@ -301,14 +297,14 @@
         }
         .container-account-income-expense {
             width: 100%;
+            margin-left: 200px;
             h3 {
                 padding: 8px;
                 font-size: 20px;
                 margin-bottom: 8px;
-                margin-left: -10px;
             }
             .container-income-expense {
-                margin: 10px 0px 25px 0px;
+                margin: 10px 0px 25px 25px;
                 gap: 12px 0px;
             }
             .btn-income-expenses {
@@ -327,7 +323,7 @@
             }
             .incomes-expenses-balance {
                 width: 85%;
-                margin-left: -10px;
+                margin-left: 0px;
                 p {
                     font-size: 12px;
                 }
@@ -344,21 +340,14 @@
                 }
             }
             .graph {
-                width: 100%;
-                margin-left: -10px;
+                width: 80%;
+                margin-left: 20px;
                 p {
                     font-size: 12px;
                 }
             }
             #description {
                 margin-left: -20px;
-            }
-        }
-    }
-    @media (max-width:682px) {
-        .container-account-income-expense {
-            .incomes-expenses-balance {
-                width: 100%;
             }
         }
     }
@@ -461,10 +450,10 @@
             }
         }
         .container-account-income-expense {
-            padding-left: 175px;
+            margin-left: 200px;
             width: 100%;
             h3 {
-                margin-left: -40px;
+                margin-left: -35px;
                 padding: 2px;
                 margin-bottom: 3px;
             }
@@ -490,7 +479,8 @@
                 }
             }
             p {
-                padding: 0px;
+                padding: 0px 1px;
+                text-align: center;
             }
             .incomes-expenses-balance {
                 box-shadow: 0px 0px 1px black;
@@ -509,7 +499,7 @@
                 }
             }
             .graph {
-                width: 125%;
+                width: 85%;
                 margin-left: -35px;
                 p {
                     font-size: 8px;

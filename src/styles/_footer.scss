@@ -127,35 +127,27 @@ footer {
             .address {
                 p {
                     margin-bottom: 10px;
-                    font-size: 12px;
                 }
                 ul {
                     li {
                         margin: 8px 0px;
-                        font-size:8px;
                     }
                 }
             }
             .about {
                 p {
-                    font-size: 8px;
                     line-height: 20px;
-                    &:nth-child(1) {
-                        font-size: 12px;
-                    }
                 }
             }
             .follow-us {
                 p {
                     margin-bottom: 12px;
-                    font-size: 12px;
                 }
                 .links {
                     max-width: 200px;
                     a {
                         padding: 0px;
                         i {
-                            font-size: 11px;
                             margin: 0px 3px;
                         }
                     }
@@ -163,16 +155,12 @@ footer {
                         a {
                             border: 1px solid rgb(73, 73, 73);
                             i {
-                                font-size: 10px;
                                 margin: 0px 2px;
                             }
                         }
                     }
                 }
             }
-        }
-        .droit-reserve {
-            font-size: 8px;
         }
     }
     @media (max-width: 490px) {
@@ -181,28 +169,21 @@ footer {
             .address {
                 p {
                     margin-bottom: 7px;
-                    font-size: 9px;
                 }
                 ul {
                     li {
                         margin: 5px 0px;
-                        font-size: 7px;
                     }
                 }
             }
             .about {
                 p {
-                    font-size: 7px;
                     line-height: 16px;
-                    &:nth-child(1) {
-                        font-size: 9px;
-                    }
                 }
             }
             .follow-us {
                 p {
                     margin-bottom: 8px;
-                    font-size: 9px;
                 }
                 .links {
                     max-width: 150px;
@@ -215,9 +196,6 @@ footer {
                     }
                 }
             }
-        }
-        .droit-reserve {
-            font-size: 7px;
         }
     }
 }

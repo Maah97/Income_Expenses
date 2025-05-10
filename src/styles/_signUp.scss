@@ -230,7 +230,7 @@
             }
             input, select {
                 padding: 10px 7px;
-                font-size: 10px;
+                font-size: 15px;
                 border-radius: 3px;
                 &:focus {
                     border: 1px solid rgb(72, 126, 212);
@@ -316,26 +316,21 @@
         }
     }
     @media (max-width: 520px) {
-        margin-top: 70px;
+        margin-top: 40px;
         p {
-            font-size: 20px;
             margin-bottom: 15px;
         }
         .form-login {
             padding: 0px 10px;
             width: 300px;
             label {
-                margin-bottom: 5px;
+                margin-bottom: 10px;
                 margin-top: 25px;
-                font-size: 10px;
             }
             #label-userName {
                 margin-top: 10px;
             }
             input, select {
-                padding: 7px 4px;
-                font-size: 7px;
-                border-radius: 1px;
                 &:focus {
                     box-shadow: 0px 0px 1px rgb(72, 126, 212);
                 }
@@ -346,10 +341,8 @@
                 margin-bottom: 30px;
                 p {
                     margin: 0px 0px 10px 0px;
-                    font-size: 15px;
                 }
                 .msg-error {
-                    font-size: 7px;
                     margin-top: 7px;
                 }
                 .react-tel-input {
@@ -369,10 +362,8 @@
                 margin-bottom: 30px;
                 p {
                     margin: 0px 0px 5px 0px;
-                    font-size: 15px;
                 }
                 .msg-error {
-                    font-size: 7px;
                     margin-top: 1px;
                 }
                 #email-label, #label-repeat-password {
@@ -380,9 +371,8 @@
                 }
                 .container-password {
                     i {
-                        top: -23px;
-                        left: 95%;
-                        font-size: 8px;
+                        top: -27px;
+                        left: 90%;
                     }
                 }
                 #msg-error-email {
@@ -390,7 +380,6 @@
                 }
             }
             #note {
-                font-size: 7px;
                 margin-bottom: 1px;
                 margin-top: 10px;
             }
@@ -398,20 +387,14 @@
                 margin-bottom: 4px;
                 button {
                     padding: 4px 10px;
-                    font-size: 10px;
-                }
-                .link-to-reset-password {
-                    font-size: 7px;
                 }
             }
             #question-logIn {
-                font-size: 10px;
                 margin-top: 15px;
             }
             .msg-error-existing-email {
                 max-width: 350px;
                 margin-top: 15px;
-                font-size: 10px;
                 line-height: 25px;
             }
         }

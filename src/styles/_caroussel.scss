@@ -65,6 +65,10 @@
                     font-size: 15px;
                 }
             }
+            @media (max-width: 400px) {
+                top: -180px;
+                padding: 10px;
+            }
         }
     } 
     .slick-dots li button:before {

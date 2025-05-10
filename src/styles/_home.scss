@@ -66,25 +66,20 @@
         @media (max-width: 700px) {
             p {
                 font-size: 35px;
+                line-height: 50px;
             }
             .slogan {
-                font-size: 15px;
+                font-size: 18px;
+                margin-top: 70px;
+                line-height: 30px;
             }
             .btn-get-started {
-                font-size: 10px;
-                padding: 10px 20px;
+                margin-top: 70px;
             }
         }
         @media (max-width: 425px) {
             p {
                 font-size: 30px;
-            }
-            .slogan {
-                font-size: 11px;
-            }
-            .btn-get-started {
-                font-size: 7px;
-                padding: 7px 17px;
             }
         }
 
@@ -146,28 +141,28 @@
             }
         }
         @media (max-width: 700px) {
-            padding: 20px 20px;
+            padding: 20px 10px;
             h3 {
-                margin: 30px 10px 20px 10px;
+                margin: 0px 10px 20px 10px;
                 font-size: 25px;
             }
             .container-answers {
                 .answer {
-                    width: 200px;
+                    width: 95%;
                     padding: 10px;
                     border-radius: 5px;
                     box-shadow: 0px 0px 2px black;
                     i {
-                        font-size: 30px;
-                        margin-bottom: 10px;
+                        font-size: 50px;
+                        margin-bottom: 20px;
                     }
                     p {
-                        font-size: 10px;
-                        line-height: 20px;
+                        font-size: 17px;
+                        line-height: 30px;
                         &:nth-child(2) {
-                            font-size: 20px;
-                            margin-bottom: 7px;
-                            line-height: 25px;
+                            font-size: 25px;
+                            margin-bottom: 15px;
+                            line-height: 35px;
                         }
                     }
                 }
