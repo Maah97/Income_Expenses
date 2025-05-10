@@ -35,7 +35,7 @@ export default function Header() {
         logout()
         const userS = document.querySelector(".log")
         userS.classList.remove('open')
-        window.location.reload()
+        
         setIsPopupAuth(true)
         setMsgPopupAuth(t("header.msgLogout"))
         setTimeout(() => {
